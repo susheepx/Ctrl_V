@@ -9,7 +9,7 @@ public class Astronaut : MonoBehaviour
     [SerializeField]
     private float moveForce = 10f;
     private Animator anim;
-
+    public Rigidbody2D rb;
     private void Awake() {
         anim = GetComponent<Animator>();
         gameObject.SetActive(true);
@@ -19,11 +19,11 @@ public class Astronaut : MonoBehaviour
     private void Update() {
         PlayerMoveKeyboard();
         AnimatePlayer();
+        rb.velocity = new Vector2(movementX, movementY);
     }
     void PlayerMoveKeyboard() {
         movementX = Input.GetAxisRaw("Horizontal");
         movementY = Input.GetAxisRaw("Vertical");
-        Debug.Log("movement x: " + movementX + ",movement y: " + movementY);
 
         if(movementX >= movementY || movementY == 0)
             transform.position += new Vector3(movementX, 0f, 0f) * Time.deltaTime * moveForce;
@@ -34,7 +34,6 @@ public class Astronaut : MonoBehaviour
     void AnimatePlayer() {
         if(movementX != 0)
         {
-        Debug.Log("x should be moving");
             if(movementX < 0)
             {
                 anim.SetBool("Right", false);
