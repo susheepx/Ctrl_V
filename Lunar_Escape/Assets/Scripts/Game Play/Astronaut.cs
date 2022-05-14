@@ -9,10 +9,18 @@ public class Astronaut : MonoBehaviour
     [SerializeField]
     private float moveForce = 10f;
     private Animator anim;
+    [SerializeField] private UI_Inventory uiInventory;
+
+
+    private Inventory inventory;
     public Rigidbody2D rb;
     private void Awake() {
         anim = GetComponent<Animator>();
         gameObject.SetActive(true);
+
+        //inventory
+        inventory = new Inventory();
+        uiInventory.SetInventory(inventory);
     }
 
 
