@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameController : MonoBehaviour
+public class StoryController : MonoBehaviour
 {
     public StoryScene currentScene;
     public BottomBarController bottomBar;

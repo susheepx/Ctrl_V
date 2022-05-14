@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class BottomBarController : MonoBehaviour
+public class GameDialogueBox : MonoBehaviour
 {
     public TextMeshProUGUI barText;
     public TextMeshProUGUI personNameText;
@@ -28,6 +28,8 @@ public class BottomBarController : MonoBehaviour
     public void PlayNextSentence()
     {
         StartCoroutine(TypeText(currentScene.sentences[++sentenceIndex].text));
+        personNameText.text = currentScene.sentences[sentenceIndex].speaker.speakerName;
+        personNameText.color = currentScene.sentences[sentenceIndex].speaker.textColor;
     }
 
     public bool IsCompleted()
@@ -57,4 +59,3 @@ public class BottomBarController : MonoBehaviour
         }
     }
 }
-
