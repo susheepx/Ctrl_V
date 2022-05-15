@@ -29,11 +29,18 @@ public class Astronaut : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collider) {
-        ItemWorld itemWorld = collider.GetComponent<ItemWorld>();
-        if (itemWorld != null)
-            //time it is touching/around the object
-            inventory.AddItem(itemWorld.GetItem());
-            itemWorld.DestroySelf();
+        Debug.Log(collider.GetComponent<ItemWorld>());
+        if (collider.GetComponent<ItemWorld>() != null)
+            {
+            ItemWorld itemWorld = collider.GetComponent<ItemWorld>();
+            if (itemWorld != null) {
+                //time it is touching/around the object
+                inventory.AddItem(itemWorld.GetItem());
+                itemWorld.DestroySelf(); 
+                }
+            } 
+        else 
+            Debug.Log("not an item");  
     }
 
 

@@ -53,3 +53,6 @@ TagManager:
   - name: Player
     uniqueID: 2585920835
     locked: 0
+  - name: Game Layout
+    uniqueID: 2002395017
+    locked: 0
