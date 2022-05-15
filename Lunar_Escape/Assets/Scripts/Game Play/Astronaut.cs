@@ -15,12 +15,25 @@ public class Astronaut : MonoBehaviour
     private Inventory inventory;
     public Rigidbody2D rb;
     private void Awake() {
+        //astronaut
         anim = GetComponent<Animator>();
         gameObject.SetActive(true);
 
         //inventory
         inventory = new Inventory();
         uiInventory.SetInventory(inventory);
+        //test
+        ItemWorld.SpawnItemWorld(new Vector3(1,8), new Item { itemType = Item.ItemType.HealthPotion, amount = 1});
+        ItemWorld.SpawnItemWorld(new Vector3(-1,3), new Item { itemType = Item.ItemType.ManaPotion, amount = 1});
+        ItemWorld.SpawnItemWorld(new Vector3(-3,9), new Item { itemType = Item.ItemType.Coin, amount = 1});
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider) {
+        ItemWorld itemWorld = collider.GetComponent<ItemWorld>();
+        if (itemWorld != null)
+            //time it is touching/around the object
+            inventory.AddItem(itemWorld.GetItem());
+            itemWorld.DestroySelf();
     }
 
 
