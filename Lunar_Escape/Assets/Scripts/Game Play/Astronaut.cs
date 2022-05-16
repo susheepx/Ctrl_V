@@ -11,7 +11,8 @@ public class Astronaut : MonoBehaviour
     private Animator anim;
     [SerializeField] private UI_Inventory uiInventory;
 
-
+    public GameObject controller;
+    public bool activated = false;
     private Inventory inventory;
     public Rigidbody2D rb;
     private void Awake() {
@@ -23,11 +24,12 @@ public class Astronaut : MonoBehaviour
         inventory = new Inventory();
         uiInventory.SetInventory(inventory);
         //test
-        ItemWorld.SpawnItemWorld(new Vector3(1,8), new Item { itemType = Item.ItemType.HealthPotion, amount = 1});
-        ItemWorld.SpawnItemWorld(new Vector3(-1,3), new Item { itemType = Item.ItemType.ManaPotion, amount = 1});
-        ItemWorld.SpawnItemWorld(new Vector3(-3,9), new Item { itemType = Item.ItemType.Coin, amount = 1});
     }
 
+    private void Start() {
+        ItemWorld.SpawnItemWorld(new Vector3(8,1.5f,0), new Item { itemType = Item.ItemType.BluePrint, amount = 1});
+        // ItemWorld.SpawnItemWorld(new Vector3(-3,9,0), new Item { itemType = Item.ItemType.Coin, amount = 1});
+    }
     private void OnTriggerEnter2D(Collider2D collider) {
         Debug.Log(collider.GetComponent<ItemWorld>());
         if (collider.GetComponent<ItemWorld>() != null)
@@ -40,7 +42,17 @@ public class Astronaut : MonoBehaviour
                 }
             } 
         else 
-            Debug.Log("not an item");  
+            controller.SetActive(true);  
+            activated = true;
+    }
+
+   
+    private void OnTriggerExit2D(Collider2D collider) {
+        if (collider.GetComponent<ItemWorld>() == null)
+        {
+            controller.SetActive(false);
+            activated = false;
+        }
     }
 
 

@@ -16,6 +16,8 @@ public class Inventory
 
     }
 
+
+
     public void AddItem(Item item) {
         itemList.Add(item);
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
@@ -24,4 +26,5 @@ public class Inventory
     public List<Item> GetItemList() {
         return itemList;
     }
+
 }

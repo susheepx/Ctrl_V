@@ -33,12 +33,15 @@ public class UI_Inventory : MonoBehaviour
             Destroy(child.gameObject);
         }
         int x = 0;
-        int y = 1;
+        int y = 0;
+        string name;
         float itemSlotCellSize = 110f;
         foreach (Item item in inventory.GetItemList()) {
             //adjust this to fit the inventory animation
             RectTransform itemSlotRectTransform = Instantiate(itemSlotTemplate, itemSlotContainer).GetComponent<RectTransform>();
             itemSlotRectTransform.gameObject.SetActive(true);
+            name = item.InventoryName();
+            itemSlotRectTransform.name = name;
             itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, y * itemSlotCellSize);
             Image image = itemSlotRectTransform.Find("image").GetComponent<Image>();
             image.sprite = item.GetSprite();

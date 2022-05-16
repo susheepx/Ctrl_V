@@ -11,6 +11,9 @@ public class GameDialogueBox : MonoBehaviour
     private StoryScene currentScene;
     private State state = State.COMPLETED;
 
+    private void Start() {
+        gameObject.SetActive(false);
+    }
     private enum State
     {
         PLAYING, COMPLETED

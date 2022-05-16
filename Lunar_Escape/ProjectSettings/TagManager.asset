@@ -11,7 +11,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Icons
   - 
   - 
   - 
@@ -52,6 +52,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 2585920835
+    locked: 0
+  - name: Popup
+    uniqueID: 2813015651
     locked: 0
   - name: Game Layout
     uniqueID: 2002395017

@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class BreakerButton : MonoBehaviour
 {
-    private Animator anim;
+    public Animator anim;
     private string SLIDINGDOORANIM = "activated";
-    private bool ButtonCanBePressed = false;
+    public Astronaut controlPrompt;
+    public GameObject controller;
+    private bool doorOpened = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,20 +19,25 @@ public class BreakerButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && ButtonCanBePressed)
+        if (Input.GetKeyDown(KeyCode.E) && controlPrompt.activated && doorOpened == false)
+        {    
             anim.SetTrigger(SLIDINGDOORANIM);
+            doorOpened = true;
+            ItemWorld.SpawnItemWorld(new Vector3(-1.6f,6.2f,0), new Item { itemType = Item.ItemType.BreakerNote, amount = 2});
+
+        }
 
 
     }
-    private void OnTriggerEnter2D(Collider2D other) {
-        Debug.Log("trigger entered");
-        ButtonCanBePressed = true;
+    // private void OnTriggerEnter2D(Collider2D other) {
+    //     Debug.Log("trigger entered");
+    //     controller.SetActive(true);
 
-    }
+    // }
 
    
-    private void OnTriggerExit2D(Collider2D other) {
-        Debug.Log("trigger exited");
-        ButtonCanBePressed = false;
-    }       
+    // private void OnTriggerExit2D(Collider2D other) {
+    //     Debug.Log("trigger exited");
+    //     controller.SetActive(false);
+    // }       
 }
