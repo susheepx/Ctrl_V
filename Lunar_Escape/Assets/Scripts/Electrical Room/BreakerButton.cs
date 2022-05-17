@@ -4,41 +4,56 @@ using UnityEngine;
 
 public class BreakerButton : MonoBehaviour
 {
+    //breaker door anim
     public Animator anim;
     private string SLIDINGDOORANIM = "activated";
+    //is the item interactable?
     public Astronaut controlPrompt;
-    public GameObject controller;
+    public GameObject popupBox;
+    public GameObject breakerBox;
+    public Collider2D breakerCollider;
+    public Collider2D buttonCollider;
+    private bool isCloseup = false;
     //is breaker door opened
     private bool doorOpened = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        Debug.Log("breaker script activated");
+    private void Start() {
+        breakerBox.SetActive(false);
+        controlPrompt.currentItem = GetComponent<Collider2D>();
+
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && controlPrompt.activated && doorOpened == false)
-        {    
-            anim.SetTrigger(SLIDINGDOORANIM);
-            doorOpened = true;
-            ItemWorld.SpawnItemWorld(new Vector3(-5.4f,3f,0), new Item { itemType = Item.ItemType.BreakerNote, amount = 2});
+        if (Input.GetKeyDown(KeyCode.F) && controlPrompt.interact)
+        {
+            if (doorOpened == false && GetComponent<Collider2D>() == controlPrompt.currentItem)
+            {
+                breakerBox.SetActive(true);
+                anim.SetTrigger(SLIDINGDOORANIM);
+                doorOpened = true;
+                ItemWorld.SpawnItemWorld(new Vector3(-5.4f,3f,0), new Item { itemType = Item.ItemType.BreakerNote, amount = 2});
+            }
+            else if (breakerCollider == controlPrompt.currentItem)
+            {
+                if (isCloseup == false)
+                {
+                    popupBox.SetActive(true);
+                    isCloseup = true;
+                }
+                else
+                {
+                    popupBox.SetActive(false);
+                    isCloseup = false;
+                }
+            }
+            
 
         }
 
 
     }
-    // private void OnTriggerEnter2D(Collider2D other) {
-    //     Debug.Log("trigger entered");
-    //     controller.SetActive(true);
-
-    // }
-
    
-    // private void OnTriggerExit2D(Collider2D other) {
-    //     Debug.Log("trigger exited");
-    //     controller.SetActive(false);
-    // }       
 }

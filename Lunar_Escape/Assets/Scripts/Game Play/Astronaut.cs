@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Astronaut : MonoBehaviour
 {
@@ -15,14 +16,20 @@ public class Astronaut : MonoBehaviour
     [SerializeField] private UI_Inventory uiInventory;
     
     private Inventory inventory;
-    //objects
+    //press key prompt
     public GameObject controller;
-    public bool activated = false;
+    //the game object that holds the text for the key prompt
+    public GameObject controlTextContainer;
+    private TextMeshProUGUI controlText;
+    //objects
+    public bool interact = false;
+    public bool pickUpItem = false;
     public Collider2D currentItem;
     
     private void Awake() {
         //astronaut
         anim = GetComponent<Animator>();
+        controlText = controlTextContainer.GetComponent<TextMeshProUGUI>();
         gameObject.SetActive(true);
 
         //inventory
@@ -31,40 +38,70 @@ public class Astronaut : MonoBehaviour
         
     }
 
-    private void Start() {
-        ItemWorld.SpawnItemWorld(new Vector3(6,-1f,0), new Item { itemType = Item.ItemType.BluePrint, amount = 1});
-        // ItemWorld.SpawnItemWorld(new Vector3(-3,9,0), new Item { itemType = Item.ItemType.Coin, amount = 1});
-    }
-    private void OnTriggerEnter2D(Collider2D collider) {
-        Debug.Log(collider.GetComponent<ItemWorld>());
-        if (collider.GetComponent<ItemWorld>() != null)
-            {
-            ItemWorld itemWorld = collider.GetComponent<ItemWorld>();
+    private void Update() {
+        PlayerMoveKeyboard();
+        AnimatePlayer();
+        if (Input.GetKeyDown(KeyCode.E) && pickUpItem) {
+            //checks if item is object and destroys; adds to inventory
+            ItemWorld itemWorld = currentItem.GetComponent<ItemWorld>();
             if (itemWorld != null) {
                 //time it is touching/around the object
                 inventory.AddItem(itemWorld.GetItem());
                 itemWorld.DestroySelf(); 
                 }
-            } 
-        else 
-            controller.SetActive(true);  
-            activated = true;
+        }
+    }
+    private void Start() {
+        ItemWorld.SpawnItemWorld(new Vector3(6,-1f,0), new Item { itemType = Item.ItemType.BluePrint, amount = 1});
+        // ItemWorld.SpawnItemWorld(new Vector3(-3,9,0), new Item { itemType = Item.ItemType.Coin, amount = 1});
+    }
+    private void OnTriggerEnter2D(Collider2D collider) {
+        //set local variable collider to global variable so it can be used in update
+        currentItem = collider;
+        //open set key prompt box
+        controller.SetActive(true); 
+        //if the colliding component is an item that can go in inventory
+        if (collider.GetComponent<ItemWorld>() != null){
+            pickUpItem = true;
+            controlText.text = "- Press E key -";
+        }            
+        
+        else  
+        {
+            
+            //is able to interact with objects such as breaker button
+            interact = true;
+            controlText.text = "- Press F -";
+        }
     }
 
-   
+    private void OnTriggerStay2D(Collider2D collider) {
+        if (collider.GetComponent<ItemWorld>() != null){
+            pickUpItem = true;
+            controlText.text = "- Press E key -";
+        }            
+        
+        else  
+        {
+            
+            //is able to interact with objects such as breaker button
+            interact = true;
+            controlText.text = "- Press F -";
+        }
+    }
     private void OnTriggerExit2D(Collider2D collider) {
+        controller.SetActive(false);
+        pickUpItem = false;
+        // checks if item is able to be picked up
         if (collider.GetComponent<ItemWorld>() == null)
         {
-            controller.SetActive(false);
-            activated = false;
+            //is not able to destroy object and add it to inventory, prevents script in update to run
+            interact = false;
         }
     }
 
 
-    private void Update() {
-        PlayerMoveKeyboard();
-        AnimatePlayer();
-    }
+    
     void PlayerMoveKeyboard() {
         movementX = Input.GetAxisRaw("Horizontal");
         movementY = Input.GetAxisRaw("Vertical");

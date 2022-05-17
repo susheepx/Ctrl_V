@@ -26,8 +26,6 @@ public class CloseUpWindow : MonoBehaviour
     public void OpenCloseUp() {
         if (IsWindowOpen == false)
         {
-            
-            Debug.Log(EventSystem.current.currentSelectedGameObject.name);
             SetCloseupImage();
             //settings popupwindow to always be centered
             tempPos = transform.position;
@@ -51,12 +49,10 @@ public class CloseUpWindow : MonoBehaviour
     public void SetCloseupImage() {
         if (EventSystem.current.currentSelectedGameObject.name == "blueprintIcon")
         {
-            Debug.Log("stein script is playing");
             image.sprite = blueprint;
         }
         else if (EventSystem.current.currentSelectedGameObject.name == "breakernoteIcon")  
             image.sprite = breakernote;
 
-        Debug.Log("didn't run");
     }
 }
