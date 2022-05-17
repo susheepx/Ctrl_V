@@ -21,6 +21,7 @@ public class BreakerButton : MonoBehaviour
     private bool doorOpened = false;
 
     private void Start() {
+        
         breakerBox.SetActive(false);
         breakerLock.SetActive(false);
         controlPrompt.currentItem = GetComponent<Collider2D>();
@@ -53,6 +54,7 @@ public class BreakerButton : MonoBehaviour
                     isCloseup = false;
                     breakerLock.SetActive(false);
                     isLockShown = false;
+                    
                 }   
             }
             

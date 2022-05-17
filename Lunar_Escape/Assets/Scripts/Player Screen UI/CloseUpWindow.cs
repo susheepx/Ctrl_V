@@ -47,12 +47,15 @@ public class CloseUpWindow : MonoBehaviour
     }
 
     public void SetCloseupImage() {
-        if (EventSystem.current.currentSelectedGameObject.name == "blueprintIcon")
+        if (EventSystem.current.currentSelectedGameObject.name != null)
         {
-            image.sprite = blueprint;
+            if (EventSystem.current.currentSelectedGameObject.name == "blueprintIcon")
+            {
+                image.sprite = blueprint;
+            }
+            else if (EventSystem.current.currentSelectedGameObject.name == "breakernoteIcon")  
+                image.sprite = breakernote;
         }
-        else if (EventSystem.current.currentSelectedGameObject.name == "breakernoteIcon")  
-            image.sprite = breakernote;
 
     }
 }

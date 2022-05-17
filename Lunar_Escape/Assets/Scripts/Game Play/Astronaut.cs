@@ -12,6 +12,7 @@ public class Astronaut : MonoBehaviour
     private float moveForce = 10f;
     public Rigidbody2D rb;
     private Animator anim;
+    public bool canMove = true;
     //inventory
     [SerializeField] private UI_Inventory uiInventory;
     
@@ -39,15 +40,17 @@ public class Astronaut : MonoBehaviour
     }
 
     private void Update() {
-        PlayerMoveKeyboard();
-        AnimatePlayer();
+        if (canMove)
+            PlayerMoveKeyboard();
+            AnimatePlayer();
         if (Input.GetKeyDown(KeyCode.E) && pickUpItem) {
             //checks if item is object and destroys; adds to inventory
             ItemWorld itemWorld = currentItem.GetComponent<ItemWorld>();
             if (itemWorld != null) {
                 //time it is touching/around the object
                 inventory.AddItem(itemWorld.GetItem());
-                itemWorld.DestroySelf(); 
+                itemWorld.DestroySelf();
+                pickUpItem = false; 
                 }
         }
     }
@@ -61,17 +64,17 @@ public class Astronaut : MonoBehaviour
         //open set key prompt box
         controller.SetActive(true); 
         //if the colliding component is an item that can go in inventory
-        if (collider.GetComponent<ItemWorld>() == null){
-            //is able to interact with objects such as breaker button
-            interact = true;
-            controlText.text = "- Press F -";
-        }            
-        
-        else  
-        {
+        if (collider.GetComponent<ItemWorld>() != null){
             pickUpItem = true;
             controlText.text = "- Press E key -";
             
+        }            
+        
+        else if (pickUpItem != true) 
+        {
+            //is able to interact with objects such as breaker button
+            interact = true;
+            controlText.text = "- Press F -";
         }
     }
 
