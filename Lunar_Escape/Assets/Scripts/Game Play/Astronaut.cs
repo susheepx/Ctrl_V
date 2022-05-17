@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class Astronaut : MonoBehaviour
 {
+    //player
     private float movementX;
     private float movementY;
     [SerializeField]
     private float moveForce = 10f;
+    public Rigidbody2D rb;
     private Animator anim;
+    //inventory
     [SerializeField] private UI_Inventory uiInventory;
-
+    
+    private Inventory inventory;
+    //objects
     public GameObject controller;
     public bool activated = false;
-    private Inventory inventory;
-    public Rigidbody2D rb;
+    public Collider2D currentItem;
+    
     private void Awake() {
         //astronaut
         anim = GetComponent<Animator>();
@@ -23,11 +28,11 @@ public class Astronaut : MonoBehaviour
         //inventory
         inventory = new Inventory();
         uiInventory.SetInventory(inventory);
-        //test
+        
     }
 
     private void Start() {
-        ItemWorld.SpawnItemWorld(new Vector3(8,1.5f,0), new Item { itemType = Item.ItemType.BluePrint, amount = 1});
+        ItemWorld.SpawnItemWorld(new Vector3(6,-1f,0), new Item { itemType = Item.ItemType.BluePrint, amount = 1});
         // ItemWorld.SpawnItemWorld(new Vector3(-3,9,0), new Item { itemType = Item.ItemType.Coin, amount = 1});
     }
     private void OnTriggerEnter2D(Collider2D collider) {

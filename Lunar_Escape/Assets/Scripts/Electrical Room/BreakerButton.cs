@@ -8,6 +8,7 @@ public class BreakerButton : MonoBehaviour
     private string SLIDINGDOORANIM = "activated";
     public Astronaut controlPrompt;
     public GameObject controller;
+    //is breaker door opened
     private bool doorOpened = false;
 
     // Start is called before the first frame update
@@ -23,7 +24,7 @@ public class BreakerButton : MonoBehaviour
         {    
             anim.SetTrigger(SLIDINGDOORANIM);
             doorOpened = true;
-            ItemWorld.SpawnItemWorld(new Vector3(-1.6f,6.2f,0), new Item { itemType = Item.ItemType.BreakerNote, amount = 2});
+            ItemWorld.SpawnItemWorld(new Vector3(-5.4f,3f,0), new Item { itemType = Item.ItemType.BreakerNote, amount = 2});
 
         }
 
