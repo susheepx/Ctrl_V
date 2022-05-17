@@ -14,27 +14,24 @@ public class CloseUpWindow : MonoBehaviour
     public Sprite blueprint;
     
     public Sprite breakernote;
-    void Start()
+    private void Awake() 
     {
-        image = closeUpImage.GetComponent<SpriteRenderer>();
         gameObject.SetActive(false);
+        image = closeUpImage.GetComponent<SpriteRenderer>();
         player = GameObject.FindWithTag("Player").transform;
     }
 
+    private void FixedUpdate()    
+    {
+        SetCloseupPosition(); 
+    }
  
 
     public void OpenCloseUp() {
         if (IsWindowOpen == false)
         {
+            SetCloseupPosition();
             SetCloseupImage();
-            //settings popupwindow to always be centered
-            tempPos = transform.position;
-            tempPos.x = player.position.x;
-            tempPos.y = player.position.y;
-        
-            transform.position = tempPos;
-
-
             gameObject.SetActive(true);
             IsWindowOpen = true;
         }   
@@ -57,5 +54,14 @@ public class CloseUpWindow : MonoBehaviour
                 image.sprite = breakernote;
         }
 
+    }
+
+    public void SetCloseupPosition() {
+        //settings popupwindow to always be centered
+            tempPos = transform.position;
+            tempPos.x = player.position.x;
+            tempPos.y = player.position.y;
+        
+            transform.position = tempPos;
     }
 }
