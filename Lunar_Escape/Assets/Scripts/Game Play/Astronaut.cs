@@ -61,17 +61,17 @@ public class Astronaut : MonoBehaviour
         //open set key prompt box
         controller.SetActive(true); 
         //if the colliding component is an item that can go in inventory
-        if (collider.GetComponent<ItemWorld>() != null){
-            pickUpItem = true;
-            controlText.text = "- Press E key -";
+        if (collider.GetComponent<ItemWorld>() == null){
+            //is able to interact with objects such as breaker button
+            interact = true;
+            controlText.text = "- Press F -";
         }            
         
         else  
         {
+            pickUpItem = true;
+            controlText.text = "- Press E key -";
             
-            //is able to interact with objects such as breaker button
-            interact = true;
-            controlText.text = "- Press F -";
         }
     }
 

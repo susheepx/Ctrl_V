@@ -11,14 +11,18 @@ public class BreakerButton : MonoBehaviour
     public Astronaut controlPrompt;
     public GameObject popupBox;
     public GameObject breakerBox;
+    public GameObject breakerLock;
     public Collider2D breakerCollider;
     public Collider2D buttonCollider;
+    private bool isLockShown = false;
+    //is close up of breaker box shown
     private bool isCloseup = false;
     //is breaker door opened
     private bool doorOpened = false;
 
     private void Start() {
         breakerBox.SetActive(false);
+        breakerLock.SetActive(false);
         controlPrompt.currentItem = GetComponent<Collider2D>();
 
         
@@ -47,11 +51,27 @@ public class BreakerButton : MonoBehaviour
                 {
                     popupBox.SetActive(false);
                     isCloseup = false;
-                }
+                    breakerLock.SetActive(false);
+                    isLockShown = false;
+                }   
             }
             
 
         }
+
+        if (Input.GetKeyDown(KeyCode.Q) && isCloseup)
+            {
+                if (isLockShown == false)
+                {
+                    breakerLock.SetActive(true);
+                    isLockShown = true;
+                }
+                else
+                {
+                    breakerLock.SetActive(false);
+                    isLockShown = false;
+                }
+            }
 
 
     }
