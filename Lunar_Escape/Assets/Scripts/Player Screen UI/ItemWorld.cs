@@ -13,8 +13,6 @@ public class ItemWorld : MonoBehaviour
 
         return itemWorld;
     }
-
-    
     private SpriteRenderer spriteRenderer;
 
     private void Awake() {
@@ -30,4 +28,6 @@ public class ItemWorld : MonoBehaviour
     public void DestroySelf() {
         Destroy(gameObject);
     }
+
+    
 }

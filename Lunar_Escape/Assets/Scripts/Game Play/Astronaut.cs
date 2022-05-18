@@ -24,6 +24,7 @@ public class Astronaut : MonoBehaviour
     private GameObject colliderGameObject;
     private TextMeshProUGUI controlText;
     //objects
+    private ItemWorld itemDialogue;
     public bool interact = false;
     public bool pickUpItem = false;
     public Collider2D currentItem;
@@ -45,6 +46,7 @@ public class Astronaut : MonoBehaviour
             PlayerMoveKeyboard();
             AnimatePlayer();
         if (Input.GetKeyDown(KeyCode.E) && pickUpItem) {
+            Debug.Log(currentItem.GetComponent<ItemWorld>().name);
             //checks if item is object and destroys; adds to inventory
             ItemWorld itemWorld = currentItem.GetComponent<ItemWorld>();
             if (itemWorld != null) {
@@ -53,6 +55,10 @@ public class Astronaut : MonoBehaviour
                 itemWorld.DestroySelf();
                 pickUpItem = false; 
                 }
+            if (currentItem.GetComponent<ItemWorld>().name == "blueprint")
+                Debug.Log("blueprint popup running");
+            
+            
         }
     }
     private void Start() {

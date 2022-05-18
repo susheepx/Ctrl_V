@@ -2264,7 +2264,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.45122817, g: 0.4665262, b: 0.49056602, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2652,6 +2652,13 @@ MonoBehaviour:
   manaPotionSprite: {fileID: -867348166, guid: 7fa5eb88fb5f4b14d937f6e83a0986ac, type: 3}
   coinSprite: {fileID: 1665082112, guid: 7fa5eb88fb5f4b14d937f6e83a0986ac, type: 3}
   medKitSprite: {fileID: 112045274, guid: 7fa5eb88fb5f4b14d937f6e83a0986ac, type: 3}
+  gameDialogue: {fileID: 1870104982}
+  setCurrentScene: {fileID: 0}
+  currentSceneList:
+  - {fileID: 11400000, guid: 19d12923411f81e4b96db116cd91b7eb, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1032311328
 GameObject:
   m_ObjectHideFlags: 0
@@ -4385,8 +4392,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 2382364671
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0.5529412}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4403,13 +4410,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -5554,7 +5561,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -810, y: 330}
+  m_AnchoredPosition: {x: -721, y: 355}
   m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1865168236
@@ -6494,6 +6501,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1703610279, guid: d3bc209f53e69ac4d844fb39c6e8e7b1, type: 3}
+      propertyPath: gameDialogue
+      value: 
+      objectReference: {fileID: 1870104982}
+    - target: {fileID: 1703610279, guid: d3bc209f53e69ac4d844fb39c6e8e7b1, type: 3}
+      propertyPath: currentSceneList.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703610279, guid: d3bc209f53e69ac4d844fb39c6e8e7b1, type: 3}
+      propertyPath: currentSceneList.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 19d12923411f81e4b96db116cd91b7eb, type: 2}
     - target: {fileID: 1498888549480095460, guid: d3bc209f53e69ac4d844fb39c6e8e7b1, type: 3}
       propertyPath: m_Name
       value: ItemWorld

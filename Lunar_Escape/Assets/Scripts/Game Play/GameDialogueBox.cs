@@ -28,18 +28,20 @@ public class GameDialogueBox : MonoBehaviour
 
 
     // Start is called before the first frame update
+    //plays next line said by different person
     public void PlayNextSentence()
     {
         StartCoroutine(TypeText(currentScene.sentences[++sentenceIndex].text));
         personNameText.text = currentScene.sentences[sentenceIndex].speaker.speakerName;
         personNameText.color = currentScene.sentences[sentenceIndex].speaker.textColor;
     }
+    //is the sentence completed slow type
 
     public bool IsCompleted()
     {
         return state == State.COMPLETED;
     }
-
+    //is the paragraph/thought done
     public bool IsLastSentence()
     {
         return sentenceIndex + 1 == currentScene.sentences.Count;
@@ -61,4 +63,6 @@ public class GameDialogueBox : MonoBehaviour
             }
         }
     }
+
+    
 }
