@@ -19,8 +19,4 @@ public class BreakerLockNumbers : MonoBehaviour
     {
         
     }
-
-    private void OnMouseDown() {
-        Debug.Log("passkey pressed");
-    }
 }

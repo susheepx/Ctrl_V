@@ -4,29 +4,37 @@ using UnityEngine;
 
 public class BreakerLock : MonoBehaviour
 {
+    public bool isCodeSolved;
     public List<string> lockAlphaList;
-    private List<string> inputCodeList;
-    private List<string> secretCodeList;
+    public List<string> lockSlot;
+    public List<string> inputCodeList = new List<string>();
+    public List<string> secretCodeList = new List<string>();
 
-    public BreakerLock() {
-        inputCodeList = new List<string>();
 
-        inputCodeList.Add("J");
-        inputCodeList.Add("J");
-        inputCodeList.Add("J");
-        inputCodeList.Add("J");
 
         //AddItem(new Item { itemType = Item.ItemType.Sword, amount = 1});
 
-    }
-
-    private void Update() {
-        if (inputCodeList == secretCodeList)
-            Debug.Log("secret unlocked");
-
+    private void Start() {
     }
     public List<string> GetInputList()
     {
         return inputCodeList;
     }
+
+
+
+    public void checkSecretCode() {
+        for (int i = 0; i < secretCodeList.Count; i++) {
+            if (inputCodeList[i] != secretCodeList[i])
+                isCodeSolved = false;
+            else
+            {
+                isCodeSolved = true;
+            }
+        }
+        if (isCodeSolved)
+            gameObject.SetActive(false);
+    }
+    
+        
 }

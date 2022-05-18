@@ -17,9 +17,9 @@ public class CloseUpWindow : MonoBehaviour
     private void Awake() 
     {
         image = closeUpImage.GetComponent<SpriteRenderer>();
+        player = GameObject.FindWithTag("Player").transform;
+        Debug.Log("awake has run");
         gameObject.SetActive(false);
-    }
-    private void Update() {
     }
 
     private void FixedUpdate()    
@@ -29,7 +29,7 @@ public class CloseUpWindow : MonoBehaviour
  
 
     public void OpenCloseUp() {
-        player = GameObject.FindWithTag("Player").transform;
+        
         if (IsWindowOpen == false)
         {
             SetCloseupPosition();
@@ -60,12 +60,14 @@ public class CloseUpWindow : MonoBehaviour
 
     }
 
-    public void SetCloseupPosition() {
+    public void SetCloseupPosition() 
+    {
+
         //settings popupwindow to always be centered
-            tempPos = transform.position;
-            tempPos.x = player.position.x;
-            tempPos.y = player.position.y;
-        
-            transform.position = tempPos;
+        tempPos = transform.position;
+        tempPos.x = player.position.x;
+        tempPos.y = player.position.y;
+    
+        transform.position = tempPos;
     }
 }
