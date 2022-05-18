@@ -21,6 +21,7 @@ public class Astronaut : MonoBehaviour
     public GameObject controller;
     //the game object that holds the text for the key prompt
     public GameObject controlTextContainer;
+    private GameObject colliderGameObject;
     private TextMeshProUGUI controlText;
     //objects
     public bool interact = false;
@@ -56,15 +57,17 @@ public class Astronaut : MonoBehaviour
     }
     private void Start() {
         ItemWorld.SpawnItemWorld(new Vector3(6,-1f,0), new Item { itemType = Item.ItemType.BluePrint, amount = 1});
-        // ItemWorld.SpawnItemWorld(new Vector3(-3,9,0), new Item { itemType = Item.ItemType.Coin, amount = 1});
+        ItemWorld.SpawnItemWorld(new Vector3(3.5f,2.8f,0), new Item { itemType = Item.ItemType.BreakerNote, amount = 2});
     }
     private void OnTriggerEnter2D(Collider2D collider) {
         //set local variable collider to global variable so it can be used in update
         currentItem = collider;
+    
         //open set key prompt box
         controller.SetActive(true); 
         //if the colliding component is an item that can go in inventory
         if (collider.GetComponent<ItemWorld>() != null){
+            
             pickUpItem = true;
             controlText.text = "- Press E key -";
             
@@ -78,20 +81,20 @@ public class Astronaut : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collider) {
-        if (collider.GetComponent<ItemWorld>() != null){
-            pickUpItem = true;
-            controlText.text = "- Press E key -";
-        }            
+    // private void OnTriggerStay2D(Collider2D collider) {
+    //     if (collider.GetComponent<ItemWorld>() != null){
+    //         pickUpItem = true;
+    //         controlText.text = "- Press E key -";
+    //     }            
         
-        else  
-        {
+    //     else  
+    //     {
             
-            //is able to interact with objects such as breaker button
-            interact = true;
-            controlText.text = "- Press F -";
-        }
-    }
+    //         //is able to interact with objects such as breaker button
+    //         interact = true;
+    //         controlText.text = "- Press F -";
+    //     }
+    // }
     private void OnTriggerExit2D(Collider2D collider) {
         controller.SetActive(false);
         pickUpItem = false;

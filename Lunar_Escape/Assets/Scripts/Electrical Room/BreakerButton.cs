@@ -13,7 +13,6 @@ public class BreakerButton : MonoBehaviour
     public GameObject breakerBox;
     public GameObject breakerLock;
     public Collider2D breakerCollider;
-    public Collider2D buttonCollider;
     private bool isLockShown = false;
     //is close up of breaker box shown
     private bool isCloseup = false;
@@ -39,7 +38,6 @@ public class BreakerButton : MonoBehaviour
                 breakerBox.SetActive(true);
                 anim.SetTrigger(SLIDINGDOORANIM);
                 doorOpened = true;
-                ItemWorld.SpawnItemWorld(new Vector3(-5.4f,3f,0), new Item { itemType = Item.ItemType.BreakerNote, amount = 2});
             }
             else if (breakerCollider == controlPrompt.currentItem)
             {
@@ -51,10 +49,9 @@ public class BreakerButton : MonoBehaviour
                 else
                 {
                     popupBox.SetActive(false);
-                    isCloseup = false;
+                    isCloseup = false;    
                     breakerLock.SetActive(false);
-                    isLockShown = false;
-                    
+                    isLockShown = false;               
                 }   
             }
             
@@ -72,6 +69,7 @@ public class BreakerButton : MonoBehaviour
                 {
                     breakerLock.SetActive(false);
                     isLockShown = false;
+                    isCloseup = true;
                 }
             }
 

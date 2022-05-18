@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1709046461
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: -1928994755, guid: 87a901d0fe0e7044ab88f56a7f0a6837, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -121,6 +121,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveForce: 10
+  rb: {fileID: 1228398840}
+  canMove: 1
+  uiInventory: {fileID: 0}
+  controller: {fileID: 0}
+  controlTextContainer: {fileID: 0}
+  interact: 0
+  pickUpItem: 0
+  currentItem: {fileID: 0}
 --- !u!50 &1228398840
 Rigidbody2D:
   serializedVersion: 4
@@ -155,6 +163,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 3.01, y: 5.0504932}
+  m_Offset: {x: 0.05737984, y: -0.8046956}
+  m_Size: {x: 1.4589236, y: 3.4178514}
   m_Direction: 0

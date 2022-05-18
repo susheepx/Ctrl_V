@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BreakerLock : MonoBehaviour
 {
-    public List<Sprite> lockSpriteList;
     public List<string> lockAlphaList;
     private List<string> inputCodeList;
     private List<string> secretCodeList;

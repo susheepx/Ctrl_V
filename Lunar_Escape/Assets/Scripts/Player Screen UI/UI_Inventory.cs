@@ -33,7 +33,7 @@ public class UI_Inventory : MonoBehaviour
             Destroy(child.gameObject);
         }
         int x = 0;
-        int y = 0;
+        int y = 1;
         string name;
         float itemSlotCellSize = 110f;
         foreach (Item item in inventory.GetItemList()) {
