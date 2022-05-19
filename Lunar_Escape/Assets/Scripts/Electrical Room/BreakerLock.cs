@@ -7,6 +7,7 @@ public class BreakerLock : MonoBehaviour
     public bool isCodeSolved;
     public GameObject breakerBox;
     public GameObject ElectricalDoor;
+    public Animator anim;
     public List<string> lockAlphaList;
     public List<string> lockSlot;
     public List<string> inputCodeList = new List<string>();
@@ -43,7 +44,8 @@ public class BreakerLock : MonoBehaviour
         yield return new WaitForSeconds(0.9f);
         gameObject.SetActive(false);
         breakerBox.SetActive(false);
-        ElectricalDoor.SetActive(false);
+        anim.SetTrigger("ElectricalDoorOpen");
+        //ElectricalDoor.SetActive(false);
     }
         
 }
