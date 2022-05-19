@@ -22,7 +22,7 @@ public class Astronaut : MonoBehaviour
     //the game object that holds the text for the key prompt
     public GameObject controlTextContainer;
     private GameObject colliderGameObject;
-    private TextMeshProUGUI controlText;
+    public TextMeshProUGUI controlText;
     //objects
     public GameObject DialoguePrompt;
     private ItemAssets itemDialogue;
@@ -61,10 +61,10 @@ public class Astronaut : MonoBehaviour
 
 
     private void Start() {
-        ItemWorld.SpawnItemWorld(new Vector3(-0.2f,-5.6f,0), new Item { itemType = Item.ItemType.BluePrint, amount = 1});
-        ItemWorld.SpawnItemWorld(new Vector3(3.5f,2.8f,0), new Item { itemType = Item.ItemType.BreakerNote, amount = 2});
+        ItemWorld.SpawnItemWorld(new Vector3(-0.2f,-5.6f,0), new Item { itemType = Item.ItemType.BluePrint});
+        ItemWorld.SpawnItemWorld(new Vector3(3.5f,2.8f,0), new Item { itemType = Item.ItemType.BreakerNote});
     }
-    private void OnTriggerEnter2D(Collider2D collider) {
+    private void OnTriggerEnter2D(Collider2D collider) { 
         //set local variable collider to global variable so it can be used in update
         currentItem = collider;
     
