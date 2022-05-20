@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class bed : MonoBehaviour
+public class Elevator : MonoBehaviour
 {
-    public GameObject popupBed;
-    private bool isBedCloseUp = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,14 +16,7 @@ public class bed : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.F) && Astronaut.interact && GetComponent<Collider2D>() == Astronaut.currentItem) {
-            if (isBedCloseUp == false) {
-                popupBed.SetActive(true);
-                isBedCloseUp = true;
-            }
-            else {
-                popupBed.SetActive(false);
-                isBedCloseUp = false;
-            }
+            SceneManager.LoadScene(sceneBuildIndex:3);
         }
     }
 }

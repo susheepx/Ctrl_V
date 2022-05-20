@@ -8,7 +8,6 @@ public class BreakerButton : MonoBehaviour
     public Animator anim;
     private string SLIDINGDOORANIM = "activated";
     //is the item interactable?
-    public Astronaut controlPrompt;
     public GameObject popupBox;
     public GameObject breakerBox;
     public GameObject breakerLock;
@@ -23,7 +22,7 @@ public class BreakerButton : MonoBehaviour
         
         breakerBox.SetActive(false);
         breakerLock.SetActive(false);
-        controlPrompt.currentItem = GetComponent<Collider2D>();
+        Astronaut.currentItem = GetComponent<Collider2D>();
 
         
     }
@@ -31,15 +30,15 @@ public class BreakerButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && controlPrompt.interact)
+        if (Input.GetKeyDown(KeyCode.F) && Astronaut.interact)
         {
-            if (doorOpened == false && GetComponent<Collider2D>() == controlPrompt.currentItem)
+            if (doorOpened == false && GetComponent<Collider2D>() == Astronaut.currentItem)
             {
                 breakerBox.SetActive(true);
                 anim.SetTrigger(SLIDINGDOORANIM);
                 doorOpened = true;
             }
-            else if (breakerCollider == controlPrompt.currentItem)
+            else if (breakerCollider == Astronaut.currentItem)
             {
                 if (isCloseup == false)
                 {

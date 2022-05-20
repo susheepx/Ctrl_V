@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PillBottleCabinet : MonoBehaviour
 {
-  
-    public Astronaut astronaut;
     public GameObject popUpCabinet;
     public ItemWorld bottle1;
     public ItemWorld bottle2;
@@ -25,7 +23,7 @@ public class PillBottleCabinet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && astronaut.interact && GetComponent<Collider2D>() == astronaut.currentItem) {
+        if (Input.GetKeyDown(KeyCode.F) && Astronaut.interact && GetComponent<Collider2D>() == Astronaut.currentItem) {
 
             if (cabinetOpen == false) {
                 popUpCabinet.SetActive(true);

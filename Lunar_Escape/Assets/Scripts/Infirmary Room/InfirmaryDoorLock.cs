@@ -8,7 +8,6 @@ public class InfirmaryDoorLock : MonoBehaviour
 {
     public TextMeshProUGUI keyboardScreenText;
     public TextMeshProUGUI currentButtonText;
-    public Astronaut astronaut;
     public GameObject popUpKeypad;
     public Animator anim;
     private bool keypadOpen = false;
@@ -21,7 +20,7 @@ public class InfirmaryDoorLock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && astronaut.interact && GetComponent<Collider2D>() == astronaut.currentItem) {
+        if (Input.GetKeyDown(KeyCode.F) && Astronaut.interact && GetComponent<Collider2D>() == Astronaut.currentItem) {
             if (keypadOpen == false) {
                 popUpKeypad.SetActive(true);
                 keypadOpen = true;

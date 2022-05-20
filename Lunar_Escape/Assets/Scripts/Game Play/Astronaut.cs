@@ -26,9 +26,9 @@ public class Astronaut : MonoBehaviour
     //objects
     public GameObject DialoguePrompt;
     private ItemAssets itemDialogue;
-    public bool interact = false;
+    public static bool interact = false;
     public bool pickUpItem = false;
-    public Collider2D currentItem;
+    public static Collider2D currentItem;
     
     private void Awake() {
         //astronaut
@@ -48,7 +48,6 @@ public class Astronaut : MonoBehaviour
             PlayerMoveKeyboard();
             AnimatePlayer();
         if (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0) && pickUpItem) {
-            Debug.Log(currentItem.GetComponent<ItemWorld>().name);
             //checks if item is object and destroys; adds to inventory
             ItemWorld itemWorld = currentItem.GetComponent<ItemWorld>();
             if (itemWorld != null) {

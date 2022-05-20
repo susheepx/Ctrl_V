@@ -14,11 +14,11 @@ public class CloseUpWindow : MonoBehaviour
     public Sprite blueprint;
     
     public Sprite breakernote;
+    private string buttonName;
     private void Awake() 
     {
         image = closeUpImage.GetComponent<SpriteRenderer>();
         player = GameObject.FindWithTag("Player").transform;
-        Debug.Log("awake has run");
         gameObject.SetActive(false);
     }
 
@@ -29,13 +29,21 @@ public class CloseUpWindow : MonoBehaviour
  
 
     public void OpenCloseUp() {
-        
+        buttonName = EventSystem.current.currentSelectedGameObject.name;
+        Debug.Log(buttonName);
         if (IsWindowOpen == false)
         {
-            SetCloseupPosition();
-            SetCloseupImage();
-            gameObject.SetActive(true);
-            IsWindowOpen = true;
+                SetCloseupPosition();
+                SetCloseupImage();
+                gameObject.SetActive(true);
+                IsWindowOpen = true;
+                
+            
+            if (image.sprite == null) {
+                gameObject.SetActive(false);
+                IsWindowOpen = false;
+            }
+  
         }   
         else
         {
@@ -46,13 +54,13 @@ public class CloseUpWindow : MonoBehaviour
     }
 
     public void SetCloseupImage() {
-        if (EventSystem.current.currentSelectedGameObject.name != null)
+        if (buttonName != null)
         {
-            if (EventSystem.current.currentSelectedGameObject.name == "blueprintIcon")
+            if (buttonName == "blueprintIcon")
             {
                 image.sprite = blueprint;
             }
-            else if (EventSystem.current.currentSelectedGameObject.name == "breakernoteIcon")  
+            else if (buttonName == "breakernoteIcon")  
             {
                 image.sprite = breakernote;
             }    
@@ -70,4 +78,5 @@ public class CloseUpWindow : MonoBehaviour
     
         transform.position = tempPos;
     }
+
 }
