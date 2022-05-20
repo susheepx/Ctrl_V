@@ -8,6 +8,7 @@ public class GameCanvasController : MonoBehaviour
     public StoryScene currentScene;
     public GameDialogueBox dialogueBox;
     public GameObject dialogue;
+    public List<StoryScene> storysceneList = new List<StoryScene>();
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +40,11 @@ public class GameCanvasController : MonoBehaviour
             }
                 
         }
+    }
+
+    public void openDialogueBox(StoryScene currentscene) {
+        dialogue.SetActive(true);
+        dialogueBox.PlayScene(currentscene);
     }
 
 }

@@ -5,6 +5,8 @@ using TMPro;
 
 public class Astronaut : MonoBehaviour
 {
+    //storyline
+    public GameCanvasController gameCanvasController;
     //player
     private float movementX;
     private float movementY;
@@ -12,7 +14,7 @@ public class Astronaut : MonoBehaviour
     private float moveForce = 10f;
     public Rigidbody2D rb;
     private Animator anim;
-    public bool canMove = true;
+    public static bool canMove = true;
     //inventory
     [SerializeField] private UI_Inventory uiInventory;
     
@@ -42,7 +44,6 @@ public class Astronaut : MonoBehaviour
         
     }
 
-    public PillBottleCabinet isCabinetOpen;
     private void Update() {
         if (canMove)
             PlayerMoveKeyboard();
@@ -54,18 +55,15 @@ public class Astronaut : MonoBehaviour
                 //time it is touching/around the object
                 inventory.AddItem(itemWorld.GetItem());
                 itemWorld.DestroySelf();
-                pickUpItem = false; 
-                if (isCabinetOpen.cabinetOpen == true)
-                    StartCoroutine(waitForPills());
-                    
+                if (itemWorld.name == "blueprint") {
+                    gameCanvasController.openDialogueBox(gameCanvasController.storysceneList[0]);
                 }
+                pickUpItem = false; 
+                currentItem = null;
+            }
         }
     }
 
-    IEnumerator waitForPills() {
-            yield return new WaitForSeconds(0.4f);
-            isCabinetOpen.popUpCabinet.SetActive(false);
-        }
     
     private void Start() {
         ItemWorld.SpawnItemWorld(new Vector3(-0.2f,-5.6f,0), new Item { itemType = Item.ItemType.BluePrint});

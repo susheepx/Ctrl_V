@@ -6,6 +6,8 @@ public class StandingCabinet : MonoBehaviour
 {
     public Sprite openStandingCabinet;
     public Sprite closedStandingCabinet;
+    public GameObject openPamphlet;
+    private bool isPamphletOpen = false;
     private SpriteRenderer currentSprite;
     // Start is called before the first frame update
     private void Start() {
@@ -14,11 +16,20 @@ public class StandingCabinet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F)) {
+        if (Input.GetKeyDown(KeyCode.F) && GetComponent<Collider2D>() == Astronaut.currentItem) {
             if (currentSprite.sprite == closedStandingCabinet)
                 currentSprite.sprite = openStandingCabinet;
-            else   
-                currentSprite.sprite = closedStandingCabinet;
+            else {
+                if (isPamphletOpen == false) {
+                    openPamphlet.SetActive(true);
+                    isPamphletOpen = true;
+                }
+                else {
+                    openPamphlet.SetActive(false);
+                    isPamphletOpen = false;
+                }
+
+            }
         }
     }
 }
