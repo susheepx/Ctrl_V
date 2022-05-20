@@ -42,6 +42,7 @@ public class Astronaut : MonoBehaviour
         
     }
 
+    public PillBottleCabinet isCabinetOpen;
     private void Update() {
         if (canMove)
             PlayerMoveKeyboard();
@@ -55,11 +56,18 @@ public class Astronaut : MonoBehaviour
                 inventory.AddItem(itemWorld.GetItem());
                 itemWorld.DestroySelf();
                 pickUpItem = false; 
+                if (isCabinetOpen.cabinetOpen == true)
+                    StartCoroutine(waitForPills());
+                    
                 }
         }
     }
 
-
+    IEnumerator waitForPills() {
+            yield return new WaitForSeconds(0.4f);
+            isCabinetOpen.popUpCabinet.SetActive(false);
+        }
+    
     private void Start() {
         ItemWorld.SpawnItemWorld(new Vector3(-0.2f,-5.6f,0), new Item { itemType = Item.ItemType.BluePrint});
         ItemWorld.SpawnItemWorld(new Vector3(3.5f,2.8f,0), new Item { itemType = Item.ItemType.BreakerNote});
@@ -128,6 +136,7 @@ public class Astronaut : MonoBehaviour
     
     }
 
+    
     void AnimatePlayer() {
         if(movementX != 0)
         {

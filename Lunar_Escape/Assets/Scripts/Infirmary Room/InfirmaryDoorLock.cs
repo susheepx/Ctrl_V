@@ -10,6 +10,7 @@ public class InfirmaryDoorLock : MonoBehaviour
     public TextMeshProUGUI currentButtonText;
     public Astronaut astronaut;
     public GameObject popUpKeypad;
+    public Animator anim;
     private bool keypadOpen = false;
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,21 @@ public class InfirmaryDoorLock : MonoBehaviour
     public void keypadButtonPressed() {
         currentButtonText = EventSystem.current.currentSelectedGameObject.GetComponent<TextMeshProUGUI>();
         Debug.Log(keyboardScreenText.text);
-        keyboardScreenText.text += currentButtonText.text;
+        if (keyboardScreenText.text.Length < 5) {
+            keyboardScreenText.text += currentButtonText.text;
+            checkKeypadCode();
+        }
+    }
+
+    public void checkKeypadCode() {
+        if (keyboardScreenText.text == "LUNAR") {
+            keyboardScreenText.text = "correct";
+            popUpKeypad.SetActive(false);
+            keypadOpen = false;
+            anim.SetTrigger("InfirmaryDoorSlide");
+        }
+        else if (keyboardScreenText.text.Length == 5) {
+            keyboardScreenText.text = "";
+        }
     }
 }
