@@ -44,9 +44,9 @@ public class Item
         default:
         case ItemType.BluePrint:    return "blueprintIcon";
         case ItemType.BreakerNote:  return "breakernoteIcon";
-        case ItemType.Bottle1:      return "item3Icon";
-        case ItemType.Bottle2:      return "item4Icon";
-        case ItemType.Bottle3:      return "item5Icon";
+        case ItemType.Bottle1:      return "bottle1Icon";
+        case ItemType.Bottle2:      return "bottle2Icon";
+        case ItemType.Bottle3:      return "bottle3Icon";
         }
     }
 

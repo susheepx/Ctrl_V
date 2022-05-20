@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CloseupPillCabinet : MonoBehaviour
+public class CloseupObject : MonoBehaviour
 {
     //stay center of camera
     private Transform player;

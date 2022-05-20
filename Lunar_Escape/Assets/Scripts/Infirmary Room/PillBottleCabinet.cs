@@ -9,7 +9,6 @@ public class PillBottleCabinet : MonoBehaviour
     public GameObject popUpCabinet;
     public ItemWorld bottle1;
     public ItemWorld bottle2;
-
     public ItemWorld bottle3;
     private bool cabinetOpen = false;
     // Start is called before the first frame update
@@ -21,7 +20,7 @@ public class PillBottleCabinet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && astronaut.interact) {
+        if (Input.GetKeyDown(KeyCode.F) && astronaut.interact && GetComponent<Collider2D>() == astronaut.currentItem) {
             if (cabinetOpen == false) {
                 popUpCabinet.SetActive(true);
                 astronaut.controlText.text = "Click Item";
@@ -37,8 +36,10 @@ public class PillBottleCabinet : MonoBehaviour
                 popUpCabinet.SetActive(false);
                 if (bottle1 != null)
                     bottle1.DestroySelf();
-                bottle2.DestroySelf();
-                bottle3.DestroySelf();
+                if (bottle2 != null)
+                    bottle2.DestroySelf();
+                if (bottle3 != null)
+                    bottle3.DestroySelf();
                 cabinetOpen = false;
 
             }
