@@ -13,8 +13,6 @@ public class GameCanvasController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //this will start off the first dialogue box right when game initiates
-        dialogueBox.PlayScene(currentScene);
     }
 
     // Update is called once per frame

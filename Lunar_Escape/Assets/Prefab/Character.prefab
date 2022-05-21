@@ -120,15 +120,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf3485013dc32d34384e9ab7016de0ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameCanvasController: {fileID: 0}
   moveForce: 10
   rb: {fileID: 1228398840}
-  canMove: 1
   uiInventory: {fileID: 0}
   controller: {fileID: 0}
   controlTextContainer: {fileID: 0}
-  interact: 0
+  controlText: {fileID: 0}
+  DialoguePrompt: {fileID: 0}
   pickUpItem: 0
-  currentItem: {fileID: 0}
 --- !u!50 &1228398840
 Rigidbody2D:
   serializedVersion: 4
@@ -163,6 +163,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.05737984, y: -0.8046956}
-  m_Size: {x: 1.4589236, y: 3.4178514}
+  m_Offset: {x: -0.016239285, y: -0.8046956}
+  m_Size: {x: 2.047877, y: 3.4178514}
   m_Direction: 0

@@ -66,8 +66,6 @@ public class Astronaut : MonoBehaviour
 
     
     private void Start() {
-        ItemWorld.SpawnItemWorld(new Vector3(-0.2f,-5.6f,0), new Item { itemType = Item.ItemType.BluePrint});
-        ItemWorld.SpawnItemWorld(new Vector3(3.5f,2.8f,0), new Item { itemType = Item.ItemType.BreakerNote});
     }
     private void OnTriggerEnter2D(Collider2D collider) { 
         //set local variable collider to global variable so it can be used in update
