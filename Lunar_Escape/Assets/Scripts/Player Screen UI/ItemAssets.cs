@@ -15,4 +15,5 @@ public class ItemAssets : MonoBehaviour
     public Sprite bottle1Sprite;
     public Sprite bottle2Sprite;
     public  Sprite bottle3Sprite;
+    public Sprite poemSprite;
 }

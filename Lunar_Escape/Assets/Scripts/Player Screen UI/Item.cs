@@ -9,7 +9,8 @@ public class Item
         BreakerNote,
         Bottle1,
         Bottle2,
-        Bottle3
+        Bottle3,
+        Poem
     }
 
     public ItemType itemType;
@@ -25,6 +26,8 @@ public class Item
         case ItemType.Bottle1:       return ItemAssets.Instance.bottle1Sprite;
         case ItemType.Bottle2:       return ItemAssets.Instance.bottle2Sprite;
         case ItemType.Bottle3:       return ItemAssets.Instance.bottle3Sprite;
+        case ItemType.Poem:          return ItemAssets.Instance.poemSprite;
+        
         }
     }
 
@@ -36,6 +39,8 @@ public class Item
         case ItemType.Bottle1:      return "bottle1";
         case ItemType.Bottle2:      return "bottle2";
         case ItemType.Bottle3:      return "bottle3";
+        case ItemType.Poem:          return "poem";
+
         }
     }
 
@@ -47,6 +52,7 @@ public class Item
         case ItemType.Bottle1:      return "bottle1Icon";
         case ItemType.Bottle2:      return "bottle2Icon";
         case ItemType.Bottle3:      return "bottle3Icon";
+        case ItemType.Poem:         return "poemIcon";
         }
     }
 

@@ -514,17 +514,9 @@ PrefabInstance:
       value: Character
       objectReference: {fileID: 0}
     - target: {fileID: 5060119672608529116, guid: dfb8bc922cdde364bb6ec5ca39a6051b, type: 3}
-      propertyPath: moveForce
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5060119672608529116, guid: dfb8bc922cdde364bb6ec5ca39a6051b, type: 3}
       propertyPath: controller
       value: 
       objectReference: {fileID: 1078046748}
-    - target: {fileID: 5060119672608529116, guid: dfb8bc922cdde364bb6ec5ca39a6051b, type: 3}
-      propertyPath: controlText
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 5060119672608529116, guid: dfb8bc922cdde364bb6ec5ca39a6051b, type: 3}
       propertyPath: uiInventory
       value: 

@@ -1110,7 +1110,19 @@ MonoBehaviour:
       m_Calls: []
   m_OnDeselect:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1572560817}
+        m_TargetAssemblyTypeName: UsernameWindow, Assembly-CSharp
+        m_MethodName: UsernameInputted
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnTextSelection:
     m_PersistentCalls:
       m_Calls: []
@@ -1560,7 +1572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8edb4b6149ce42438276801822e309d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputField: {fileID: 887182863}
+  inputUsername: {fileID: 895734025}
   username: 
 --- !u!1 &1896312415
 GameObject:

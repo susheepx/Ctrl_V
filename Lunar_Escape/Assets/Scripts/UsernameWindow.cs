@@ -9,9 +9,9 @@ using UnityEngine.SceneManagement;
 
 public class UsernameWindow : MonoBehaviour
 {
-    public GameObject inputField;
+    public TMP_InputField inputUsername;
     public string username;
-    private void Awake() {
+    private void Awake() {;
         gameObject.SetActive(false);
     }
     public void Show()
@@ -26,9 +26,9 @@ public class UsernameWindow : MonoBehaviour
             SceneManager.LoadScene(sceneBuildIndex:2);
     }
 
-    public void UsernameInputted()
+    public void UsernameInputted(string s)
     {
-        username = inputField.GetComponent<TextMeshProUGUI>().text;
+        username = inputUsername.GetComponent<TMP_InputField>().text;
         Debug.Log(username);
     }
 

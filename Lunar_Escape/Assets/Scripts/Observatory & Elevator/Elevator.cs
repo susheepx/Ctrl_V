@@ -15,8 +15,8 @@ public class Elevator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && Astronaut.interact && GetComponent<Collider2D>() == Astronaut.currentItem) {
-            SceneManager.LoadScene(sceneBuildIndex:3);
+        if (Input.GetKeyDown(KeyCode.F) && Astronaut.interact && GetComponent<Collider2D>() == Astronaut.currentItem && ErikaLyingDown.isConscious == false) {
+            
         }
     }
 }

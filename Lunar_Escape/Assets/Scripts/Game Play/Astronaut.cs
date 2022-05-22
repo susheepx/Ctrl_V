@@ -48,7 +48,7 @@ public class Astronaut : MonoBehaviour
         if (canMove)
             PlayerMoveKeyboard();
             AnimatePlayer();
-        if (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0) && pickUpItem) {
+        if (Input.GetKeyDown(KeyCode.E) && pickUpItem) {
             //checks if item is object and destroys; adds to inventory
             ItemWorld itemWorld = currentItem.GetComponent<ItemWorld>();
             if (itemWorld != null) {
@@ -56,7 +56,8 @@ public class Astronaut : MonoBehaviour
                 inventory.AddItem(itemWorld.GetItem());
                 itemWorld.DestroySelf();
                 if (itemWorld.name == "blueprint") {
-                    gameCanvasController.openDialogueBox(gameCanvasController.storysceneList[0]);
+                    gameCanvasController.currentScene = gameCanvasController.storysceneList[0];
+                    gameCanvasController.openDialogueBox();
                 }
                 pickUpItem = false; 
                 currentItem = null;

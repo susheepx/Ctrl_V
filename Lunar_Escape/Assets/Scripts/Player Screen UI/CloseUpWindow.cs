@@ -11,10 +11,11 @@ public class CloseUpWindow : MonoBehaviour
     private Transform player;
     private Vector3 tempPos;
     private bool IsWindowOpen = false;
+    private string buttonName;
     public Sprite blueprint;
     
     public Sprite breakernote;
-    private string buttonName;
+    public Sprite poem;
     private void Awake() 
     {
         image = closeUpImage.GetComponent<SpriteRenderer>();
@@ -63,7 +64,9 @@ public class CloseUpWindow : MonoBehaviour
             else if (buttonName == "breakernoteIcon")  
             {
                 image.sprite = breakernote;
-            }    
+            }
+            else if (buttonName == "poemIcon")
+                image.sprite = poem;  
         }
 
     }
