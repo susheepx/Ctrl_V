@@ -76,11 +76,5 @@ public class Wire1 : MonoBehaviour
         float dist = Vector2.Distance(startPoint, newPosition);
         wireEnd.size = new Vector2(dist, wireEnd.size.y);
     }
-    void OnMouseDown()
-         {
-             if (gameObject.name == "Screenshot 2022-05-17 230153")
-             {
-                Update();
-             }
-         }
+
 }

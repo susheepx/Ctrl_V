@@ -42,19 +42,16 @@ public class GameCanvasController : MonoBehaviour
                         // }
                         // elevatorButton.checkAnswer();
                         if (currentScene != storysceneList[1] && currentScene != storysceneList[4] ) {
-                            Debug.Log("currentscene not 1 or 4. nextscene is null");
                             dialogue.SetActive(false);
                             Astronaut.canMove = true;
                             elevatorButton.playerInput.SetActive(false);
                         }
                         else if (currentScene == storysceneList[1]) {
-                            Debug.Log("check answer called again");
                             elevatorButton.checkAnswer();
                         }
                         
                         else
                         {   
-                            Debug.Log("guess who should be checking");
                             elevatorButton.playerInput.SetActive(false);
                             elevatorButton.guessWhoCheck();
                         }
@@ -71,7 +68,6 @@ public class GameCanvasController : MonoBehaviour
                         currentScene = currentScene.nextScene;
                         dialogueBox.PlayScene(currentScene);
                         if (currentScene == storysceneList[4]) {
-                            Debug.Log("nextscene is playing and equals scene 4");
                             elevatorButton.playerInput.SetActive(true);
                         }
                     
@@ -83,7 +79,6 @@ public class GameCanvasController : MonoBehaviour
                 else {
                     dialogueBox.PlayNextSentence();
                     if (currentScene == storysceneList[4]) {
-                        Debug.Log("next sentence played");
                         elevatorButton.guessWho();
                     }
 
