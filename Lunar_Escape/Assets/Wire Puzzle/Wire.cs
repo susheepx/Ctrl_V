@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Wire : MonoBehaviour
 {
-    public int numOfConnected;
+    public static int numOfConnected;
+    public static int numOfCorrect;
     private bool isWireConnected = false;
     
     Vector3 startPoint;
@@ -59,15 +60,20 @@ public class Wire : MonoBehaviour
         // reset wire position
         if (! isWireConnected) {
             UpdateWire(startPosition);
-            CheckWires();
+            numOfConnected --;
+            return;
         }
+        numOfConnected ++;
+        Debug.Log(numOfConnected);
     
-    void CheckWires() {
-        if (isWireConnected) {
-            numOfConnected = numOfConnected + 1;
-        }
     }
-    
+
+    void checkWires() {
+        if (numOfCorrect == 4) {
+            Debug.Log("good job!");
+            return;
+        }
+        Debug.Log("oops try again");
     }
 
     void UpdateWire(Vector3 newPosition) {
