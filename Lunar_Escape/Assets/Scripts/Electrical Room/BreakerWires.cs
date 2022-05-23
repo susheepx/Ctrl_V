@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BreakerWires : MonoBehaviour
 {
-    private bool isWiresOpen = false;
+    public static bool isWiresOpen = false;
     public Wire wire;
     public GameObject wireGame;
     // Start is called before the first frame update
@@ -20,12 +20,15 @@ public class BreakerWires : MonoBehaviour
         if (isWiresOpen == false) {
             wireGame.SetActive(true);
             isWiresOpen = true;
+            wire.Activate();
             wire.startSetup();
+            Astronaut.canMove = false;
             
         }
         else {
             wireGame.SetActive(false);
             isWiresOpen = false;
+            Astronaut.canMove = true;
         }
 
     }

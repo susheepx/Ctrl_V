@@ -31,6 +31,8 @@ public class chemicals : MonoBehaviour
                 //keeps track of selected, max 3
                 numSelected ++;
 
+                //remove chemical selected to list
+                check.guessChemicalList.Add(GetComponent<Button>().name);
                 return;
             }
         }
@@ -41,17 +43,20 @@ public class chemicals : MonoBehaviour
             isSelected = false;
             numSelected --;
 
+            //add chemical selected to list
+            check.guessChemicalList.Remove(GetComponent<Button>().name);
+
         }   
     }
 
-    public void addremoveItem() {
-        if (! isSelected) {
-            check.guessChemicalList.Remove(GetComponent<Button>().name);
-            return;
-        }
-        check.guessChemicalList.Add(GetComponent<Button>().name);
+    // public void addremoveItem() {
+    //     if (! isSelected) {
+    //         check.guessChemicalList.Remove(GetComponent<Button>().name);
+    //         return;
+    //     }
+    //     check.guessChemicalList.Add(GetComponent<Button>().name);
 
-    }
+    // }
 
 
 

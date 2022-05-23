@@ -34,16 +34,15 @@ public class CloseUpWindow : MonoBehaviour
         Debug.Log(buttonName);
         if (IsWindowOpen == false)
         {
-                SetCloseupPosition();
-                SetCloseupImage();
-                gameObject.SetActive(true);
-                IsWindowOpen = true;
-                
-            
+            SetCloseupPosition();
+            SetCloseupImage();            
             if (image.sprite == null) {
                 gameObject.SetActive(false);
                 IsWindowOpen = false;
+                return;
             }
+            gameObject.SetActive(true);
+            IsWindowOpen = true;
   
         }   
         else

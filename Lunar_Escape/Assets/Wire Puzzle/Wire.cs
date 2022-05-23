@@ -6,16 +6,20 @@ public class Wire : MonoBehaviour
 {
     public static int numOfConnected;
     public static int numOfCorrect;
+    public Animator anim;
     private bool isWireConnected = false;
     //15% of >:(  85% :D
     Vector3 startPoint;
     Vector3 startPosition;
-    public GameObject Left, Right;
+    public GameObject Left, Right, wireGame;
     public BoxCollider2D Collider;
     public SpriteRenderer wireEnd;
+    public List<Collider2D> wireColliders = new List<Collider2D>();
     private void Start() {
-        startPoint = transform.parent.position;
-        startPosition = transform.position;
+        if (gameObject != null) {
+            startPoint = transform.parent.position;
+            startPosition = transform.position;
+        }
     }
 
     //call start setup when popup opened
@@ -25,8 +29,8 @@ public class Wire : MonoBehaviour
     }
     //Erica, please delete the following function.  This was for beta testing.
     public void Activate(){
-        Left.SetActive(true);
-        Right.SetActive(true);
+        // Left.SetActive(true);
+        // Right.SetActive(true);
         Start();
     }
     
@@ -41,7 +45,7 @@ public class Wire : MonoBehaviour
         foreach (Collider2D collider in colliders)
         {
             //make sure it is not my own collider
-            if (collider.gameObject != gameObject && collider.gameObject.transform.parent != gameObject.transform.parent) {
+            if (collider.gameObject != gameObject && collider.gameObject.transform.parent != gameObject.transform.parent && wireColliders.Contains(collider)) {
 
                 //update wire position to connect to other wire
                 UpdateWire(collider.transform.position);
@@ -78,6 +82,8 @@ public class Wire : MonoBehaviour
             //timer += 90.0f
             // Left.SetActive(false);
             // Right.SetActive(false);
+            wireGame.SetActive(false);
+            BreakerWires.isWiresOpen = false;
             UpdateWire(startPosition);
         }
         // reset wire position
@@ -93,6 +99,9 @@ public class Wire : MonoBehaviour
     void checkWires() {
         if (numOfCorrect == 8) {
             Debug.Log("good job!");
+            wireGame.SetActive(false);
+            Astronaut.canMove = true;
+            anim.SetTrigger("ElectricalDoorOpen");
             return;
         }
         else

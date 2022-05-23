@@ -8,7 +8,7 @@ public class ErikaLyingDown : MonoBehaviour
 {
     public TextMeshProUGUI promptText;
     public bool isPillButtonClicked = false;
-    public static bool isConscious = true;
+    public static bool isConscious = false;
 
     // Start is called before the first frame update
     void Start()
@@ -30,11 +30,11 @@ public class ErikaLyingDown : MonoBehaviour
         isPillButtonClicked = true;
         if (Astronaut.interact && GetComponent<Collider2D>() == Astronaut.currentItem && EventSystem.current.currentSelectedGameObject.name == "bottle3Icon") 
         {
-            isConscious = false;
+            isConscious = true;
             promptText.text = " yayy";
             
         }
-        else if (EventSystem.current.currentSelectedGameObject.name == "bottle2Icon") {
+        else if (EventSystem.current.currentSelectedGameObject.name == "bottle2Icon" || EventSystem.current.currentSelectedGameObject.name == "bottle3Icon" ) {
             promptText.text = "oops";
         }
             

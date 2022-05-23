@@ -50,7 +50,7 @@ public class Astronaut : MonoBehaviour
             AnimatePlayer();
         }
         else {
-            GetComponent<Rigidbody2D>().isKinematic = true;
+            //GetComponent<BoxCollider2D>().enabled = false;
         }
         if (Input.GetKeyDown(KeyCode.E) && pickUpItem) {
             //checks if item is object and destroys; adds to inventory
