@@ -19,16 +19,16 @@ public class CheckChemicals : MonoBehaviour
     if (chemicals.numSelected == 3) {
         foreach (string chemical in guessChemicalList) {
             if (answerChemicalList.Contains(chemical)) {
-                Debug.Log("yayy u got it");
                 isCodeSolved = true;
         }
             else {
                 isCodeSolved = false;
                 Debug.Log("wrong code");
-                break;
+                return;
             }
+            
         }
-
+        Debug.Log("yayy u got it");
     }
     }
 

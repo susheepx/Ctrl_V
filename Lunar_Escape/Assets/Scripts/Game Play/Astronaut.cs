@@ -45,9 +45,13 @@ public class Astronaut : MonoBehaviour
     }
 
     private void Update() {
-        if (canMove)
+        if (canMove) {
             PlayerMoveKeyboard();
             AnimatePlayer();
+        }
+        else {
+            GetComponent<Rigidbody2D>().isKinematic = true;
+        }
         if (Input.GetKeyDown(KeyCode.E) && pickUpItem) {
             //checks if item is object and destroys; adds to inventory
             ItemWorld itemWorld = currentItem.GetComponent<ItemWorld>();

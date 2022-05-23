@@ -7,7 +7,6 @@ public class BreakerLock : MonoBehaviour
     public bool isCodeSolved;
     public GameObject breakerBox;
     public GameObject wireBackground;
-
     public Animator anim;
     public List<string> lockAlphaList;
     public List<string> lockSlot;
@@ -46,6 +45,7 @@ public class BreakerLock : MonoBehaviour
         gameObject.SetActive(false);
         breakerBox.SetActive(false);
         wireBackground.SetActive(true);
+
     }
         
 }

@@ -7,18 +7,31 @@ public class Wire : MonoBehaviour
     public static int numOfConnected;
     public static int numOfCorrect;
     private bool isWireConnected = false;
-    
+    //15% of >:(  85% :D
     Vector3 startPoint;
     Vector3 startPosition;
-    public GameObject lightOn;
+    public GameObject Left, Right;
+    public BoxCollider2D Collider;
     public SpriteRenderer wireEnd;
     private void Start() {
         startPoint = transform.parent.position;
         startPosition = transform.position;
     }
+
+    //call start setup when popup opened
+    public void startSetup() {
+        startPoint = transform.parent.position;
+        startPosition = transform.position;
+    }
+    //Erica, please delete the following function.  This was for beta testing.
+    public void Activate(){
+        Left.SetActive(true);
+        Right.SetActive(true);
+        Start();
+    }
+    
     private void OnMouseDrag() {
         isWireConnected = false;
-        lightOn.SetActive(false);
         //mouse position to world point
         Vector3 newPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         newPosition.z = 0;
@@ -34,11 +47,13 @@ public class Wire : MonoBehaviour
                 UpdateWire(collider.transform.position);
 
                 // check if the wire connection is correct
-                //if (transform.parent.name.Equals(collider.transform.parent.name)) {
+                if (transform.parent.name.Equals(collider.transform.parent.name)) {
                     //finish step
-                collider.GetComponent<Wire>()?.Done();
-                Done();
-                //}
+                    collider.GetComponent<Wire>()?.Done();
+                    Done();
+                }
+                isWireConnected = true;
+
                 return;
             }
         }
@@ -49,31 +64,39 @@ public class Wire : MonoBehaviour
     }
 
     private void Done() {
-        //turn on light
-        lightOn.SetActive(true);
-        isWireConnected = true;
+        Destroy(this);
+        numOfCorrect ++;
+        Debug.Log(numOfCorrect);
+        checkWires();
         
     }
     
     private void OnMouseUp() {
-        
+
+        if(transform.parent.name.Equals(GetComponent<BoxCollider2D>().transform.parent.name) && isWireConnected){
+            //the line below adds 90s to the google sheets.
+            //timer += 90.0f
+            // Left.SetActive(false);
+            // Right.SetActive(false);
+            UpdateWire(startPosition);
+        }
         // reset wire position
         if (! isWireConnected) {
             UpdateWire(startPosition);
             numOfConnected --;
             return;
         }
-        numOfConnected ++;
-        Debug.Log(numOfConnected);
-    
+        else
+            numOfConnected ++;
     }
 
     void checkWires() {
-        if (numOfCorrect == 4) {
+        if (numOfCorrect == 8) {
             Debug.Log("good job!");
             return;
         }
-        Debug.Log("oops try again");
+        else
+            Debug.Log("oops try again");
     }
 
     void UpdateWire(Vector3 newPosition) {

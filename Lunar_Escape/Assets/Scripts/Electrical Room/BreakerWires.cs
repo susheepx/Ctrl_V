@@ -5,6 +5,7 @@ using UnityEngine;
 public class BreakerWires : MonoBehaviour
 {
     private bool isWiresOpen = false;
+    public Wire wire;
     public GameObject wireGame;
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,8 @@ public class BreakerWires : MonoBehaviour
         if (isWiresOpen == false) {
             wireGame.SetActive(true);
             isWiresOpen = true;
+            wire.startSetup();
+            
         }
         else {
             wireGame.SetActive(false);
