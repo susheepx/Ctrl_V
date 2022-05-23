@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e471cd264d745374a9d170949edc5fa4
+guid: 93ea57479d6ed2d4593f6bdc8e2a2397
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,64 +116,190 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: observatory floor_0
+      name: spritesheet 1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 889
-        height: 588
+        x: 7
+        y: 321
+        width: 191
+        height: 252
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cadaaf7df41be214d8594c13b2ff1651
-      internalID: -480659015
+      spriteID: 7dbdd153acd346d459900577b06c67c7
+      internalID: 1933881299
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: observatory floor_1
+      name: spritesheet 1_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 401
-        width: 889
-        height: 187
+        x: 227
+        y: 321
+        width: 192
+        height: 252
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed6953552ae5cdc4eb6a4b9f76ac6173
-      internalID: 1935871557
+      spriteID: d92ab4db4ffa7c04780f90626acbdbe0
+      internalID: 1188186096
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: observatory floor_2
+      name: spritesheet 1_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 889
-        height: 332
+        x: 510
+        y: 52
+        width: 561
+        height: 508
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 775a482b2fe508c4cbaf2837e3bf6f44
-      internalID: -1310778885
+      spriteID: 8fc2b80ce7f201d4a8f727c1447eb3f5
+      internalID: -1872958320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 1_3
+      rect:
+        serializedVersion: 2
+        x: 1155
+        y: 262
+        width: 507
+        height: 296
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22cd0091056399e4a9efb44a994d423a
+      internalID: 625847425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 1_4
+      rect:
+        serializedVersion: 2
+        x: 1765
+        y: 64
+        width: 244
+        height: 477
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc031943cee3d1746966020087ea8c84
+      internalID: 1360569430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 1_5
+      rect:
+        serializedVersion: 2
+        x: 2058
+        y: 149
+        width: 286
+        height: 436
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f96f2ed5571dadf47bb054a6a3ca5f50
+      internalID: -911560449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 1_6
+      rect:
+        serializedVersion: 2
+        x: 2368
+        y: 354
+        width: 304
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d70512a7c203ed74fa56d85a66e85ab3
+      internalID: 1116550304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 1_7
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 90
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecd04379d6247464e9006d084b734670
+      internalID: 978683001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet 1_8
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 78
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8779be3c22b8807438aceb3568d8f4ff
+      internalID: -1894736453
       vertices: []
       indices: 
       edges: []
@@ -189,9 +315,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      observatory floor_1: 1935871557
-      observatory floor_0: -480659015
-      observatory floor_2: -1310778885
+      spritesheet 1_0: 1933881299
+      spritesheet 1_5: -911560449
+      spritesheet 1_1: 1188186096
+      spritesheet 1_3: 625847425
+      spritesheet 1_7: 978683001
+      spritesheet 1_4: 1360569430
+      spritesheet 1_2: -1872958320
+      spritesheet 1_6: 1116550304
+      spritesheet 1_8: -1894736453
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
