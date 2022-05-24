@@ -15,8 +15,6 @@ public class BreakerLock : MonoBehaviour
 
 
 
-        //AddItem(new Item { itemType = Item.ItemType.Sword, amount = 1});
-
     private void Start() {
     }
     public List<string> GetInputList()

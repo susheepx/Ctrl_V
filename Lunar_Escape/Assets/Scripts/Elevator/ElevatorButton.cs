@@ -6,6 +6,7 @@ using TMPro;
 
 public class ElevatorButton : MonoBehaviour
 {
+    public UI_Inventory inventory;
     public FadeScript fadeScript;
     public GameCanvasController controller;
     public GameObject playerInput;
@@ -28,7 +29,7 @@ public class ElevatorButton : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F) && Astronaut.interact && GetComponent<Collider2D>() == Astronaut.currentItem && isInputFieldSelected == false) {
             if (sentenceGuessed == false) {
                 controller.currentScene = controller.storysceneList[1];
-                
+                inventory.resetInventory();
                 controller.openDialogueBox();
                 
             }
@@ -78,18 +79,27 @@ public class ElevatorButton : MonoBehaviour
         Debug.Log(playerGuessWhoAnswer);
     }
 
+   
+
     public void guessWhoCheck() {
         Debug.Log("guesswhocheck called");
         playerGuessWhoAnswer += playerInput.GetComponent<TMP_InputField>().text;
         if (playerGuessWhoAnswer.Equals(guessWhoAnswer, System.StringComparison.OrdinalIgnoreCase)) {
             controller.currentScene = controller.storysceneList[5];
             controller.openDialogueBox();
-            fadeScript.waitFadeTime();
+            StartCoroutine(fadeScript.waitFadeTime());
+
+            // Debug.Log(inventory.GetItemList());
+            // foreach (Item item in inventory.GetItemList()) {
+            //     inventory.RemoveItem(item);
+            // }
+
         }
         else
         {
             controller.currentScene = controller.storysceneList[6];
             controller.openDialogueBox();
+            guessWhoAnswer = "";
         }
     }
 

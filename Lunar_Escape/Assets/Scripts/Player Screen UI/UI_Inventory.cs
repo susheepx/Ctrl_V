@@ -51,5 +51,36 @@ public class UI_Inventory : MonoBehaviour
         }
     }
 
+    public void resetInventory() {
+        foreach (Transform child in itemSlotContainer) {
+            if (child == itemSlotTemplate) continue;
+            Destroy(child.gameObject);
+        }
+        // int x = 0;
+        // int y = 0;
+        // string name;
+        // float itemSlotCellSize = 110f;
+
+        inventory.clearList();
+
+
+        // foreach (Item item in inventory.GetItemList()) {
+        //     inventory.RemoveItem(item);
+
+            // RectTransform itemSlotRectTransform = Instantiate(itemSlotTemplate, itemSlotContainer).GetComponent<RectTransform>();
+            // itemSlotRectTransform.gameObject.SetActive(true);
+            // name = item.InventoryName();
+            // itemSlotRectTransform.name = name;
+            // itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, y * itemSlotCellSize);
+            // Image image = itemSlotRectTransform.Find("image").GetComponent<Image>();
+            // image.sprite = item.GetSprite();
+            // y++;
+            // if (y>4) {
+            //     y = 0;
+            //     x++;
+            // }
+        // }
+    }
+
 
 }
