@@ -6,13 +6,8 @@ using UnityEngine.UI;
 public class FadeScript : MonoBehaviour
 {
     public Animator anim;
+    public UI_Inventory inventory;
     public GameObject astronaut, hqElevator, promptDialogue;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     public IEnumerator waitFadeTime() {
         yield return new WaitForSeconds(0.3f);
@@ -21,6 +16,7 @@ public class FadeScript : MonoBehaviour
         astronaut.transform.position = hqElevator.transform.position + new Vector3(1f, -2.5f, 0f);
         Astronaut.currentItem = null;
         promptDialogue.SetActive(false);
+        inventory.resetInventory();
         anim.SetTrigger("End");
         Astronaut.canMove = true;
     }

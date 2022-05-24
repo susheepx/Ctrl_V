@@ -6,6 +6,7 @@ using TMPro;
 
 public class ErikaLyingDown : MonoBehaviour
 {
+    public UI_Inventory inventory;
     public TextMeshProUGUI promptText;
     public bool isPillButtonClicked = false;
     public static bool isConscious = false;
@@ -27,12 +28,15 @@ public class ErikaLyingDown : MonoBehaviour
     }
 
     public void testPill() {
-        isPillButtonClicked = true;
+        
         if (Astronaut.interact && GetComponent<Collider2D>() == Astronaut.currentItem && EventSystem.current.currentSelectedGameObject.name == "bottle3Icon") 
         {
+            isPillButtonClicked = true;
             isConscious = true;
             promptText.text = " yayy";
-            
+            inventory.testList();
+
+
         }
         else if (EventSystem.current.currentSelectedGameObject.name == "bottle2Icon" || EventSystem.current.currentSelectedGameObject.name == "bottle1Icon" ) {
             promptText.text = "oops";

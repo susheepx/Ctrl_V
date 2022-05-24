@@ -8,6 +8,7 @@ public class UI_Inventory : MonoBehaviour
     private Inventory inventory;
     private Transform itemSlotContainer;
     private Transform itemSlotTemplate;
+    private Item bottle3;
 
     private void Awake() {
     }
@@ -56,31 +57,18 @@ public class UI_Inventory : MonoBehaviour
             if (child == itemSlotTemplate) continue;
             Destroy(child.gameObject);
         }
-        // int x = 0;
-        // int y = 0;
-        // string name;
-        // float itemSlotCellSize = 110f;
 
         inventory.clearList();
 
-
-        // foreach (Item item in inventory.GetItemList()) {
-        //     inventory.RemoveItem(item);
-
-            // RectTransform itemSlotRectTransform = Instantiate(itemSlotTemplate, itemSlotContainer).GetComponent<RectTransform>();
-            // itemSlotRectTransform.gameObject.SetActive(true);
-            // name = item.InventoryName();
-            // itemSlotRectTransform.name = name;
-            // itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, y * itemSlotCellSize);
-            // Image image = itemSlotRectTransform.Find("image").GetComponent<Image>();
-            // image.sprite = item.GetSprite();
-            // y++;
-            // if (y>4) {
-            //     y = 0;
-            //     x++;
-            // }
-        // }
     }
 
-
+    public void testList() {
+        foreach (Item item in inventory.GetItemList()) {
+            if(item.InventoryName() == "bottle3Icon") {
+                
+                bottle3 = item;
+            }
+        }
+        inventory.RemoveItem(bottle3);
+    }
 }

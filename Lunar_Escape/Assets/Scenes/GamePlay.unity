@@ -16928,6 +16928,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6dde80dfbe75d44b7f6c1fe6fae73a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventory: {fileID: 1625526867}
   promptText: {fileID: 1517776024}
   isPillButtonClicked: 0
 --- !u!1 &601909118
@@ -47551,7 +47552,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.19380215}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -47562,7 +47563,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.07, y: 0.77}
+  m_Size: {x: 4.07, y: 0.38239568}
   m_EdgeRadius: 0
 --- !u!1 &1623756960
 GameObject:
@@ -57795,11 +57796,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5060119672608529117, guid: dfb8bc922cdde364bb6ec5ca39a6051b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.7
+      value: 61.7
       objectReference: {fileID: 0}
     - target: {fileID: 5060119672608529117, guid: dfb8bc922cdde364bb6ec5ca39a6051b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.1
+      value: -14.3
       objectReference: {fileID: 0}
     - target: {fileID: 5060119672608529117, guid: dfb8bc922cdde364bb6ec5ca39a6051b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -57942,6 +57943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 2034941758}
+  inventory: {fileID: 1625526867}
   astronaut: {fileID: 1961356856}
   hqElevator: {fileID: 532350967}
   promptDialogue: {fileID: 1331546841}
@@ -60432,7 +60434,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9304e6e9579e8e242beef37f80a2e6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 1625526867}
   fadeScript: {fileID: 2034941761}
   controller: {fileID: 1271980372}
   playerInput: {fileID: 2028294955}
@@ -61547,12 +61548,44 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2028294957, guid: a3ca911d35a7cb847bd3119be43d3b55, type: 3}
+      propertyPath: m_OnSelect.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2028294957, guid: a3ca911d35a7cb847bd3119be43d3b55, type: 3}
+      propertyPath: m_OnDeselect.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2028294957, guid: a3ca911d35a7cb847bd3119be43d3b55, type: 3}
       propertyPath: m_OnSelect.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2111557274}
     - target: {fileID: 2028294957, guid: a3ca911d35a7cb847bd3119be43d3b55, type: 3}
       propertyPath: m_OnDeselect.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 2111557274}
+    - target: {fileID: 2028294957, guid: a3ca911d35a7cb847bd3119be43d3b55, type: 3}
+      propertyPath: m_OnSelect.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Selected
+      objectReference: {fileID: 0}
+    - target: {fileID: 2028294957, guid: a3ca911d35a7cb847bd3119be43d3b55, type: 3}
+      propertyPath: m_OnDeselect.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: notSelected
+      objectReference: {fileID: 0}
+    - target: {fileID: 2028294957, guid: a3ca911d35a7cb847bd3119be43d3b55, type: 3}
+      propertyPath: m_OnSelect.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ElevatorButton, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2028294957, guid: a3ca911d35a7cb847bd3119be43d3b55, type: 3}
+      propertyPath: m_OnDeselect.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ElevatorButton, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2028294957, guid: a3ca911d35a7cb847bd3119be43d3b55, type: 3}
+      propertyPath: m_OnSelect.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2028294957, guid: a3ca911d35a7cb847bd3119be43d3b55, type: 3}
+      propertyPath: m_OnDeselect.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2864878274830550918, guid: a3ca911d35a7cb847bd3119be43d3b55, type: 3}
       propertyPath: m_IsActive

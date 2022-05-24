@@ -65,10 +65,6 @@ public class Item
         case ItemType.Adhesive:     return "adhesiveIcon";
 
         }
-    }
-
-
-
-    
+    }    
    
 }

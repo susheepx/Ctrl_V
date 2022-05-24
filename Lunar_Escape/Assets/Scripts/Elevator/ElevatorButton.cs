@@ -6,7 +6,7 @@ using TMPro;
 
 public class ElevatorButton : MonoBehaviour
 {
-    public UI_Inventory inventory;
+    
     public FadeScript fadeScript;
     public GameCanvasController controller;
     public GameObject playerInput;
@@ -29,7 +29,6 @@ public class ElevatorButton : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F) && Astronaut.interact && GetComponent<Collider2D>() == Astronaut.currentItem && isInputFieldSelected == false) {
             if (sentenceGuessed == false) {
                 controller.currentScene = controller.storysceneList[1];
-                inventory.resetInventory();
                 controller.openDialogueBox();
                 
             }
