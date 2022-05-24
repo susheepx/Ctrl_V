@@ -34,7 +34,7 @@ public class ErikaLyingDown : MonoBehaviour
             promptText.text = " yayy";
             
         }
-        else if (EventSystem.current.currentSelectedGameObject.name == "bottle2Icon" || EventSystem.current.currentSelectedGameObject.name == "bottle3Icon" ) {
+        else if (EventSystem.current.currentSelectedGameObject.name == "bottle2Icon" || EventSystem.current.currentSelectedGameObject.name == "bottle1Icon" ) {
             promptText.text = "oops";
         }
             

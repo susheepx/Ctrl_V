@@ -7,6 +7,7 @@ public class Astronaut : MonoBehaviour
 {
     //storyline
     public GameCanvasController gameCanvasController;
+    public ItemWorld Keycard;
     //player
     private float movementX;
     private float movementY;
@@ -62,6 +63,12 @@ public class Astronaut : MonoBehaviour
                 if (itemWorld.name == "blueprint") {
                     gameCanvasController.currentScene = gameCanvasController.storysceneList[0];
                     gameCanvasController.openDialogueBox();
+                }
+
+                if (itemWorld.name == "folder") {
+                    // Keycard = ItemWorld.SpawnItemWorld(new Vector3(76.36f,125.11f,0), new Item { itemType = Item.ItemType.Keycard});
+                    // Keycard.GetComponent<BoxCollider2D>().size = new Vector2 (1f,1f);
+
                 }
                 pickUpItem = false; 
                 currentItem = null;

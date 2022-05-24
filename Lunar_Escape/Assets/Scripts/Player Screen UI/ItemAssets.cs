@@ -14,6 +14,10 @@ public class ItemAssets : MonoBehaviour
     public Sprite breakerNoteSprite;
     public Sprite bottle1Sprite;
     public Sprite bottle2Sprite;
-    public  Sprite bottle3Sprite;
+    public Sprite bottle3Sprite;
     public Sprite poemSprite;
+    public Sprite folderSprite;
+    public Sprite keycardSprite;
+    
+    public Sprite adhesiveSprite;
 }

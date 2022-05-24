@@ -6,6 +6,7 @@ using TMPro;
 
 public class ElevatorButton : MonoBehaviour
 {
+    public FadeScript fadeScript;
     public GameCanvasController controller;
     public GameObject playerInput;
     public static bool isInputFieldSelected = false;
@@ -80,9 +81,10 @@ public class ElevatorButton : MonoBehaviour
     public void guessWhoCheck() {
         Debug.Log("guesswhocheck called");
         playerGuessWhoAnswer += playerInput.GetComponent<TMP_InputField>().text;
-        if (playerGuessWhoAnswer == guessWhoAnswer) {
+        if (playerGuessWhoAnswer.Equals(guessWhoAnswer, System.StringComparison.OrdinalIgnoreCase)) {
             controller.currentScene = controller.storysceneList[5];
             controller.openDialogueBox();
+            fadeScript.waitFadeTime();
         }
         else
         {
@@ -91,5 +93,6 @@ public class ElevatorButton : MonoBehaviour
         }
     }
 
+    
 
 }

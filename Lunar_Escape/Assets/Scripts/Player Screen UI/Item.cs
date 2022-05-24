@@ -10,9 +10,12 @@ public class Item
         Bottle1,
         Bottle2,
         Bottle3,
-        Poem
+        Poem,
+        Folder,
+        Keycard,
+        Adhesive
+    
     }
-
     public ItemType itemType;
     //take out int amount later since we are not having multiple copies of one item
     //amount= the id for the item in the inventory
@@ -27,7 +30,9 @@ public class Item
         case ItemType.Bottle2:       return ItemAssets.Instance.bottle2Sprite;
         case ItemType.Bottle3:       return ItemAssets.Instance.bottle3Sprite;
         case ItemType.Poem:          return ItemAssets.Instance.poemSprite;
-        
+        case ItemType.Folder:        return ItemAssets.Instance.folderSprite;
+        case ItemType.Keycard:       return ItemAssets.Instance.keycardSprite;
+        case ItemType.Adhesive:      return ItemAssets.Instance.adhesiveSprite;
         }
     }
 
@@ -39,8 +44,10 @@ public class Item
         case ItemType.Bottle1:      return "bottle1";
         case ItemType.Bottle2:      return "bottle2";
         case ItemType.Bottle3:      return "bottle3";
-        case ItemType.Poem:          return "poem";
-
+        case ItemType.Poem:         return "poem";
+        case ItemType.Folder:       return "folder";
+        case ItemType.Keycard:      return "keycard";
+        case ItemType.Adhesive:     return "adhesive";
         }
     }
 
@@ -53,6 +60,10 @@ public class Item
         case ItemType.Bottle2:      return "bottle2Icon";
         case ItemType.Bottle3:      return "bottle3Icon";
         case ItemType.Poem:         return "poemIcon";
+        case ItemType.Folder:       return "folderIcon";
+        case ItemType.Keycard:      return "keycardIcon";
+        case ItemType.Adhesive:     return "adhesiveIcon";
+
         }
     }
 

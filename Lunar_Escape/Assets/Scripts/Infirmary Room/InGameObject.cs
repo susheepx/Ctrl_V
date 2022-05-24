@@ -8,7 +8,7 @@ public class InGameObject : MonoBehaviour
     private Transform player;
     private Vector3 tempPos;
     public GameObject Object;
-    private bool isCloseUpOpened = false;
+    public static bool isCloseUpOpened = false;
     // Update is called once per frame
 
     private void Start() {

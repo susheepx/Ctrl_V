@@ -7,7 +7,10 @@ public class CheckChemicals : MonoBehaviour
 {
     public List<string> guessChemicalList = new List<string>();
     public List<string> answerChemicalList = new List<string>();
-    private bool isCodeSolved = false;
+    public static bool isCodeSolved = false;
+    public static bool isAdhesiveCollected = false;
+
+    public GameObject adhesiveImage;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +32,9 @@ public class CheckChemicals : MonoBehaviour
             
         }
         Debug.Log("yayy u got it");
+        adhesiveImage.SetActive(true);
+
+
     }
     }
 

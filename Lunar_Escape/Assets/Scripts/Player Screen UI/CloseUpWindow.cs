@@ -14,8 +14,7 @@ public class CloseUpWindow : MonoBehaviour
     private string buttonName;
     public Sprite blueprint;
     
-    public Sprite breakernote;
-    public Sprite poem;
+    public Sprite breakernote, poem, folder;
     private void Awake() 
     {
         image = closeUpImage.GetComponent<SpriteRenderer>();
@@ -49,6 +48,7 @@ public class CloseUpWindow : MonoBehaviour
         {
             gameObject.SetActive(false);
             IsWindowOpen = false;
+            image.sprite = null;
         } 
 
     }
@@ -65,7 +65,13 @@ public class CloseUpWindow : MonoBehaviour
                 image.sprite = breakernote;
             }
             else if (buttonName == "poemIcon")
+            {
                 image.sprite = poem;  
+            }
+            else if (buttonName == "folderIcon")
+            {
+                image.sprite = folder;
+            }
         }
 
     }
