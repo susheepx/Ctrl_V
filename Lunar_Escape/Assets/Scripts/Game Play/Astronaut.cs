@@ -6,7 +6,7 @@ using TMPro;
 public class Astronaut : MonoBehaviour
 {
     //storyline
-    public GameCanvasController gameCanvasController;
+    public GameCanvasController prompts;
     public ItemWorld Keycard;
     //player
     private float movementX;
@@ -61,7 +61,7 @@ public class Astronaut : MonoBehaviour
                 inventory.AddItem(itemWorld.GetItem());
                 itemWorld.DestroySelf();
                 if (itemWorld.name == "blueprint") {
-                    gameCanvasController.openDialogueBox(0, gameCanvasController.storysceneList);
+                    prompts.openDialogueBox(1, prompts.ActI);
                 }
 
                 if (itemWorld.name == "folder") {

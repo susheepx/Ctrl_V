@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class BasementSetup : MonoBehaviour
 {
+    public Timer timer;
     public ItemWorld bottle1;
     public ItemWorld bottle2;
     public ItemWorld bottle3;
+    public GameCanvasController prompts;
     // Start is called before the first frame update
     void Start()
     {
+        prompts.openDialogueBox(0, prompts.ActI);
         ItemWorld.SpawnItemWorld(new Vector3(-0.2f,-5.6f,0), new Item { itemType = Item.ItemType.BluePrint});
         ItemWorld.SpawnItemWorld(new Vector3(3.5f,2.8f,0), new Item { itemType = Item.ItemType.BreakerNote});
         ItemWorld.SpawnItemWorld(new Vector3(91.34f,-31.17f,0), new Item { itemType = Item.ItemType.Poem});
@@ -19,6 +22,7 @@ public class BasementSetup : MonoBehaviour
         bottle1.GetComponent<BoxCollider2D>().size = new Vector2 (1.21f,0.79f);
         bottle2.GetComponent<BoxCollider2D>().size = new Vector2 (0.62f,1.19f);
         bottle3.GetComponent<BoxCollider2D>().size = new Vector2 (0.61f,1.36f);
+        timer.StartTimer();
     }
 
     // Update is called once per frame

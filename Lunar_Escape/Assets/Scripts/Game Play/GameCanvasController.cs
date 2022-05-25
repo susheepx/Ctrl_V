@@ -10,9 +10,7 @@ public class GameCanvasController : MonoBehaviour
     public GameObject dialogue;
     public GameObject playerInput;
     public ElevatorButton elevatorButton;
-    public List<StoryScene> storysceneList = new List<StoryScene>();
-    public List<StoryScene> itemPickedUpList = new List<StoryScene>();
-    public List<StoryScene> promptsList = new List<StoryScene>();
+    public List<StoryScene> storysceneList, ActI, ActII, Elevator, ActIII = new List<StoryScene>();
 
     // Start is called before the first frame update
     void Start()

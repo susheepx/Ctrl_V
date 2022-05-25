@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BreakerLock : MonoBehaviour
 {
+    public GameCanvasController prompts;
     public bool isCodeSolved;
     public GameObject breakerBox;
     public GameObject wireBackground;
@@ -43,6 +44,7 @@ public class BreakerLock : MonoBehaviour
         gameObject.SetActive(false);
         breakerBox.SetActive(false);
         wireBackground.SetActive(true);
+        prompts.openDialogueBox(2, prompts.ActI);
 
     }
         

@@ -6,7 +6,7 @@ using UnityEngine.Networking;
 using TMPro;
 using UnityEngine.EventSystems;
 
-public class Timer : MonoBehaviour
+public class wrongtimer : MonoBehaviour
 {
     //Timer Display
     public TMP_Text textTimer;

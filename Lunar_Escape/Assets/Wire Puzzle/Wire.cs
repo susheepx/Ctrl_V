@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Wire : MonoBehaviour
 {
+    public GameCanvasController prompts;
     public static int numOfConnected;
     public static int numOfCorrect;
     public Animator anim;
@@ -102,6 +103,7 @@ public class Wire : MonoBehaviour
             wireGame.SetActive(false);
             Astronaut.canMove = true;
             anim.SetTrigger("ElectricalDoorOpen");
+            prompts.openDialogueBox(3, prompts.ActI);
             return;
         }
         else

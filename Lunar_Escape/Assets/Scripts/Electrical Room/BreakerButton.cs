@@ -56,8 +56,10 @@ public class BreakerButton : MonoBehaviour
             
 
         }
-
-        if (Input.GetKeyDown(KeyCode.Q) && isCloseup)
+        
+    }
+    public void openBreakerLock() {
+            if (isCloseup)
             {
                 if (isLockShown == false)
                 {
@@ -71,8 +73,5 @@ public class BreakerButton : MonoBehaviour
                     isCloseup = true;
                 }
             }
-
-
     }
-   
 }

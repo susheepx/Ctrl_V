@@ -17,7 +17,7 @@ public class openSafe : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F) && GetComponent<Collider2D>() == Astronaut.currentItem && Astronaut.interact) {
                 if (InGameObject.isCloseUpOpened == false) {
-                    chemicalCanvas.SetActive(true);
+                    //SchemicalCanvas.SetActive(true);
                     adhesive.SetActive(false);
                 }
                 else {

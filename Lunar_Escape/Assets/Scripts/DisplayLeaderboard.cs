@@ -68,7 +68,7 @@ public class DisplayLeaderboard : MonoBehaviour
     }
 
         public void ReadEntries1() { //rangelow and rangehigh are cells like A1 or F12
-            var range = $"{sheet}!A2:O2"; 
+            var range = $"{sheet}!A2:P2"; 
             var request = service.Spreadsheets.Values.Get(SpreadsheetId, range);
             var response = request.Execute();
             var values = response.Values;
@@ -78,14 +78,14 @@ public class DisplayLeaderboard : MonoBehaviour
                 foreach(var row in values)
                 {
                     Username1=($"{row[0]}");
-                    Time1=($"{row[9]}");
+                    Time1=($"{row[15]}");
                 }
                 
             }
         }
 
         public void ReadEntries2() { //rangelow and rangehigh are cells like A1 or F12
-            var range = $"{sheet}!A3:O3"; 
+            var range = $"{sheet}!A3:P3"; 
             var request = service.Spreadsheets.Values.Get(SpreadsheetId, range);
             var response = request.Execute();
             var values = response.Values;
@@ -95,14 +95,14 @@ public class DisplayLeaderboard : MonoBehaviour
                 foreach(var row in values)
                 {
                     Username2=($"{row[0]}");
-                    Time2=($"{row[9]}");
+                    Time2=($"{row[15]}");
                 }
                 
             }
         }
 
         public void ReadEntries3() { //rangelow and rangehigh are cells like A1 or F12
-            var range = $"{sheet}!A4:O4"; 
+            var range = $"{sheet}!A4:P4"; 
             var request = service.Spreadsheets.Values.Get(SpreadsheetId, range);
             var response = request.Execute();
             var values = response.Values;
@@ -112,13 +112,13 @@ public class DisplayLeaderboard : MonoBehaviour
                 foreach(var row in values)
                 {
                     Username3=($"{row[0]}");
-                    Time3=($"{row[9]}");
+                    Time3=($"{row[15]}");
                 }
                 
             }
         }
         public void ReadEntries4() { //rangelow and rangehigh are cells like A1 or F12
-            var range = $"{sheet}!A5:O5"; 
+            var range = $"{sheet}!A5:P5"; 
             var request = service.Spreadsheets.Values.Get(SpreadsheetId, range);
             var response = request.Execute();
             var values = response.Values;
@@ -128,13 +128,13 @@ public class DisplayLeaderboard : MonoBehaviour
                 foreach(var row in values)
                 {
                     Username4=($"{row[0]}");
-                    Time4=($"{row[9]}");
+                    Time4=($"{row[15]}");
                 }
                 
             }
         }
         public void ReadEntries5() { //rangelow and rangehigh are cells like A1 or F12
-            var range = $"{sheet}!A6:O6"; 
+            var range = $"{sheet}!A6:P6"; 
             var request = service.Spreadsheets.Values.Get(SpreadsheetId, range);
             var response = request.Execute();
             var values = response.Values;
@@ -144,7 +144,7 @@ public class DisplayLeaderboard : MonoBehaviour
                 foreach(var row in values)
                 {
                     Username5=($"{row[0]}");
-                    Time5=($"{row[9]}");
+                    Time5=($"{row[15]}");
                 }
                 
             }
