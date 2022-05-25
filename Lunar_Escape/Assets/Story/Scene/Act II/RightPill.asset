@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7855a7731c800e947a9edeb7e951e3fe, type: 3}
-  m_Name: Game 2
+  m_Name: RightPill
   m_EditorClassIdentifier: 
   sentences:
-  - text: Yay! The door is unlocked. Now I can go find my crewmates.
-    speaker: {fileID: 11400000, guid: bed7e9931116eb947b9c738e005e89ae, type: 2}
+  - text: We went in the elevator and found this note in the elevator. That note
+      is still in there. Could you help us?
+    speaker: {fileID: 11400000, guid: e20b2f27660ed6c43859f9e459cd7049, type: 2}
   background: {fileID: 0}
   nextScene: {fileID: 0}

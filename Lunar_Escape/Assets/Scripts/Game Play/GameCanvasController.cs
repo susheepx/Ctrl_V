@@ -11,6 +11,8 @@ public class GameCanvasController : MonoBehaviour
     public GameObject playerInput;
     public ElevatorButton elevatorButton;
     public List<StoryScene> storysceneList = new List<StoryScene>();
+    public List<StoryScene> itemPickedUpList = new List<StoryScene>();
+    public List<StoryScene> promptsList = new List<StoryScene>();
 
     // Start is called before the first frame update
     void Start()
@@ -89,11 +91,13 @@ public class GameCanvasController : MonoBehaviour
         }
     }
 
-    public void openDialogueBox() {
+    public void openDialogueBox(int integer, List<StoryScene> storyScenes) {
         Debug.Log("opendialoguebox is called");
         Astronaut.canMove = false;
         dialogue.SetActive(true);
+        currentScene = storyScenes[integer];
         dialogueBox.PlayScene(currentScene);
+        
     }
 
 }

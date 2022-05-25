@@ -61,13 +61,12 @@ public class Astronaut : MonoBehaviour
                 inventory.AddItem(itemWorld.GetItem());
                 itemWorld.DestroySelf();
                 if (itemWorld.name == "blueprint") {
-                    gameCanvasController.currentScene = gameCanvasController.storysceneList[0];
-                    gameCanvasController.openDialogueBox();
+                    gameCanvasController.openDialogueBox(0, gameCanvasController.storysceneList);
                 }
 
                 if (itemWorld.name == "folder") {
-                    // Keycard = ItemWorld.SpawnItemWorld(new Vector3(76.36f,125.11f,0), new Item { itemType = Item.ItemType.Keycard});
-                    // Keycard.GetComponent<BoxCollider2D>().size = new Vector2 (1f,1f);
+                    Keycard = ItemWorld.SpawnItemWorld(new Vector3(49.42f,110.5f,0), new Item { itemType = Item.ItemType.Keycard});
+                    Keycard.GetComponent<BoxCollider2D>().size = new Vector2 (1f,1f);
 
                 }
                 pickUpItem = false; 

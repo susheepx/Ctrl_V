@@ -28,13 +28,11 @@ public class ElevatorButton : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F) && Astronaut.interact && GetComponent<Collider2D>() == Astronaut.currentItem && isInputFieldSelected == false) {
             if (sentenceGuessed == false) {
-                controller.currentScene = controller.storysceneList[1];
-                controller.openDialogueBox();
+                controller.openDialogueBox(1, controller.storysceneList);
                 
             }
             else {
-                controller.currentScene = controller.storysceneList[4];
-                controller.openDialogueBox();
+                controller.openDialogueBox(4, controller.storysceneList);
                 playerAnswer = "";
                 playerInput.GetComponent<TMP_InputField>().text = "";
             }
@@ -53,9 +51,7 @@ public class ElevatorButton : MonoBehaviour
     public void checkAnswer() {
         if (isPoemSentenceDialogue) {
             if (playerAnswer.Equals("reach high for the stars", System.StringComparison.OrdinalIgnoreCase)) {
-                Debug.Log("checkanswer called");
-                controller.currentScene = controller.storysceneList[2];
-                controller.openDialogueBox();
+                controller.openDialogueBox(2, controller.storysceneList);
                 sentenceGuessed = true;
                 playerAnswer = "";
                 playerInput.GetComponent<TMP_InputField>().text = "";
@@ -63,8 +59,7 @@ public class ElevatorButton : MonoBehaviour
                 
             }
             else {
-                controller.currentScene = controller.storysceneList[3];
-                controller.openDialogueBox();
+                controller.openDialogueBox(3, controller.storysceneList);
             }
         isPoemSentenceDialogue = false;
         }
@@ -84,20 +79,13 @@ public class ElevatorButton : MonoBehaviour
         Debug.Log("guesswhocheck called");
         playerGuessWhoAnswer += playerInput.GetComponent<TMP_InputField>().text;
         if (playerGuessWhoAnswer.Equals(guessWhoAnswer, System.StringComparison.OrdinalIgnoreCase)) {
-            controller.currentScene = controller.storysceneList[5];
-            controller.openDialogueBox();
+            controller.openDialogueBox(5, controller.storysceneList);
             StartCoroutine(fadeScript.waitFadeTime());
-
-            // Debug.Log(inventory.GetItemList());
-            // foreach (Item item in inventory.GetItemList()) {
-            //     inventory.RemoveItem(item);
-            // }
 
         }
         else
         {
-            controller.currentScene = controller.storysceneList[6];
-            controller.openDialogueBox();
+            controller.openDialogueBox(6, controller.storysceneList);
             guessWhoAnswer = "";
         }
     }

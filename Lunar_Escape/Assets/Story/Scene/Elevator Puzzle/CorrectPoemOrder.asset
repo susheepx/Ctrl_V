@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7855a7731c800e947a9edeb7e951e3fe, type: 3}
-  m_Name: Game 1
+  m_Name: CorrectPoemOrder
   m_EditorClassIdentifier: 
   sentences:
-  - text: That blueprint might be useful later too...
-    speaker: {fileID: 11400000, guid: bed7e9931116eb947b9c738e005e89ae, type: 2}
+  - text: Guys, I think I figured it out! Let's head up to HQ now.
+    speaker: {fileID: 11400000, guid: 49a27c74cf6aba342b88f164b46a0ae4, type: 2}
   background: {fileID: 0}
   nextScene: {fileID: 0}

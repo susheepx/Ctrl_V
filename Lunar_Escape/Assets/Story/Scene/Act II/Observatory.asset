@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7855a7731c800e947a9edeb7e951e3fe, type: 3}
+  m_Name: Observatory
+  m_EditorClassIdentifier: 
+  sentences:
+  - text: Captain get over here! Me and Justin just got out of the Greenhouse and
+      found Erika and Genesis lying here!!
+    speaker: {fileID: 11400000, guid: a32ddd837f8a2494fb62b8494409e17b, type: 2}
+  - text: It's really hot in here, and I think they've had a heat stroke. They're
+      barely conscious.
+    speaker: {fileID: 11400000, guid: dc5ef7f1812020747bd8e8614aa4d1aa, type: 2}
+  - text: There's got to be something that can help them! Captain, find something.
+      Please!!
+    speaker: {fileID: 11400000, guid: a32ddd837f8a2494fb62b8494409e17b, type: 2}
+  - text: We're going to stay here to make sure they're ok.
+    speaker: {fileID: 11400000, guid: dc5ef7f1812020747bd8e8614aa4d1aa, type: 2}
+  background: {fileID: 0}
+  nextScene: {fileID: 0}

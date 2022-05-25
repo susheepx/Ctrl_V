@@ -9,11 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7855a7731c800e947a9edeb7e951e3fe, type: 3}
-  m_Name: CorrectPoemOrder
+  m_Script: {fileID: 11500000, guid: 4151d7ecda9a56e4494437a2567ef85e, type: 3}
+  m_Name: User
   m_EditorClassIdentifier: 
-  sentences:
-  - text: I think we did it!
-    speaker: {fileID: 11400000, guid: e20b2f27660ed6c43859f9e459cd7049, type: 2}
-  background: {fileID: 0}
-  nextScene: {fileID: 0}
+  speakerName: You
+  textColor: {r: 1, g: 1, b: 1, a: 1}
