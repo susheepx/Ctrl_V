@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BreakerWires : MonoBehaviour
 {
+    public GameCanvasController prompts;
+    private bool isFirstTimeOpen = true;
     public static bool isWiresOpen = false;
     public Wire wire;
     public GameObject wireGame;
@@ -17,6 +19,11 @@ public class BreakerWires : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.F) && GetComponent<Collider2D>() == Astronaut.currentItem) {
+            if (isFirstTimeOpen) {
+                prompts.openDialogueBox(2,prompts.ActI);
+                isFirstTimeOpen = false;
+                
+            }
         if (isWiresOpen == false) {
             wireGame.SetActive(true);
             isWiresOpen = true;

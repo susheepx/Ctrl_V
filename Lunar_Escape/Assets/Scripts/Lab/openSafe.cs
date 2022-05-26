@@ -9,7 +9,7 @@ public class openSafe : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -17,7 +17,7 @@ public class openSafe : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F) && GetComponent<Collider2D>() == Astronaut.currentItem && Astronaut.interact) {
                 if (InGameObject.isCloseUpOpened == false) {
-                    //SchemicalCanvas.SetActive(true);
+                    chemicalCanvas.SetActive(true);
                     adhesive.SetActive(false);
                 }
                 else {

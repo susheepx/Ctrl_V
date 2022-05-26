@@ -6,6 +6,7 @@ using TMPro;
 
 public class InfirmaryDoorLock : MonoBehaviour
 {
+    public GameCanvasController prompts;
     public TextMeshProUGUI keyboardScreenText;
     public TextMeshProUGUI currentButtonText;
     public GameObject popUpKeypad;
@@ -48,6 +49,9 @@ public class InfirmaryDoorLock : MonoBehaviour
             popUpKeypad.SetActive(false);
             keypadOpen = false;
             anim.SetTrigger("InfirmaryDoorSlide");
+            if (EnterCollider.isFirstEnter == true) {
+                prompts.openDialogueBox(1, prompts.ActII);
+            }
         }
         else if (keyboardScreenText.text.Length == 5) {
             keyboardScreenText.text = "";

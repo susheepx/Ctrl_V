@@ -13,8 +13,32 @@ MonoBehaviour:
   m_Name: RightPill
   m_EditorClassIdentifier: 
   sentences:
-  - text: We went in the elevator and found this note in the elevator. That note
-      is still in there. Could you help us?
+  - text: Omg! The pill worked! They're starting to wake up!
+    speaker: {fileID: 11400000, guid: a32ddd837f8a2494fb62b8494409e17b, type: 2}
+  - text: My head....
+    speaker: {fileID: 11400000, guid: 328f0449067be28438f74e8de5a6bd5d, type: 2}
+  - text: I definitely feel a lot better than I did a minute ago.
     speaker: {fileID: 11400000, guid: e20b2f27660ed6c43859f9e459cd7049, type: 2}
+  - text: 'That''s great! You guys were burning up, I was scared you''re temperature
+      wasn''t going to die down. '
+    speaker: {fileID: 11400000, guid: a32ddd837f8a2494fb62b8494409e17b, type: 2}
+  - text: Yeah, thank god our Captain found the right medicine! By the way, where
+      did scientist James go?
+    speaker: {fileID: 11400000, guid: dc5ef7f1812020747bd8e8614aa4d1aa, type: 2}
+  - text: Oh, ummm... he, umm... A tile came loose and fell on his head and I don't
+      think he survived
+    speaker: {fileID: 11400000, guid: 49a27c74cf6aba342b88f164b46a0ae4, type: 2}
+  - text: Wait what!!! Then what are we supposed to do, we don't know how to navigate
+      this place!?
+    speaker: {fileID: 11400000, guid: e20b2f27660ed6c43859f9e459cd7049, type: 2}
+  - text: Erika, calm down. Tell them what we found in the elevator.
+    speaker: {fileID: 11400000, guid: 328f0449067be28438f74e8de5a6bd5d, type: 2}
+  - text: Oh, yaa. We went in the elevator and found this note. Seems like scientist
+      James left it for us. And now that he's no longer here, we got to figure out
+      what it was. The notes still there, could you go check it out for us? Genesis
+      doesn't seem like she can quite get up yet.
+    speaker: {fileID: 11400000, guid: e20b2f27660ed6c43859f9e459cd7049, type: 2}
+  - text: Captain, I'll go with you!
+    speaker: {fileID: 11400000, guid: a32ddd837f8a2494fb62b8494409e17b, type: 2}
   background: {fileID: 0}
   nextScene: {fileID: 0}

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Wire : MonoBehaviour
 {
+    public FadeScript fadeScript;
     public GameCanvasController prompts;
     public static int numOfConnected;
     public static int numOfCorrect;
@@ -76,6 +77,17 @@ public class Wire : MonoBehaviour
         
     }
     
+    //fade out during blackout
+    public IEnumerator FadeOutIn() {
+        yield return new WaitForSeconds(0.03f);
+        fadeAnim.SetTrigger("Start");
+        yield return new WaitForSeconds(2f);
+        fadeAnim.SetTrigger("End");
+        prompts.openDialogueBox(3, prompts.ActI);
+        UpdateWire(startPosition);
+        wireGame.SetActive(false);
+        BreakerWires.isWiresOpen = false; 
+    }
     private void OnMouseUp() {
 
         if(transform.parent.name.Equals(GetComponent<BoxCollider2D>().transform.parent.name) && isWireConnected){
@@ -83,11 +95,10 @@ public class Wire : MonoBehaviour
             //timer += 90.0f
             // Left.SetActive(false);
             // Right.SetActive(false);
-            StartCoroutine(incorrectWiring());
-            Debug.Log("fade should've been called");
-            wireGame.SetActive(false);
-            BreakerWires.isWiresOpen = false;
-            UpdateWire(startPosition);
+            //call the fade out "blackout" and return to electrical room
+            StartCoroutine(FadeOutIn());
+            
+            
             
         }
         // reset wire position
@@ -106,7 +117,7 @@ public class Wire : MonoBehaviour
             wireGame.SetActive(false);
             Astronaut.canMove = true;
             anim.SetTrigger("ElectricalDoorOpen");
-            prompts.openDialogueBox(3, prompts.ActI);
+            prompts.openDialogueBox(4, prompts.ActI);
             return;
         }
         else
@@ -126,15 +137,6 @@ public class Wire : MonoBehaviour
         float distance = Vector2.Distance(startPoint, newPosition);
         wireEnd.size = new Vector2(distance, wireEnd.size.y);
 
-
-    }
-
-    IEnumerator incorrectWiring() {
-        Debug.Log("incorrect wire is calling");
-        yield return new WaitForSeconds(0.2f);
-        fadeAnim.SetTrigger("Start");
-        yield return new WaitForSeconds(0.6f);
-        fadeAnim.SetTrigger("End");
 
     }
 }

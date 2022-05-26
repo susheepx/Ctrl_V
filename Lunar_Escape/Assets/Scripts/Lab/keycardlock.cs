@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class keycardlock : MonoBehaviour
 {
+    public GameObject openSafe;
     public TextMeshProUGUI promptText;
     public bool isKeycardUsed = false;
     public bool isSafeOpen = false;
@@ -15,7 +16,8 @@ public class keycardlock : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        ItemWorld.SpawnItemWorld(new Vector3(-60f,80f,0), new Item { itemType = Item.ItemType.Keycard});
+
     }
 
     // Update is called once per frame
@@ -30,6 +32,7 @@ public class keycardlock : MonoBehaviour
         if (Astronaut.interact && GetComponent<Collider2D>() == Astronaut.currentItem && EventSystem.current.currentSelectedGameObject.name == "keycardIcon") 
         {
             isSafeOpen = true;
+            openSafe.SetActive(true);
             promptText.text = " safe opened ";
             anim.SetTrigger("openSafe");
         }

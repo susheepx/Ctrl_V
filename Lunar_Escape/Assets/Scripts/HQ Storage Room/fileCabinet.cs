@@ -19,7 +19,7 @@ public class fileCabinet : MonoBehaviour
                 openFileCabinet.SetActive(true);
                 Folder = ItemWorld.SpawnItemWorld(new Vector3(49.42f,111.85f,0), new Item { itemType = Item.ItemType.Folder});
                 //Keycard = ItemWorld.SpawnItemWorld(new Vector3(57.725f,4.6f,0), new Item { itemType = Item.ItemType.Keycard});
-                Folder.GetComponent<BoxCollider2D>().size = new Vector2 (3.2f,1.5f);
+                Folder.GetComponent<BoxCollider2D>().size = new Vector2 (4f,2.75f);
                 //Keycard.GetComponent<BoxCollider2D>().size = new Vector2 (0.62f,1.19f);
             }
 

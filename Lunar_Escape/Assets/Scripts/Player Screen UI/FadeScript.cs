@@ -21,5 +21,7 @@ public class FadeScript : MonoBehaviour
         Astronaut.canMove = true;
     }
 
+    
+
 
 }

@@ -6,6 +6,9 @@ using TMPro;
 
 public class ErikaLyingDown : MonoBehaviour
 {
+    public GameCanvasController prompts;
+    public Animator fadeAnim;
+    public GameObject overheatingSymbols, faintedGenesis;
     public UI_Inventory inventory;
     public TextMeshProUGUI promptText;
     public bool isPillButtonClicked = false;
@@ -33,14 +36,33 @@ public class ErikaLyingDown : MonoBehaviour
         {
             isPillButtonClicked = true;
             isConscious = true;
+            overheatingSymbols.SetActive(false);
+            StartCoroutine(wakingUp());
+
+
+
             promptText.text = " yayy";
+
             inventory.testList();
 
 
         }
         else if (EventSystem.current.currentSelectedGameObject.name == "bottle2Icon" || EventSystem.current.currentSelectedGameObject.name == "bottle1Icon" ) {
-            promptText.text = "oops";
+            prompts.openDialogueBox(2, prompts.ActII);
+
+            inventory.testList();
         }
             
+    }
+
+    IEnumerator wakingUp() {
+        yield return new WaitForSeconds(0.5f);
+        fadeAnim.SetTrigger("Start");
+        yield return new WaitForSeconds(1);
+        faintedGenesis.SetActive(false);
+        fadeAnim.SetTrigger("End");
+        prompts.openDialogueBox(3, prompts.ActII);
+        gameObject.SetActive(false);
+
     }
 }

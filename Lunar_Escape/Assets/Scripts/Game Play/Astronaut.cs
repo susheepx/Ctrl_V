@@ -51,7 +51,9 @@ public class Astronaut : MonoBehaviour
             AnimatePlayer();
         }
         else {
-            //GetComponent<BoxCollider2D>().enabled = false;
+            anim.SetBool("Left", false);
+            anim.SetBool("Right", false);
+            rb.velocity = new Vector2(0f, 0f);
         }
         if (Input.GetKeyDown(KeyCode.E) && pickUpItem) {
             //checks if item is object and destroys; adds to inventory
@@ -65,7 +67,7 @@ public class Astronaut : MonoBehaviour
                 }
 
                 if (itemWorld.name == "folder") {
-                    Keycard = ItemWorld.SpawnItemWorld(new Vector3(49.42f,110.5f,0), new Item { itemType = Item.ItemType.Keycard});
+                    Keycard = ItemWorld.SpawnItemWorld(new Vector3(49.42f,110f,0), new Item { itemType = Item.ItemType.Keycard});
                     Keycard.GetComponent<BoxCollider2D>().size = new Vector2 (1f,1f);
 
                 }

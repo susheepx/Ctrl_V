@@ -19,10 +19,10 @@ MonoBehaviour:
   - text: It's really hot in here, and I think they've had a heat stroke. They're
       barely conscious.
     speaker: {fileID: 11400000, guid: dc5ef7f1812020747bd8e8614aa4d1aa, type: 2}
+  - text: We're going to stay here to make sure they're ok.
+    speaker: {fileID: 11400000, guid: dc5ef7f1812020747bd8e8614aa4d1aa, type: 2}
   - text: There's got to be something that can help them! Captain, find something.
       Please!!
     speaker: {fileID: 11400000, guid: a32ddd837f8a2494fb62b8494409e17b, type: 2}
-  - text: We're going to stay here to make sure they're ok.
-    speaker: {fileID: 11400000, guid: dc5ef7f1812020747bd8e8614aa4d1aa, type: 2}
   background: {fileID: 0}
   nextScene: {fileID: 0}
