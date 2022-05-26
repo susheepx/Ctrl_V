@@ -28,6 +28,5 @@ public class LockDigit : MonoBehaviour
             x = 0;
         alphaChange.text = Code.lockAlphaList[x];
         Code.inputCodeList[Code.lockSlot.IndexOf(EventSystem.current.currentSelectedGameObject.name)] = Code.lockAlphaList[x];
-        Code.checkSecretCode();
     }
 }

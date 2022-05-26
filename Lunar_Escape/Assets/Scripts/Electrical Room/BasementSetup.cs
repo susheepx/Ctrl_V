@@ -15,6 +15,7 @@ public class BasementSetup : MonoBehaviour
         prompts.openDialogueBox(0, prompts.ActI);
         ItemWorld.SpawnItemWorld(new Vector3(-0.2f,-5.6f,0), new Item { itemType = Item.ItemType.BluePrint});
         ItemWorld.SpawnItemWorld(new Vector3(3.5f,2.8f,0), new Item { itemType = Item.ItemType.BreakerNote});
+        ItemWorld.SpawnItemWorld(new Vector3(4.9f,2f,0), new Item { itemType = Item.ItemType.BreakerWireNote});
         ItemWorld.SpawnItemWorld(new Vector3(91.34f,-31.17f,0), new Item { itemType = Item.ItemType.Poem});
         bottle1 = ItemWorld.SpawnItemWorld(new Vector3(68.246f,0.769f,0), new Item { itemType = Item.ItemType.Bottle1});
         bottle2 = ItemWorld.SpawnItemWorld(new Vector3(57.725f,4.6f,0), new Item { itemType = Item.ItemType.Bottle2});

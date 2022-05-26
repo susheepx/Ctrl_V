@@ -12,7 +12,7 @@ public class FadeScript : MonoBehaviour
     public IEnumerator waitFadeTime() {
         yield return new WaitForSeconds(0.3f);
         anim.SetTrigger("Start");
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         astronaut.transform.position = hqElevator.transform.position + new Vector3(1f, -2.5f, 0f);
         Astronaut.currentItem = null;
         promptDialogue.SetActive(false);

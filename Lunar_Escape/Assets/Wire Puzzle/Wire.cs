@@ -7,7 +7,7 @@ public class Wire : MonoBehaviour
     public GameCanvasController prompts;
     public static int numOfConnected;
     public static int numOfCorrect;
-    public Animator anim;
+    public Animator anim, fadeAnim;
     private bool isWireConnected = false;
     //15% of >:(  85% :D
     Vector3 startPoint;
@@ -83,9 +83,12 @@ public class Wire : MonoBehaviour
             //timer += 90.0f
             // Left.SetActive(false);
             // Right.SetActive(false);
+            StartCoroutine(incorrectWiring());
+            Debug.Log("fade should've been called");
             wireGame.SetActive(false);
             BreakerWires.isWiresOpen = false;
             UpdateWire(startPosition);
+            
         }
         // reset wire position
         if (! isWireConnected) {
@@ -123,6 +126,15 @@ public class Wire : MonoBehaviour
         float distance = Vector2.Distance(startPoint, newPosition);
         wireEnd.size = new Vector2(distance, wireEnd.size.y);
 
+
+    }
+
+    IEnumerator incorrectWiring() {
+        Debug.Log("incorrect wire is calling");
+        yield return new WaitForSeconds(0.2f);
+        fadeAnim.SetTrigger("Start");
+        yield return new WaitForSeconds(0.6f);
+        fadeAnim.SetTrigger("End");
 
     }
 }
