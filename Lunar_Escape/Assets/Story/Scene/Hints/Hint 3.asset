@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7855a7731c800e947a9edeb7e951e3fe, type: 3}
   m_Name: Hint 3
   m_EditorClassIdentifier: 
-  sentences: []
+  sentences:
+  - text: 
+    speaker: {fileID: 11400000, guid: bed7e9931116eb947b9c738e005e89ae, type: 2}
   background: {fileID: 0}
   nextScene: {fileID: 0}

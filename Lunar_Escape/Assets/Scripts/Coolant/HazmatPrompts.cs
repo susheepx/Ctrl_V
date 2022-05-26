@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class HazmatPrompts : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+    public static bool isFirstEnter = true;
+    public GameCanvasController prompts;
+    public GameObject commandPrompt;
+    public Collider2D warning1, warning2, warning3;
+    
+    private void OnTriggerEnter2D(Collider2D collider) {
+        if (isFirstEnter) {
+            prompts.openDialogueBox(0, prompts.Warnings);
+            commandPrompt.SetActive(false);
+            isFirstEnter = false;
+            return;
+        }
+        gameObject.SetActive(false);
         
     }
 }
