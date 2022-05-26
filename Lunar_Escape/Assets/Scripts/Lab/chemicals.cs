@@ -7,7 +7,7 @@ public class chemicals : MonoBehaviour
 {
 
     public Color clickedColor;
-    private ColorBlock thisChemical;
+    public ColorBlock thisChemical;
     public bool isSelected = false;
     public static int numSelected = 0;
     
@@ -37,28 +37,19 @@ public class chemicals : MonoBehaviour
             }
         }
         if (isSelected) {
+            //changes color back to normal color
             thisChemical.normalColor = thisChemical.disabledColor;
             thisChemical.selectedColor = thisChemical.disabledColor;
             GetComponent<Button>().colors = thisChemical;
             isSelected = false;
             numSelected --;
 
-            //add chemical selected to list
+            //remove chemical selected to list
             check.guessChemicalList.Remove(GetComponent<Button>().name);
 
         }   
     }
 
-    // public void addremoveItem() {
-    //     if (! isSelected) {
-    //         check.guessChemicalList.Remove(GetComponent<Button>().name);
-    //         return;
-    //     }
-    //     check.guessChemicalList.Add(GetComponent<Button>().name);
-
-    // }
-
-
-
+    
     
 }

@@ -8,7 +8,7 @@ public class UI_Inventory : MonoBehaviour
     private Inventory inventory;
     private Transform itemSlotContainer;
     private Transform itemSlotTemplate;
-    private Item bottle;
+    private Item tempItem;
 
     private void Awake() {
     }
@@ -64,11 +64,10 @@ public class UI_Inventory : MonoBehaviour
 
     public void testList() {
         foreach (Item item in inventory.GetItemList()) {
-            if(item.InventoryName() == "bottle3Icon" || item.InventoryName() == "bottle2Icon" || item.InventoryName() == "bottle1Icon") {
-                
-                bottle = item;
+            if(item.InventoryName() == "bottle3Icon" || item.InventoryName() == "bottle2Icon" || item.InventoryName() == "bottle1Icon" || item.InventoryName() == "keycardIcon" || item.InventoryName() == "adhesiveIcon") {
+                tempItem = item;
             }
         }
-        inventory.RemoveItem(bottle);
+        inventory.RemoveItem(tempItem);
     }
 }

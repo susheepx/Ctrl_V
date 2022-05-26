@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class FadeScript : MonoBehaviour
 {
     public Animator anim;
@@ -21,7 +22,12 @@ public class FadeScript : MonoBehaviour
         Astronaut.canMove = true;
     }
 
-    
+    public IEnumerator fadeOutIn() {
+        yield return new WaitForSeconds(0.2f);
+        anim.SetTrigger("Start");
+        yield return new WaitForSeconds(1.25f);
+        anim.SetTrigger("End");
+    }
 
 
 }

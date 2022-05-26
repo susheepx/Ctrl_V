@@ -22,12 +22,12 @@ public class openSafe : MonoBehaviour
                 }
                 else {
                     chemicalCanvas.SetActive(false);
-                    if (CheckChemicals.isCodeSolved == true)
+                    if (CheckChemicals.isCodeSolved == true) {
                         adhesive.SetActive(false);
                         if (CheckChemicals.isAdhesiveCollected == false) {
-                            ItemWorld.SpawnItemWorld(new Vector3(-54.67f,78.4f,0), new Item { itemType = Item.ItemType.Adhesive});
                             CheckChemicals.isAdhesiveCollected = true;
                         }
+                    }
 
                 }
 

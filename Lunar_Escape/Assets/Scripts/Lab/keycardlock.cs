@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class keycardlock : MonoBehaviour
 {
+    public UI_Inventory inventory;
     public GameObject openSafe;
     public TextMeshProUGUI promptText;
     public bool isKeycardUsed = false;
@@ -31,6 +32,7 @@ public class keycardlock : MonoBehaviour
         isKeycardUsed = true;
         if (Astronaut.interact && GetComponent<Collider2D>() == Astronaut.currentItem && EventSystem.current.currentSelectedGameObject.name == "keycardIcon") 
         {
+            inventory.testList();
             isSafeOpen = true;
             openSafe.SetActive(true);
             promptText.text = " safe opened ";
