@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class StoryController : MonoBehaviour
 {
+    public StoryScene lastScene;
     public StoryScene currentScene;
     public BottomBarController bottomBar;
     public  Animator animator;
@@ -31,6 +33,10 @@ public class StoryController : MonoBehaviour
                 } 
                 else   
                     bottomBar.PlayNextSentence();
+            }
+            if(currentScene == lastScene) {
+                animator.SetTrigger("Start");
+                SceneManager.LoadScene(sceneBuildIndex: 2);
             }
                 
         }

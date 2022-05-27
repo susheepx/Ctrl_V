@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4151d7ecda9a56e4494437a2567ef85e, type: 3}
-  m_Name: Janet
+  m_Script: {fileID: 11500000, guid: 7855a7731c800e947a9edeb7e951e3fe, type: 3}
+  m_Name: StartCoolant
   m_EditorClassIdentifier: 
-  speakerName: Janet
-  textColor: {r: 1, g: 0.4669811, b: 0.4669811, a: 1}
+  sentences: []
+  background: {fileID: 0}
+  nextScene: {fileID: 0}

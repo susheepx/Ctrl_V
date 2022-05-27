@@ -42,6 +42,7 @@ public class StorageLock : MonoBehaviour
         yield return new WaitForSeconds(0.6f);
         gameObject.SetActive(false);
         anim.SetTrigger("InfirmaryDoorSlide");
+        Astronaut.canMove = true;
 
     }
         

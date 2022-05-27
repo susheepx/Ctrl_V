@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class StandingCabinet : MonoBehaviour
 {
+    public GameCanvasController prompts;
+    private bool isFirstTimeOpen = true;
     public Sprite openStandingCabinet;
     public Sprite closedStandingCabinet;
     public GameObject openPamphlet;
@@ -27,6 +29,10 @@ public class StandingCabinet : MonoBehaviour
                 else {
                     openPamphlet.SetActive(false);
                     isPamphletOpen = false;
+                    if (isFirstTimeOpen) {
+                        prompts.openDialogueBox(4, prompts.ActII);
+                        isFirstTimeOpen = false;
+                    }
                 }
 
             }

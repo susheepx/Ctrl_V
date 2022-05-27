@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Hint 4
   m_EditorClassIdentifier: 
   sentences:
-  - text: 
+  - text: ' Connect the Pink to Red wire, Yellow to Blue, and Orange to Green wire
+      to unlock the doors.'
     speaker: {fileID: 11400000, guid: bed7e9931116eb947b9c738e005e89ae, type: 2}
   background: {fileID: 0}
   nextScene: {fileID: 0}

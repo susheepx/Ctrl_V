@@ -33,10 +33,12 @@ MonoBehaviour:
     speaker: {fileID: 11400000, guid: e20b2f27660ed6c43859f9e459cd7049, type: 2}
   - text: Erika, calm down. Tell them what we found in the elevator.
     speaker: {fileID: 11400000, guid: 328f0449067be28438f74e8de5a6bd5d, type: 2}
-  - text: Oh, yaa. We went in the elevator and found this note. Seems like scientist
-      James left it for us. And now that he's no longer here, we got to figure out
-      what it was. The notes still there, could you go check it out for us? Genesis
-      doesn't seem like she can quite get up yet.
+  - text: 'Oh, yaa. We went in the elevator and found this note. Seems like scientist
+      James left it for us. And now that he''s no longer here, we got to figure out
+      what it was. '
+    speaker: {fileID: 11400000, guid: e20b2f27660ed6c43859f9e459cd7049, type: 2}
+  - text: The notes still there, could you go check it out for us? Genesis doesn't
+      seem like she can quite get up yet.
     speaker: {fileID: 11400000, guid: e20b2f27660ed6c43859f9e459cd7049, type: 2}
   - text: Captain, I'll go with you!
     speaker: {fileID: 11400000, guid: a32ddd837f8a2494fb62b8494409e17b, type: 2}

@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Warning 1
   m_EditorClassIdentifier: 
   sentences:
-  - text: ' You''re starting to feel a little woozy.  You probably shouldn''t go
-      any further until you find something to protect yourself.'
-    speaker: {fileID: 11400000, guid: bed7e9931116eb947b9c738e005e89ae, type: 2}
+  - text: I'm starting to smell the coolant gas... IS THERE A HOLE IN THIS SUIT?!
+    speaker: {fileID: 11400000, guid: 49a27c74cf6aba342b88f164b46a0ae4, type: 2}
+  - text: I don't know where that hole is... and I'm not sure how much longer this
+      suit will keep me protected... I've got to hurry up!!
+    speaker: {fileID: 11400000, guid: 49a27c74cf6aba342b88f164b46a0ae4, type: 2}
   background: {fileID: 0}
   nextScene: {fileID: 0}

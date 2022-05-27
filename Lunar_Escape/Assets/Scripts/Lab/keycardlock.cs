@@ -17,7 +17,7 @@ public class keycardlock : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ItemWorld.SpawnItemWorld(new Vector3(-60f,80f,0), new Item { itemType = Item.ItemType.Keycard});
+        //ItemWorld.SpawnItemWorld(new Vector3(-60f,80f,0), new Item { itemType = Item.ItemType.Keycard});
 
     }
 

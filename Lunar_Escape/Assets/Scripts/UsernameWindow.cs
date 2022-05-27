@@ -23,7 +23,7 @@ public class UsernameWindow : MonoBehaviour
         if(EventSystem.current.currentSelectedGameObject.name == "ExitUsername")
             gameObject.SetActive(false);
         else if (username.Length > 1)
-            SceneManager.LoadScene(sceneBuildIndex:2);
+            SceneManager.LoadScene(sceneBuildIndex:1);
     }
 
     public void UsernameInputted(string s)

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hint 10
   m_EditorClassIdentifier: 
   sentences:
-  - text: 
-    speaker: {fileID: 11400000, guid: bed7e9931116eb947b9c738e005e89ae, type: 2}
+  - text: "\u201CThe chemicals\u2019  color looks similar to the periodic table.\u201D"
+    speaker: {fileID: 11400000, guid: 49a27c74cf6aba342b88f164b46a0ae4, type: 2}
   background: {fileID: 0}
   nextScene: {fileID: 0}

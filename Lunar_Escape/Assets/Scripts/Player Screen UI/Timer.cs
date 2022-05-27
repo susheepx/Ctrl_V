@@ -40,7 +40,7 @@ public class Timer : MonoBehaviour
     private float adjpuzzle2time = 0.0f;
     private float adjpuzzle3time = 0.0f;
 
-    public int hintCount = 1;
+    public static int hintCount = 0;
 
     // Update is called once per frame
     void Update()
@@ -102,6 +102,7 @@ public class Timer : MonoBehaviour
     }
     public void GiveHint()
     {
+        controller.openDialogueBox(hintCount, controller.Hints);
         hintCount+=1;
         if (puzzlecount == 1)
         {

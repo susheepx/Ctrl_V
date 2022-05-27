@@ -43,7 +43,9 @@ public class GameCanvasController : MonoBehaviour
                         // elevatorButton.checkAnswer();
                         if (currentScene != storysceneList[1] && currentScene != storysceneList[4] ) {
                             dialogue.SetActive(false);
-                            Astronaut.canMove = true;
+                            if (currentScene != ActI[2]) {
+                                Astronaut.canMove = true;
+                            }
                             elevatorButton.playerInput.SetActive(false);
                         }
                         else if (currentScene == storysceneList[1]) {

@@ -43,6 +43,7 @@ public class BreakerLock : MonoBehaviour
         gameObject.SetActive(false);
         breakerBox.SetActive(false);
         wireBackground.SetActive(true);
+        Astronaut.canMove = true;
 
     }
         

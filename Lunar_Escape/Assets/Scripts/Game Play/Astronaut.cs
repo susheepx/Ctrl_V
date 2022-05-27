@@ -6,8 +6,11 @@ using TMPro;
 public class Astronaut : MonoBehaviour
 {
     //storyline
+    public static Item staticBreakerNote;
+    private bool isAdhesiveAcquired = false;
     public GameCanvasController prompts;
     public ItemWorld Keycard;
+    public Collider2D warning1, warning2, warning3;
     //player
     private float movementX;
     private float movementY;
@@ -64,12 +67,18 @@ public class Astronaut : MonoBehaviour
                 itemWorld.DestroySelf();
                 if (itemWorld.name == "blueprint") {
                     prompts.openDialogueBox(1, prompts.ActI);
+                    Timer.hintCount ++;
                 }
-
+                if (itemWorld.name == "breakernote") {
+                    staticBreakerNote = itemWorld.GetItem();
+                    Debug.Log(staticBreakerNote);
+                }
                 if (itemWorld.name == "folder") {
                     Keycard = ItemWorld.SpawnItemWorld(new Vector3(49.42f,110f,0), new Item { itemType = Item.ItemType.Keycard});
                     Keycard.GetComponent<BoxCollider2D>().size = new Vector2 (1f,1f);
-
+                }
+                if (itemWorld.name == "adhesive") {
+                    isAdhesiveAcquired = true;
                 }
                 pickUpItem = false; 
                 currentItem = null;
@@ -96,10 +105,49 @@ public class Astronaut : MonoBehaviour
         
         else if (pickUpItem != true) 
         {
+            if (collider == warning1) {
+                if (isAdhesiveAcquired == false) {
+                    prompts.openDialogueBox(3, prompts.Warnings);
+                    return;
+                }
+                else {
+                    prompts.openDialogueBox(0, prompts.Warnings);
+                    warning1.enabled = false;
+                    moveForce = 4;
+                    return;
+                }
+            }
+            else if (warning2 == collider) {
+                if (isAdhesiveAcquired == false) {
+                    prompts.openDialogueBox(4, prompts.Warnings);
+                    return;
+                }
+                else {
+                prompts.openDialogueBox(1, prompts.Warnings);
+                warning2.enabled = false;
+                moveForce = 2;
+                return;
+                }
+            }
+            else if  (warning3 == collider) {
+                if (isAdhesiveAcquired == false) {
+                    prompts.openDialogueBox(5, prompts.Warnings);
+                    return;
+                }
+                else {
+                prompts.openDialogueBox(2, prompts.Warnings);
+                warning3.enabled = false;
+                moveForce = 1;
+                return;
+                }
+            }
+            else {
             //is able to interact with objects such as breaker button
             interact = true;
             controlText.text = "- Press F -";
+            }
         }
+        
     }
 
     // private void OnTriggerStay2D(Collider2D collider) {

@@ -65,10 +65,12 @@ public class CheckChemicals : MonoBehaviour
     }
 
     IEnumerator waitForFade() {
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(1.5f);
         popupSafe.SetActive(false);
         chemCanvas.SetActive(false);
         ItemWorld.SpawnItemWorld(new Vector3(-54.67f,78.4f,0), new Item { itemType = Item.ItemType.Adhesive});
+
+        Astronaut.canMove = true;
 
     }
     
