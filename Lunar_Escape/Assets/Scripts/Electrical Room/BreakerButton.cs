@@ -42,11 +42,13 @@ public class BreakerButton : MonoBehaviour
             {
                 if (isCloseup == false)
                 {
+                    Astronaut.canMove = false;
                     popupBox.SetActive(true);
                     isCloseup = true;
                 }
                 else
                 {
+                    Astronaut.canMove = true;
                     popupBox.SetActive(false);
                     isCloseup = false;    
                     breakerLock.SetActive(false);
@@ -65,6 +67,7 @@ public class BreakerButton : MonoBehaviour
                 {
                     breakerLock.SetActive(true);
                     isLockShown = true;
+                    Astronaut.canMove = false;
                 }
                 else
                 {

@@ -18,10 +18,12 @@ public class InGameObject : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F) && GetComponent<Collider2D>() == Astronaut.currentItem && Astronaut.interact) {
                 if (isCloseUpOpened == false) {
+                    Astronaut.canMove = false;
                     Object.SetActive(true);                   
                     isCloseUpOpened = true;
                 }
                 else {
+                    Astronaut.canMove = true;
                     Object.SetActive(false);
                     isCloseUpOpened = false;
                 }

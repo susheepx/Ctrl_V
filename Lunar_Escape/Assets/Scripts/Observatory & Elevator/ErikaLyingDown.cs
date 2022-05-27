@@ -39,10 +39,6 @@ public class ErikaLyingDown : MonoBehaviour
             overheatingSymbols.SetActive(false);
             StartCoroutine(wakingUp());
 
-
-
-            promptText.text = " yayy";
-
             inventory.testList();
 
 

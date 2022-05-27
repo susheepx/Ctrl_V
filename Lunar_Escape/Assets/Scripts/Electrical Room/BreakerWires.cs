@@ -27,8 +27,7 @@ public class BreakerWires : MonoBehaviour
         if (isWiresOpen == false) {
             wireGame.SetActive(true);
             isWiresOpen = true;
-            wire.Activate();
-            wire.startSetup();
+            //wire.Start();
             Astronaut.canMove = false;
             
         }

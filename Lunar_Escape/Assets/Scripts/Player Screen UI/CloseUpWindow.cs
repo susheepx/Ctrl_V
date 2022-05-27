@@ -6,11 +6,11 @@ using UnityEngine.EventSystems;
 
 public class CloseUpWindow : MonoBehaviour
 {
-    private SpriteRenderer image;
+    public SpriteRenderer image;
     public GameObject closeUpImage;
     private Transform player;
     private Vector3 tempPos;
-    private bool IsWindowOpen = false;
+    public bool IsWindowOpen = false;
     private string buttonName;
     
     public Sprite blueprint, breakernote, breakerwirenote, poem, folder;

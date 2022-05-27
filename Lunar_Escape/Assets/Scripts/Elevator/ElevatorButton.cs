@@ -69,14 +69,12 @@ public class ElevatorButton : MonoBehaviour
         playerGuessWhoAnswer += playerInput.GetComponent<TMP_InputField>().text;
         playerInput.GetComponent<TMP_InputField>().text = "";
         playerInput.SetActive(true);
-        Debug.Log("calling guess who");
         Debug.Log(playerGuessWhoAnswer);
     }
 
    
 
     public void guessWhoCheck() {
-        Debug.Log("guesswhocheck called");
         playerGuessWhoAnswer += playerInput.GetComponent<TMP_InputField>().text;
         if (playerGuessWhoAnswer.Equals(guessWhoAnswer, System.StringComparison.OrdinalIgnoreCase)) {
             controller.openDialogueBox(5, controller.storysceneList);
@@ -86,7 +84,7 @@ public class ElevatorButton : MonoBehaviour
         else
         {
             controller.openDialogueBox(6, controller.storysceneList);
-            guessWhoAnswer = "";
+            playerGuessWhoAnswer = "";
         }
     }
 

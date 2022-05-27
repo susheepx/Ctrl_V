@@ -17,24 +17,20 @@ public class Wire : MonoBehaviour
     public BoxCollider2D Collider;
     public SpriteRenderer wireEnd;
     public List<Collider2D> wireColliders = new List<Collider2D>();
-    private void Start() {
+    public void Start() {
         if (gameObject != null) {
             startPoint = transform.parent.position;
             startPosition = transform.position;
         }
     }
 
-    //call start setup when popup opened
-    public void startSetup() {
-        startPoint = transform.parent.position;
-        startPosition = transform.position;
+    private void Update() {
+        if (gameObject != null) {
+            startPoint = transform.parent.position;
+            startPosition = transform.position;
+        }
     }
-    //Erica, please delete the following function.  This was for beta testing.
-    public void Activate(){
-        // Left.SetActive(true);
-        // Right.SetActive(true);
-        Start();
-    }
+
     
     private void OnMouseDrag() {
         isWireConnected = false;
