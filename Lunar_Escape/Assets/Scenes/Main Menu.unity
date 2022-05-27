@@ -2789,7 +2789,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8edb4b6149ce42438276801822e309d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayLeaderboard: {fileID: 549137298}
   leaderboardCanvas: {fileID: 561314602}
+  mainScreenCanvas: {fileID: 297980485}
   inputUsername: {fileID: 895734025}
   username: 
 --- !u!1 &1591602849

@@ -84,7 +84,7 @@ public class Astronaut : MonoBehaviour
         }
     }
 
-    
+    public SecondTimer minigameTimer;
     private void Start() {
     }
     private void OnTriggerEnter2D(Collider2D collider) { 
@@ -101,6 +101,7 @@ public class Astronaut : MonoBehaviour
             
         }            
         
+        
         else if (pickUpItem != true) 
         {
             if (collider == warning1) {
@@ -109,6 +110,7 @@ public class Astronaut : MonoBehaviour
                     return;
                 }
                 else {
+                    minigameTimer.ActivateTimerFinal();
                     prompts.openDialogueBox(0, prompts.Warnings);
                     warning1.enabled = false;
                     moveForce = 9;

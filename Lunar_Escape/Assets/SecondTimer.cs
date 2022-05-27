@@ -12,11 +12,15 @@ public class SecondTimer : MonoBehaviour
     private float timer = 0.0f;
     public TMP_Text textTimerFinal;
     // Update is called once per frame
+
+    public GameObject timerTextFinal;
     public void ActivateTimerFinal()
     {
         if (isTimerFinal==false)
         {
             FinalTimer_GameObject.SetActive(true);
+            timerTextFinal.SetActive(false);
+            isTimerFinal = true;
         }
         else if (isTimerFinal==true)
         {
@@ -31,12 +35,17 @@ public class SecondTimer : MonoBehaviour
             DisplayTime();
         }        
     }
+
+    public FadeScript fade;
     void DisplayTime()
     {
-        if (timer>0){
+        if (timer<=74){
             int minutes = Mathf.FloorToInt(timer / 60.0f);
             int seconds = Mathf.FloorToInt(timer - minutes *60);
-            textTimerFinal.text = string.Format("{0:00}:{1:00}", 0-minutes, 59-seconds) + " left...";
+            textTimerFinal.text = string.Format("{0:00}:{1:00}", 1-minutes, 15-seconds) + " left...";
+        }
+        else if (timer == 0) {
+            fade.fadeOutIn();
         }
     }    
 }

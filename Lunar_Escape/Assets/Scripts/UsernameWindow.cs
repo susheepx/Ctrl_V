@@ -9,12 +9,19 @@ using UnityEngine.SceneManagement;
 
 public class UsernameWindow : MonoBehaviour
 {
-    public GameObject leaderboardCanvas;
+    public DisplayLeaderboard displayLeaderboard;
+    public static bool isSurveySubmitted = false;
+    public GameObject leaderboardCanvas, mainScreenCanvas;
     public TMP_InputField inputUsername;
     public string username;
     private void Awake() {;
         leaderboardCanvas.SetActive(false);
         gameObject.SetActive(false);
+        if(isSurveySubmitted == true) {
+            leaderboardCanvas.SetActive(true);
+            mainScreenCanvas.SetActive(false);
+            displayLeaderboard.Start();
+        }
     }
     public void Show()
     {

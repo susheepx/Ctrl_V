@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class CoolantLeak : MonoBehaviour
 {
+    public Timer timer;
     public UI_Inventory inventory;
     public TextMeshProUGUI controlText;
     public GameObject controlPrompt;
@@ -29,6 +30,7 @@ public class CoolantLeak : MonoBehaviour
             controlPrompt.SetActive(false);
             inventory.testList();
             anim.SetTrigger("Fixed");
+            timer.StopTimer();
             StartCoroutine(fadeEndgame());
         }
     }

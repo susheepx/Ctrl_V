@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class FadeScript : MonoBehaviour
 {
+    public Timer timer;
     public static bool isPuzzleTwoSolved = false;
     public GameCanvasController prompts;
     public Inventory inventory;
@@ -23,6 +24,8 @@ public class FadeScript : MonoBehaviour
         UI_inventory.resetInventory();
         ItemWorld.SpawnItemWorld(new Vector3(9f,90f,0), new Item { itemType = Item.ItemType.BreakerNote});
         Timer.hintCount = 8;
+        timer.StopTimer();
+        timer.StartTimer();
         isPuzzleTwoSolved = true;
         anim.SetTrigger("End");
         yield return new WaitForSeconds(1);

@@ -5,9 +5,11 @@ using UnityEngine.UI;
 using UnityEngine.Networking;
 using TMPro;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
+    public GameObject surveySubmitButton;
     public GameCanvasController controller;
     //Timer Display
     public TMP_Text textTimer;
@@ -28,7 +30,7 @@ public class Timer : MonoBehaviour
     string s9 = "";
     string s10 = "";
     string s11 = "";
-    string Buy;
+    string Buy="";
     public static int Hint1 = 0;
     public static int Hint2 = 0;
     public static int Hint3 = 0;
@@ -49,6 +51,34 @@ public class Timer : MonoBehaviour
             timer += Time.deltaTime;
             DisplayTime();
         }
+        if (SceneManager.sceneCount == 3) {
+            if((Rate.text.Length != 0 && Feelings.text.Length != 0 && Feedback.text.Length != 0) && Buy.Length != 0) {
+                if (Buy == "yes") {
+                    if (HowMuch.text.Length != 0) {
+                        surveySubmitButtonOn();
+                    }
+                    else {
+                        surveySubmitButtonOff();
+                    }
+                }
+                else if (Buy == "no") 
+                {
+                    surveySubmitButtonOn();
+                }
+            }
+            else {
+                surveySubmitButtonOff();
+            } 
+        }
+
+    }
+
+    public void surveySubmitButtonOn() {
+        surveySubmitButton.SetActive(true);
+    }
+
+    public void surveySubmitButtonOff() {
+        surveySubmitButton.SetActive(false);
     }
 
     public void TurnOnLeaderboard()
@@ -132,9 +162,9 @@ public class Timer : MonoBehaviour
     }
 
     
-    public static string Username;
+    public static string Username = "LBozo";
 	[SerializeField] TMP_InputField Rate;
-	[SerializeField] TMP_InputField Market;
+	[SerializeField] TMP_InputField Feelings;
 	[SerializeField] TMP_InputField Feedback;
     [SerializeField] Toggle yesBuytoggle;
     [SerializeField] Toggle noBuytoggle;
@@ -205,9 +235,10 @@ public class Timer : MonoBehaviour
         {
             Buy = "no";
             YesBuygameobj.SetActive(false);
+            NoBuygameobj.SetActive(true);
             SelectNo=true;
         }
-        else
+        else if (SelectNo==true)
         {
             Buy="";
             YesBuygameobj.SetActive(true);
@@ -218,7 +249,8 @@ public class Timer : MonoBehaviour
 
     private string URL = "https://docs.google.com/forms/d/1a6D7c8cXegifbgLlZqPP-7LXNG3HCfVt1Xe26Xk5dzA/formResponse";
     public void Send()
-    {
+    {   
+        
         int puzzletot = Mathf.FloorToInt(timer);
         int initialPuzzle2TimeNumint = Mathf.FloorToInt(initialPuzzle2TimeNum);
         int initialPuzzle3TimeNumint = Mathf.FloorToInt(initialPuzzle3TimeNum);
@@ -235,9 +267,11 @@ public class Timer : MonoBehaviour
         s10 = adjpuzzle3timeint.ToString();
         s11 = puzzletot.ToString();
         
-        StartCoroutine(Post(Username, s3, s4, s5, s6, s7, s8, s9, s10, s11, Rate.text, Market.text, Feedback.text, Buy, HowMuch.text));
+        StartCoroutine(Post(Username, s3, s4, s5, s6, s7, s8, s9, s10, s11, Rate.text, Feelings.text, Feedback.text, Buy, HowMuch.text));
+
+    
     }
- 
+    
     IEnumerator Post(string s1, string s3, string s4, string s5, string s6, string s7, string s8, string s9, string s10, string s11, string Rate, string Market, string Feedback, string Buy, string HowMuch)
     {
         WWWForm form = new WWWForm();
@@ -260,6 +294,13 @@ public class Timer : MonoBehaviour
         UnityWebRequest www = UnityWebRequest.Post(URL, form);
 
         yield return www.SendWebRequest();
+
+        yield return new WaitForSeconds(.5f);
+
+        UsernameWindow.isSurveySubmitted = true;
+
+        SceneManager.LoadScene(sceneBuildIndex:0);
+
 
     }
 
