@@ -41396,6 +41396,7 @@ MonoBehaviour:
   bottle3: {fileID: 0}
   poem: {fileID: 0}
   prompts: {fileID: 1271980372}
+  usernameContainer: {fileID: 2118064034}
 --- !u!1 &629193244
 GameObject:
   m_ObjectHideFlags: 0
@@ -136908,11 +136909,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5060119672608529117, guid: dfb8bc922cdde364bb6ec5ca39a6051b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 48
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 5060119672608529117, guid: dfb8bc922cdde364bb6ec5ca39a6051b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 92.5
+      value: -0.8
       objectReference: {fileID: 0}
     - target: {fileID: 5060119672608529117, guid: dfb8bc922cdde364bb6ec5ca39a6051b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -142502,6 +142503,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2118064034 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7495245075765183233, guid: a3ca911d35a7cb847bd3119be43d3b55, type: 3}
+  m_PrefabInstance: {fileID: 7495245074870094976}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2120810544
 GameObject:
   m_ObjectHideFlags: 0
@@ -144232,6 +144244,10 @@ PrefabInstance:
       propertyPath: ActIII.Array.data[2]
       value: 
       objectReference: {fileID: 11400000, guid: 34e60f7c4fe95044b944576812fd9bf8, type: 2}
+    - target: {fileID: 7495245076141977044, guid: a3ca911d35a7cb847bd3119be43d3b55, type: 3}
+      propertyPath: ActIII.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 555dbe34f163ff343ad53813c6f31896, type: 2}
     - target: {fileID: 7495245076141977044, guid: a3ca911d35a7cb847bd3119be43d3b55, type: 3}
       propertyPath: Hints.Array.data[12]
       value: 

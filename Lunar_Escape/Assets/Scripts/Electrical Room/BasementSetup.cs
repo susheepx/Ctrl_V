@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class BasementSetup : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class BasementSetup : MonoBehaviour
     public ItemWorld bottle3;
     public ItemWorld poem;
     public GameCanvasController prompts;
+    public TextMeshProUGUI usernameContainer;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,7 @@ public class BasementSetup : MonoBehaviour
         bottle2.GetComponent<BoxCollider2D>().size = new Vector2 (0.62f,1.19f);
         bottle3.GetComponent<BoxCollider2D>().size = new Vector2 (0.61f,1.36f);
         poem.GetComponent<BoxCollider2D>().size = new Vector2 (1.4f, 4.25f);
+        usernameContainer.text = UsernameWindow.username;
         timer.StartTimer();
     }
 

@@ -13,7 +13,7 @@ public class UsernameWindow : MonoBehaviour
     public static bool isSurveySubmitted = false;
     public GameObject leaderboardCanvas, mainScreenCanvas;
     public TMP_InputField inputUsername;
-    public string username;
+    public static string username = "erika";
     private void Awake() {;
         leaderboardCanvas.SetActive(false);
         gameObject.SetActive(false);

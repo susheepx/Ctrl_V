@@ -162,7 +162,7 @@ public class Timer : MonoBehaviour
     }
 
     
-    public static string Username = "LBozo";
+    public static string Username = "";
 	[SerializeField] TMP_InputField Rate;
 	[SerializeField] TMP_InputField Feelings;
 	[SerializeField] TMP_InputField Feedback;
@@ -250,7 +250,6 @@ public class Timer : MonoBehaviour
     private string URL = "https://docs.google.com/forms/d/1a6D7c8cXegifbgLlZqPP-7LXNG3HCfVt1Xe26Xk5dzA/formResponse";
     public void Send()
     {   
-        
         int puzzletot = Mathf.FloorToInt(timer);
         int initialPuzzle2TimeNumint = Mathf.FloorToInt(initialPuzzle2TimeNum);
         int initialPuzzle3TimeNumint = Mathf.FloorToInt(initialPuzzle3TimeNum);

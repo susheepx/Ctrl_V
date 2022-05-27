@@ -78,6 +78,9 @@ public class Astronaut : MonoBehaviour
                 if (itemWorld.name == "adhesive") {
                     isAdhesiveAcquired = true;
                 }
+                if (itemWorld.name == "keycard") {
+                    prompts.openDialogueBox(3, prompts.ActIII);
+                }
                 pickUpItem = false; 
                 currentItem = null;
             }
