@@ -13,32 +13,31 @@ public class Timer : MonoBehaviour
     public TMP_Text textTimer;
     public GameObject Main, Leaderboard;
 
-    private float timer = 0.0f;
+    public static float timer = 0.0f;
     private float timer1 = 0.0f;
     private float timer2 = 0.0f;
     private float timer3 = 0.0f;
-    private int puzzlecount = 0;
+    private int puzzlecount = 1;
     private bool isTimer = false;
-    string s;
-    string s3;
-    string s4;
-    string s5;
-    string s6;
-    string s7;
-    string s8;
-    string s9;
-    string s10;
-    string s11;
+    string s3 = "";
+    string s4 = "";
+    string s5 = "";
+    string s6 = "";
+    string s7 = "";
+    string s8 = "";
+    string s9 = "";
+    string s10 = "";
+    string s11 = "";
     string Buy;
-    private int Hint1 = 0;
-    private int Hint2 = 0;
-    private int Hint3 = 0;
-    private float initialPuzzle2TimeNum = 0.0f;
-    private float initialPuzzle3TimeNum = 0.0f;
-    private float puzzletot = 0.0f;
-    private float adjpuzzle1time = 0.0f;
-    private float adjpuzzle2time = 0.0f;
-    private float adjpuzzle3time = 0.0f;
+    public static int Hint1 = 0;
+    public static int Hint2 = 0;
+    public static int Hint3 = 0;
+    public static float initialPuzzle2TimeNum = 0.0f;
+    public static float initialPuzzle3TimeNum = 0.0f;
+    public static float puzzletot = 0.0f;
+    public static float adjpuzzle1time = 0.0f;
+    public static float adjpuzzle2time = 0.0f;
+    public static float adjpuzzle3time = 0.0f;
 
     public static int hintCount = 0;
 
@@ -74,7 +73,7 @@ public class Timer : MonoBehaviour
     public void StopTimer()
     {
         puzzlecount += 1;
-        if(puzzlecount == 1)
+        if(puzzlecount == 2)
         {
             timer1 = timer;
             adjpuzzle1time = timer;
@@ -82,7 +81,7 @@ public class Timer : MonoBehaviour
             
         }
 
-        if (puzzlecount == 2)
+        if (puzzlecount == 3)
         {
             timer2 = timer - timer1;
             initialPuzzle3TimeNum = timer;
@@ -90,7 +89,7 @@ public class Timer : MonoBehaviour
             
             
         }
-        if (puzzlecount == 3)
+        if (puzzlecount == 4)
         {
             timer3 = timer-timer1-timer2;
 
@@ -100,30 +99,40 @@ public class Timer : MonoBehaviour
         isTimer = false;
             
     }
+    
     public void GiveHint()
     {
-        controller.openDialogueBox(hintCount, controller.Hints);
-        hintCount+=1;
-        if (puzzlecount == 1)
+        if (puzzlecount == 1 && hintCount < 4)
         {
             Hint1 += 1;
             timer+= 90.0f;
+            controller.openDialogueBox(hintCount, controller.Hints);
+            hintCount+=1;
         }
-        if (puzzlecount == 2)
+        else if (puzzlecount == 2 && hintCount < 8)
         {
             Hint2 += 1;
             timer+= 120.0f;
+            controller.openDialogueBox(hintCount, controller.Hints);
+            hintCount+=1;
         }
-        if(puzzlecount == 3)
+        
+        else if(puzzlecount == 3 && hintCount < 12)
         {
             Hint3 += 1;
             timer+=150.0f;
+            controller.openDialogueBox(hintCount, controller.Hints);
+            hintCount+=1;
         }
+        else { 
+            controller.openDialogueBox(12, controller.Hints);
+        }
+        
 
     }
 
     
-    [SerializeField] TMP_InputField Username;
+    public static string Username;
 	[SerializeField] TMP_InputField Rate;
 	[SerializeField] TMP_InputField Market;
 	[SerializeField] TMP_InputField Feedback;
@@ -226,7 +235,7 @@ public class Timer : MonoBehaviour
         s10 = adjpuzzle3timeint.ToString();
         s11 = puzzletot.ToString();
         
-        StartCoroutine(Post(Username.text, s3, s4, s5, s6, s7, s8, s9, s10, s11, Rate.text, Market.text, Feedback.text, Buy, HowMuch.text));
+        StartCoroutine(Post(Username, s3, s4, s5, s6, s7, s8, s9, s10, s11, Rate.text, Market.text, Feedback.text, Buy, HowMuch.text));
     }
  
     IEnumerator Post(string s1, string s3, string s4, string s5, string s6, string s7, string s8, string s9, string s10, string s11, string Rate, string Market, string Feedback, string Buy, string HowMuch)

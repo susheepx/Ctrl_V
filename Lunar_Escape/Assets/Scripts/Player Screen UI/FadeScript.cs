@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class FadeScript : MonoBehaviour
 {
+    public static bool isPuzzleTwoSolved = false;
     public GameCanvasController prompts;
     public Inventory inventory;
     public Animator anim;
@@ -20,10 +21,13 @@ public class FadeScript : MonoBehaviour
         Astronaut.currentItem = null;
         promptDialogue.SetActive(false);
         UI_inventory.resetInventory();
-        //inventory.AddItem(Astronaut.staticBreakerNote);
+        ItemWorld.SpawnItemWorld(new Vector3(9f,90f,0), new Item { itemType = Item.ItemType.BreakerNote});
+        Timer.hintCount = 8;
+        isPuzzleTwoSolved = true;
         anim.SetTrigger("End");
         yield return new WaitForSeconds(1);
         prompts.openDialogueBox(0, prompts.ActIII);
+
     }
 
     public IEnumerator fadeOutIn() {

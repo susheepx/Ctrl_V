@@ -29,12 +29,15 @@ public class CoolantLeak : MonoBehaviour
             controlPrompt.SetActive(false);
             inventory.testList();
             anim.SetTrigger("Fixed");
+            StartCoroutine(fadeEndgame());
         }
     }
 
     IEnumerator fadeEndgame() {
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene(sceneBuildIndex:1);
+        anim.SetTrigger("Start");
+        yield return new WaitForSeconds(1.25f);
+        SceneManager.LoadScene(sceneBuildIndex:3);
     }
             
     

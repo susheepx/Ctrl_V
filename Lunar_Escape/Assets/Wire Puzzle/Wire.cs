@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Wire : MonoBehaviour
 {
+    public static bool isPuzzleOneSolved = false;
     public FadeScript fadeScript;
     public GameCanvasController prompts;
     public static int numOfConnected;
@@ -107,6 +108,7 @@ public class Wire : MonoBehaviour
             numOfConnected ++;
     }
 
+    public Timer timer;
     void checkWires() {
         if (numOfCorrect == 8) {
             Debug.Log("good job!");
@@ -114,6 +116,10 @@ public class Wire : MonoBehaviour
             Astronaut.canMove = true;
             anim.SetTrigger("ElectricalDoorOpen");
             prompts.openDialogueBox(4, prompts.ActI);
+            Timer.hintCount = 4;
+            timer.StopTimer();
+            timer.StartTimer();
+            isPuzzleOneSolved = true;
             return;
         }
         else

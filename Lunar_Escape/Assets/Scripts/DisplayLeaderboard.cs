@@ -11,7 +11,7 @@ using TMPro;
 public class DisplayLeaderboard : MonoBehaviour
 {
     public TMP_Text UserFirstPlace, UserSecondPlace, UserThirdPlace, UserFourthPlace, UserFifthPlace, TimeFirstPlace, TimeSecondPlace, TimeThirdPlace, TimeFourthPlace, TimeFifthPlace;
-    public Canvas Canvas1, Leaderboard;
+    public GameObject Canvas1, Leaderboard;
 
     static readonly string[] Scopes = {Google.Apis.Sheets.v4.SheetsService.Scope.Spreadsheets};
     static readonly string ApplicationName ="FunSheets";
@@ -65,6 +65,21 @@ public class DisplayLeaderboard : MonoBehaviour
         TimeFourthPlace.text = Time4;
         TimeFifthPlace.text = Time5;
 
+    }
+
+    public bool isLeaderboardOn = false;
+    
+    public void SwitchCanvas() {
+        if (isLeaderboardOn == false) {
+            Canvas1.SetActive(false);
+            Leaderboard.SetActive(true);
+            isLeaderboardOn = true;
+        }
+        else if (isLeaderboardOn == true) {
+            Leaderboard.SetActive(false);
+            Canvas1.SetActive(true);
+            isLeaderboardOn = false;
+        }
     }
 
         public void ReadEntries1() { //rangelow and rangehigh are cells like A1 or F12

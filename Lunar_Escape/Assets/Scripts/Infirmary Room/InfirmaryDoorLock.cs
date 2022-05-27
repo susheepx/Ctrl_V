@@ -49,6 +49,7 @@ public class InfirmaryDoorLock : MonoBehaviour
             popUpKeypad.SetActive(false);
             keypadOpen = false;
             anim.SetTrigger("InfirmaryDoorSlide");
+            Timer.hintCount ++;
             if (EnterCollider.isFirstEnter == true) {
                 prompts.openDialogueBox(1, prompts.ActII);
             }

@@ -6,7 +6,6 @@ using TMPro;
 public class Astronaut : MonoBehaviour
 {
     //storyline
-    public static Item staticBreakerNote;
     private bool isAdhesiveAcquired = false;
     public GameCanvasController prompts;
     public ItemWorld Keycard;
@@ -69,9 +68,8 @@ public class Astronaut : MonoBehaviour
                     prompts.openDialogueBox(1, prompts.ActI);
                     Timer.hintCount ++;
                 }
-                if (itemWorld.name == "breakernote") {
-                    staticBreakerNote = itemWorld.GetItem();
-                    Debug.Log(staticBreakerNote);
+                if (itemWorld.name == "breakernote" && FadeScript.isPuzzleTwoSolved) {
+                    prompts.openDialogueBox(1, prompts.ActIII);
                 }
                 if (itemWorld.name == "folder") {
                     Keycard = ItemWorld.SpawnItemWorld(new Vector3(49.42f,110f,0), new Item { itemType = Item.ItemType.Keycard});
@@ -113,7 +111,7 @@ public class Astronaut : MonoBehaviour
                 else {
                     prompts.openDialogueBox(0, prompts.Warnings);
                     warning1.enabled = false;
-                    moveForce = 4;
+                    moveForce = 9;
                     return;
                 }
             }
@@ -125,7 +123,7 @@ public class Astronaut : MonoBehaviour
                 else {
                 prompts.openDialogueBox(1, prompts.Warnings);
                 warning2.enabled = false;
-                moveForce = 2;
+                moveForce = 4;
                 return;
                 }
             }
@@ -137,7 +135,7 @@ public class Astronaut : MonoBehaviour
                 else {
                 prompts.openDialogueBox(2, prompts.Warnings);
                 warning3.enabled = false;
-                moveForce = 1;
+                moveForce = 2;
                 return;
                 }
             }

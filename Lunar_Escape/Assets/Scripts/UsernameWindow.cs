@@ -9,9 +9,11 @@ using UnityEngine.SceneManagement;
 
 public class UsernameWindow : MonoBehaviour
 {
+    public GameObject leaderboardCanvas;
     public TMP_InputField inputUsername;
     public string username;
     private void Awake() {;
+        leaderboardCanvas.SetActive(false);
         gameObject.SetActive(false);
     }
     public void Show()
@@ -20,18 +22,22 @@ public class UsernameWindow : MonoBehaviour
     }
     public void Hide()
     {
-        if(EventSystem.current.currentSelectedGameObject.name == "ExitUsername")
+        if(EventSystem.current.currentSelectedGameObject.name == "ExitUsername") {
             gameObject.SetActive(false);
-        else if (username.Length > 1)
-            SceneManager.LoadScene(sceneBuildIndex:1);
+        }
     }
 
     public void UsernameInputted(string s)
     {
-        username = inputUsername.GetComponent<TMP_InputField>().text;
-        Debug.Log(username);
+        Timer.Username = inputUsername.GetComponent<TMP_InputField>().text;
     }
 
+    public void PlayGame()
+    {
+        if (Timer.Username.Length > 1) {
+            SceneManager.LoadScene(sceneBuildIndex:1);
+        }
+    }
     
 
     
