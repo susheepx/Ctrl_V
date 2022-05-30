@@ -14,17 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sentences:
   - text: "*Elevator dings*  \u201CYes\u2026 we did it! Good work everyone, we can
-      finally rest in HQ-\u201D  [Odd high pitched hissing sound] "
+      finally rest in HQ-\u201D  *HSSSSSSSS*"
     speaker: {fileID: 11400000, guid: 49a27c74cf6aba342b88f164b46a0ae4, type: 2}
-  - text: "[Crewmates approach closer towards the sound]  \u201CWhere is that noise
-      coming from?\u201D "
+  - text: "\u201CWhat is  is that noise?\u201D And where is it coming from?"
     speaker: {fileID: 11400000, guid: a32ddd837f8a2494fb62b8494409e17b, type: 2}
   - text: "\u201CHey lets go check it out!\u201D "
     speaker: {fileID: 11400000, guid: dc5ef7f1812020747bd8e8614aa4d1aa, type: 2}
-  - text: 'Hey wait up! '
-    speaker: {fileID: 11400000, guid: 49a27c74cf6aba342b88f164b46a0ae4, type: 2}
-  - text: "[User Shouts]  \u201CHey be careful, you never know what's gonna happen!\u201D 
-      [User talks to himself]  \u201COh no, I hope they\u2019ll be ok\u2026\u201D "
+  - text: 'Wait up! '
     speaker: {fileID: 11400000, guid: 49a27c74cf6aba342b88f164b46a0ae4, type: 2}
   - text: "[User Shouts]  \u201CHey be careful, you never know what's gonna happen!\u201D 
       [User talks to himself]  \u201COh no, I hope they\u2019ll be ok\u2026\u201D "
@@ -36,7 +32,7 @@ MonoBehaviour:
   - text: Guys! Are you okay?
     speaker: {fileID: 11400000, guid: 49a27c74cf6aba342b88f164b46a0ae4, type: 2}
   - text: ........
-    speaker: {fileID: 0}
+    speaker: {fileID: 11400000, guid: 5e48914cf477e3d4fa25e415a5fe448f, type: 2}
   - text: I think I heard a pipe burst in that room, and who knows what gasses or
       liquid came out.
     speaker: {fileID: 11400000, guid: 49a27c74cf6aba342b88f164b46a0ae4, type: 2}

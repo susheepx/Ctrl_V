@@ -44,7 +44,7 @@ public class BreakerLock : MonoBehaviour
         breakerBox.SetActive(false);
         wireBackground.SetActive(true);
         Astronaut.canMove = true;
-        Timer.hintCount ++;
+        Timer.hintCount = 3;
     }
         
 }

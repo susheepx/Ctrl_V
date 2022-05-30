@@ -26,7 +26,6 @@ public class InfirmaryDoorLock : MonoBehaviour
             if (keypadOpen == false) {
                 popUpKeypad.SetActive(true);
                 Astronaut.canMove = false;
-                confirmPill.SetActive(false);
                 keypadOpen = true;
             }
             else {
@@ -51,8 +50,8 @@ public class InfirmaryDoorLock : MonoBehaviour
         if (keyboardScreenText.text == "LUNAR") {
             keyboardScreenText.text = "correct";
             popUpKeypad.SetActive(false);
-            confirmPill.SetActive(true);
             keypadOpen = false;
+            Astronaut.canMove = true;
             anim.SetTrigger("InfirmaryDoorSlide");
             Timer.hintCount ++;
             if (EnterCollider.isFirstObservatoryEnter == true) {

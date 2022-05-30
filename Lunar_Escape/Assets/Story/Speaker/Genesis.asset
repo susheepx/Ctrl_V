@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Genesis
   m_EditorClassIdentifier: 
   speakerName: Genesis
-  textColor: {r: 0.78626287, g: 0.24056602, b: 1, a: 0}
+  textColor: {r: 0.78626287, g: 0.24056602, b: 1, a: 1}

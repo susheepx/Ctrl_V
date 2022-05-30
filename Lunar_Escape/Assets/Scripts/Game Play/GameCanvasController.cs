@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class GameCanvasController : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class GameCanvasController : MonoBehaviour
     public GameDialogueBox dialogueBox;
     public GameObject dialogue;
     public GameObject playerInput;
+    public GameObject playerInputEnterButton;
     public ElevatorButton elevatorButton;
     public List<StoryScene>  ActI, ActII, Elevator, ActIII, Hints, Warnings = new List<StoryScene>();
     public List<List<StoryScene>> listOfStorysceneLists = new List<List<StoryScene>>();
@@ -25,11 +27,19 @@ public class GameCanvasController : MonoBehaviour
     }
 
 
+    private bool isEnterButtonClicked = false;
+
+    public void enterButtonTrue() {
+        isEnterButtonClicked = true;
+    }
+
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && dialogue.activeSelf == true && ElevatorButton.isInputFieldSelected == false)
+        if(Input.GetKeyDown(KeyCode.Space) ||  isEnterButtonClicked && dialogue.activeSelf == true && ElevatorButton.isInputFieldSelected == false )
         {
+            isEnterButtonClicked = false;
+
             //if the slow type has finished the sentence or paragraph
             if(dialogueBox.IsCompleted())
             {
@@ -87,9 +97,9 @@ public class GameCanvasController : MonoBehaviour
                 } 
                 else {
                     dialogueBox.PlayNextSentence();
-                    // if (currentScene == Elevator[3]) {
-                    //     elevatorButton.guessWho();
-                    //}
+                    if (currentScene == Elevator[3]) {
+                        elevatorButton.guessWho();
+                    }
 
                 }   
                     

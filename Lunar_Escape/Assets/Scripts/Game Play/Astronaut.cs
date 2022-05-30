@@ -110,7 +110,7 @@ public class Astronaut : MonoBehaviour
                     prompts.openDialogueBox(1, prompts.ActI);
                     Timer.hintCount ++;
                 }
-                if (itemWorld.name == "breakernote" && FadeScript.isPuzzleTwoSolved) {
+                if (itemWorld.name == "breakernote" && ElevatorButton.isPuzzleTwoSolved) {
                     prompts.openDialogueBox(1, prompts.ActIII);
                 }
                 if (itemWorld.name == "folder") {
