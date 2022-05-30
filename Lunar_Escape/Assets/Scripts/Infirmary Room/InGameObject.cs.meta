@@ -3,7 +3,9 @@ guid: 2d923b82b7732474b84ba8bd9793a7f8
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - commandprompt: {fileID: 5365828805303691618, guid: c25fb86e0eda9654e96b344227bdd7bd, type: 3}
+  - Object: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

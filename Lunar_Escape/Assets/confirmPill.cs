@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CloseupObject : MonoBehaviour
+public class confirmPill : MonoBehaviour
 {
     //stay center of camera
     private Transform player;
@@ -21,6 +21,6 @@ public class CloseupObject : MonoBehaviour
         tempPos.x = player.position.x;
         tempPos.y = player.position.y;
 
-        transform.position = tempPos;
+        transform.position = tempPos + new Vector3(0f, 1.5f, 0f);
     }
 }

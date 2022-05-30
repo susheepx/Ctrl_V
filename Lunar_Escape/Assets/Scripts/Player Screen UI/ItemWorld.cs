@@ -23,7 +23,7 @@ public class ItemWorld : MonoBehaviour
         spriteRenderer.sprite = item.GetSprite();
     }
     public Item GetItem() {
-        return item;
+        return this.item;
     }
     public void DestroySelf() {
         Destroy(gameObject);

@@ -36,13 +36,14 @@ public class UsernameWindow : MonoBehaviour
 
     public void UsernameInputted(string s)
     {
+        username = inputUsername.GetComponent<TMP_InputField>().text;
         Timer.Username = inputUsername.GetComponent<TMP_InputField>().text;
     }
 
     public void PlayGame()
     {
         if (Timer.Username.Length > 1) {
-            SceneManager.LoadScene(sceneBuildIndex:1);
+            SceneManager.LoadScene(sceneBuildIndex:2);
         }
     }
     

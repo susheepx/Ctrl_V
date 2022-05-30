@@ -36,7 +36,7 @@ public class StoryController : MonoBehaviour
             }
             if(currentScene == lastScene) {
                 animator.SetTrigger("Start");
-                SceneManager.LoadScene(sceneBuildIndex: 2);
+            SceneManager.LoadScene(sceneBuildIndex: 2);
             }
                 
         }

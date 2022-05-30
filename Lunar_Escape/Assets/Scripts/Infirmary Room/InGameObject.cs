@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class InGameObject : MonoBehaviour
 {
-
-    private Transform player;
-    private Vector3 tempPos;
     public GameObject Object;
     public static bool isCloseUpOpened = false;
     // Update is called once per frame

@@ -28,11 +28,11 @@ public class ElevatorButton : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F) && Astronaut.interact && GetComponent<Collider2D>() == Astronaut.currentItem && isInputFieldSelected == false) {
             if (sentenceGuessed == false) {
-                controller.openDialogueBox(1, controller.storysceneList);
+                controller.openDialogueBox(0, controller.Elevator);
                 
             }
             else {
-                controller.openDialogueBox(4, controller.storysceneList);
+                controller.openDialogueBox(3, controller.Elevator);
                 playerAnswer = "";
                 playerInput.GetComponent<TMP_InputField>().text = "";
             }
@@ -51,7 +51,7 @@ public class ElevatorButton : MonoBehaviour
     public void checkAnswer() {
         if (isPoemSentenceDialogue) {
             if (playerAnswer.Equals("reach high for the stars", System.StringComparison.OrdinalIgnoreCase)) {
-                controller.openDialogueBox(2, controller.storysceneList);
+                controller.openDialogueBox(1, controller.Elevator);
                 sentenceGuessed = true;
                 playerAnswer = "";
                 playerInput.GetComponent<TMP_InputField>().text = "";
@@ -59,7 +59,7 @@ public class ElevatorButton : MonoBehaviour
                 
             }
             else {
-                controller.openDialogueBox(3, controller.storysceneList);
+                controller.openDialogueBox(2, controller.Elevator);
             }
         isPoemSentenceDialogue = false;
         }
@@ -77,13 +77,13 @@ public class ElevatorButton : MonoBehaviour
     public void guessWhoCheck() {
         playerGuessWhoAnswer += playerInput.GetComponent<TMP_InputField>().text;
         if (playerGuessWhoAnswer.Equals(guessWhoAnswer, System.StringComparison.OrdinalIgnoreCase)) {
-            controller.openDialogueBox(5, controller.storysceneList);
+            controller.openDialogueBox(4, controller.Elevator);
             StartCoroutine(fadeScript.waitFadeTime());
 
         }
         else
         {
-            controller.openDialogueBox(6, controller.storysceneList);
+            controller.openDialogueBox(5, controller.Elevator);
             playerGuessWhoAnswer = "";
         }
     }

@@ -120,7 +120,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf3485013dc32d34384e9ab7016de0ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameCanvasController: {fileID: 0}
+  prompts: {fileID: 0}
+  Keycard: {fileID: 0}
+  warning1: {fileID: 0}
+  warning2: {fileID: 0}
+  warning3: {fileID: 0}
   moveForce: 10
   rb: {fileID: 1228398840}
   uiInventory: {fileID: 0}
@@ -129,6 +133,7 @@ MonoBehaviour:
   controlText: {fileID: 0}
   DialoguePrompt: {fileID: 0}
   pickUpItem: 0
+  minigameTimer: {fileID: 0}
 --- !u!50 &1228398840
 Rigidbody2D:
   serializedVersion: 4

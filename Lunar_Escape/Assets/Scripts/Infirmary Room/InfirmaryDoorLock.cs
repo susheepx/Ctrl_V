@@ -10,6 +10,7 @@ public class InfirmaryDoorLock : MonoBehaviour
     public TextMeshProUGUI keyboardScreenText;
     public TextMeshProUGUI currentButtonText;
     public GameObject popUpKeypad;
+    public GameObject confirmPill;
     public Animator anim;
     private bool keypadOpen = false;
     // Start is called before the first frame update
@@ -24,6 +25,7 @@ public class InfirmaryDoorLock : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F) && Astronaut.interact && GetComponent<Collider2D>() == Astronaut.currentItem) {
             if (keypadOpen == false) {
                 popUpKeypad.SetActive(true);
+                confirmPill.SetActive(false);
                 keypadOpen = true;
             }
             else {
@@ -50,7 +52,7 @@ public class InfirmaryDoorLock : MonoBehaviour
             keypadOpen = false;
             anim.SetTrigger("InfirmaryDoorSlide");
             Timer.hintCount ++;
-            if (EnterCollider.isFirstEnter == true) {
+            if (EnterCollider.isFirstObservatoryEnter == true) {
                 prompts.openDialogueBox(1, prompts.ActII);
             }
         }

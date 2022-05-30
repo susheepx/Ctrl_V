@@ -10,13 +10,20 @@ public class GameCanvasController : MonoBehaviour
     public GameObject dialogue;
     public GameObject playerInput;
     public ElevatorButton elevatorButton;
-    public List<StoryScene> storysceneList, ActI, ActII, Elevator, ActIII, Hints, Warnings = new List<StoryScene>();
-
-    // Start is called before the first frame update
-    void Start()
-    {
+    public List<StoryScene>  ActI, ActII, Elevator, ActIII, Hints, Warnings = new List<StoryScene>();
+    public List<List<StoryScene>> listOfStorysceneLists = new List<List<StoryScene>>();
     
+
+
+    private void Start() {
+        listOfStorysceneLists.Add(ActI);
+        listOfStorysceneLists.Add(ActII);
+        listOfStorysceneLists.Add(ActIII);
+        listOfStorysceneLists.Add(Hints);
+        listOfStorysceneLists.Add(Warnings);
+        listOfStorysceneLists.Add(Elevator);
     }
+
 
     // Update is called once per frame
     void Update()
@@ -41,14 +48,14 @@ public class GameCanvasController : MonoBehaviour
 
                         // }
                         // elevatorButton.checkAnswer();
-                        if (currentScene != storysceneList[1] && currentScene != storysceneList[4] ) {
+                        if (currentScene != Elevator[0] && currentScene != Elevator[3] ) {
                             dialogue.SetActive(false);
                             if (currentScene != ActI[2]) {
                                 Astronaut.canMove = true;
                             }
                             elevatorButton.playerInput.SetActive(false);
                         }
-                        else if (currentScene == storysceneList[1]) {
+                        else if (currentScene == Elevator[0]) {
                             elevatorButton.checkAnswer();
                         }
                         
@@ -69,7 +76,7 @@ public class GameCanvasController : MonoBehaviour
                         //this plays the next scene if there is one, most likely won't be in game screen
                         currentScene = currentScene.nextScene;
                         dialogueBox.PlayScene(currentScene);
-                        if (currentScene == storysceneList[4]) {
+                        if (currentScene == Elevator[3]) {
                             elevatorButton.playerInput.SetActive(true);
                         }
                     
@@ -80,7 +87,7 @@ public class GameCanvasController : MonoBehaviour
                 } 
                 else {
                     dialogueBox.PlayNextSentence();
-                    if (currentScene == storysceneList[4]) {
+                    if (currentScene == Elevator[3]) {
                         elevatorButton.guessWho();
                     }
 
@@ -92,12 +99,41 @@ public class GameCanvasController : MonoBehaviour
     }
 
     public void openDialogueBox(int integer, List<StoryScene> storyScenes) {
-        Debug.Log("opendialoguebox is called");
         Astronaut.canMove = false;
         dialogue.SetActive(true);
         currentScene = storyScenes[integer];
         dialogueBox.PlayScene(currentScene);
         
+    }
+
+
+    private Inventory inventory;
+    public GameObject confirmPill;
+    public Astronaut astronaut;
+
+    // public void yesPill() {
+    //     dialogue.SetActive(false);
+    //     if (currentScene = ActII[5]) {
+    //         Debug.Log(Astronaut.itemWorld.GetItem());
+    //         astronaut.addItemToList();
+    //         Astronaut.itemWorld.DestroySelf();
+    //     }
+    //     else if (currentScene = ActII[6]) {
+    //         inventory.AddItem(Astronaut.itemWorld.GetItem());
+    //         Astronaut.itemWorld.DestroySelf();
+    //     }
+    //     else if (currentScene = ActII[7]) {
+    //         inventory.AddItem(Astronaut.itemWorld.GetItem());
+    //         Astronaut.itemWorld.DestroySelf();
+    //     }
+    //     confirmPill.SetActive(false);
+    //     Astronaut.canMove = true;
+    // }
+
+    public void noPill() {
+        dialogue.SetActive(false);
+        confirmPill.SetActive(false);
+        Astronaut.canMove = true;
     }
 
 }

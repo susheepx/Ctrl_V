@@ -23,22 +23,20 @@ public class Astronaut : MonoBehaviour
     
     private Inventory inventory;
     //press key prompt
-    public GameObject controller;
-    //the game object that holds the text for the key prompt
-    public GameObject controlTextContainer;
-    private GameObject colliderGameObject;
+    public GameObject controller, confirmPill;
+    
+    //public GameObject controlTextContainer;
     public TextMeshProUGUI controlText;
     //objects
-    public GameObject DialoguePrompt;
-    private ItemAssets itemDialogue;
     public static bool interact = false;
     public bool pickUpItem = false;
     public static Collider2D currentItem;
+    private ItemWorld itemWorld;
     
     private void Awake() {
         //astronaut
         anim = GetComponent<Animator>();
-        controlText = controlTextContainer.GetComponent<TextMeshProUGUI>();
+        //controlText = controlTextContainer.GetComponent<TextMeshProUGUI>();
         gameObject.SetActive(true);
 
         //inventory
@@ -47,7 +45,13 @@ public class Astronaut : MonoBehaviour
         
     }
 
+    public void addItemToList() {
+        inventory.AddItem(itemWorld.GetItem());
+    }
     private void Update() {
+
+        
+
         if (canMove) {
             PlayerMoveKeyboard();
             AnimatePlayer();
@@ -57,39 +61,64 @@ public class Astronaut : MonoBehaviour
             anim.SetBool("Right", false);
             rb.velocity = new Vector2(0f, 0f);
         }
+        //when E key pressed pick up item
         if (Input.GetKeyDown(KeyCode.E) && pickUpItem) {
-            //checks if item is object and destroys; adds to inventory
-            ItemWorld itemWorld = currentItem.GetComponent<ItemWorld>();
+            
+            if (currentItem != null) {
+                Debug.Log(currentItem);
+                ItemWorld currentWorld = currentItem.GetComponent<ItemWorld>();
+                itemWorld = currentWorld;
+                Debug.Log(currentWorld + "local");
+                Debug.Log(itemWorld + " global variable");
+            
+            
             if (itemWorld != null) {
-                //time it is touching/around the object
-                inventory.AddItem(itemWorld.GetItem());
-                itemWorld.DestroySelf();
-                if (itemWorld.name == "blueprint") {
+                //if item is one of the pills, ask for confirmation first
+                if (itemWorld.name == "bottle1") {
+                    prompts.openDialogueBox(5, prompts.ActII);
+                    confirmPill.SetActive(true);
+                }
+                else if (itemWorld.name == "bottle2") {
+                    prompts.openDialogueBox(6, prompts.ActII);
+                    confirmPill.SetActive(true);
+                }
+                else if (itemWorld.name == "bottle3") {
+                    prompts.openDialogueBox(7, prompts.ActII);
+                    confirmPill.SetActive(true);
+                }    
+                else {
+                    //adds the item to inventory and destroys in game
+                    inventory.AddItem(itemWorld.GetItem());
+                    itemWorld.DestroySelf();
+                    currentItem = null;
+                    itemWorld = null;
+                }
+                //specific actions happen everytime one of these are picked up
+                //if (itemWorld.name == "blueprint") {
+                if (itemWorld == currentWorld) {
                     prompts.openDialogueBox(1, prompts.ActI);
                     Timer.hintCount ++;
                 }
-                if (itemWorld.name == "breakernote" && FadeScript.isPuzzleTwoSolved) {
-                    prompts.openDialogueBox(1, prompts.ActIII);
-                }
-                if (itemWorld.name == "folder") {
-                    Keycard = ItemWorld.SpawnItemWorld(new Vector3(49.42f,110f,0), new Item { itemType = Item.ItemType.Keycard});
-                    Keycard.GetComponent<BoxCollider2D>().size = new Vector2 (1f,1f);
-                }
-                if (itemWorld.name == "adhesive") {
-                    isAdhesiveAcquired = true;
-                }
-                if (itemWorld.name == "keycard") {
-                    prompts.openDialogueBox(3, prompts.ActIII);
-                }
-                pickUpItem = false; 
-                currentItem = null;
+                // if (itemWorld.name == "breakernote" && FadeScript.isPuzzleTwoSolved) {
+                //     prompts.openDialogueBox(1, prompts.ActIII);
+                // }
+                // if (itemWorld.name == "folder") {
+                //     Keycard = ItemWorld.SpawnItemWorld(new Vector3(49.42f,110f,0), new Item { itemType = Item.ItemType.Keycard});
+                //     Keycard.GetComponent<BoxCollider2D>().size = new Vector2 (1f,1f);
+                // }
+                // if (itemWorld.name == "adhesive") {
+                //     isAdhesiveAcquired = true;
+                // }
+                // if (itemWorld.name == "keycard") {
+                //     prompts.openDialogueBox(3, prompts.ActIII);
+                // } 
+                
+            }
             }
         }
     }
 
     public SecondTimer minigameTimer;
-    private void Start() {
-    }
     private void OnTriggerEnter2D(Collider2D collider) { 
         //set local variable collider to global variable so it can be used in update
         currentItem = collider;

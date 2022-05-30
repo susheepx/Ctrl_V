@@ -28,12 +28,8 @@ public class BasementSetup : MonoBehaviour
         bottle3.GetComponent<BoxCollider2D>().size = new Vector2 (0.61f,1.36f);
         poem.GetComponent<BoxCollider2D>().size = new Vector2 (1.4f, 4.25f);
         usernameContainer.text = UsernameWindow.username;
+        ObjectivesList.objective1.text = "Find clues scattered around the electrical room to unlock the door";
+        ObjectivesList.objective2.text = "Escape the electrical room";
         timer.StartTimer();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -18,9 +18,6 @@ public class Item
     
     }
     public ItemType itemType;
-    //take out int amount later since we are not having multiple copies of one item
-    //amount= the id for the item in the inventory
-    //public int amount;
 
     public Sprite GetSprite() {
         switch (itemType) {
