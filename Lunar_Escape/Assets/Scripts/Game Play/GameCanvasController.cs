@@ -87,9 +87,9 @@ public class GameCanvasController : MonoBehaviour
                 } 
                 else {
                     dialogueBox.PlayNextSentence();
-                    if (currentScene == Elevator[3]) {
-                        elevatorButton.guessWho();
-                    }
+                    // if (currentScene == Elevator[3]) {
+                    //     elevatorButton.guessWho();
+                    //}
 
                 }   
                     
