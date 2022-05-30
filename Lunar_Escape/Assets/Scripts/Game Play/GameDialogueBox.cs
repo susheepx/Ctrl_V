@@ -12,7 +12,6 @@ public class GameDialogueBox : MonoBehaviour
     private State state = State.COMPLETED;
 
     private void Start() {
-        gameObject.SetActive(false);
     }
     private enum State
     {

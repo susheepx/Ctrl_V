@@ -5,6 +5,7 @@ using TMPro;
 
 public class BasementSetup : MonoBehaviour
 {
+    public GameObject promptDialogue;
     public Timer timer;
     public ItemWorld bottle1;
     public ItemWorld bottle2;
@@ -17,6 +18,7 @@ public class BasementSetup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        promptDialogue.SetActive(true);
         //starting electrical room prompt
         prompts.openDialogueBox(0, prompts.ActI);
 
