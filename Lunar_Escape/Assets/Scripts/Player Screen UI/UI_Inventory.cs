@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class UI_Inventory : MonoBehaviour
 {
@@ -64,7 +65,7 @@ public class UI_Inventory : MonoBehaviour
 
     public void testList() {
         foreach (Item item in inventory.GetItemList()) {
-            if(item.InventoryName() == "bottle3Icon" || item.InventoryName() == "bottle2Icon" || item.InventoryName() == "bottle1Icon" || item.InventoryName() == "keycardIcon" || item.InventoryName() == "adhesiveIcon") {
+            if(item.InventoryName() == EventSystem.current.currentSelectedGameObject.name && item.InventoryName() == "bottle3Icon" || item.InventoryName() == "bottle2Icon" || item.InventoryName() == "bottle1Icon" || item.InventoryName() == "keycardIcon" || item.InventoryName() == "adhesiveIcon") {
                 tempItem = item;
             }
         }

@@ -18,7 +18,8 @@ public class EnterCollider : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider) {
         if (astronaut.GetComponent<Collider2D>() == collider) {
-
+            
+            
 
             //specifically for observatory enter collider
 
@@ -38,9 +39,11 @@ public class EnterCollider : MonoBehaviour
             else
             {
                prompts.openDialogueBox(numInStorysceneList, prompts.listOfStorysceneLists[numInListofLists]);
-               return;
+               commandPrompt.SetActive(false);
+               gameObject.SetActive(false);
             }
-            gameObject.SetActive(false);
+            
+            
 
 
         

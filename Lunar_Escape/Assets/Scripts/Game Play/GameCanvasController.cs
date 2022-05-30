@@ -111,25 +111,6 @@ public class GameCanvasController : MonoBehaviour
     public GameObject confirmPill;
     public Astronaut astronaut;
 
-    // public void yesPill() {
-    //     dialogue.SetActive(false);
-    //     if (currentScene = ActII[5]) {
-    //         Debug.Log(Astronaut.itemWorld.GetItem());
-    //         astronaut.addItemToList();
-    //         Astronaut.itemWorld.DestroySelf();
-    //     }
-    //     else if (currentScene = ActII[6]) {
-    //         inventory.AddItem(Astronaut.itemWorld.GetItem());
-    //         Astronaut.itemWorld.DestroySelf();
-    //     }
-    //     else if (currentScene = ActII[7]) {
-    //         inventory.AddItem(Astronaut.itemWorld.GetItem());
-    //         Astronaut.itemWorld.DestroySelf();
-    //     }
-    //     confirmPill.SetActive(false);
-    //     Astronaut.canMove = true;
-    // }
-
     public void noPill() {
         dialogue.SetActive(false);
         confirmPill.SetActive(false);

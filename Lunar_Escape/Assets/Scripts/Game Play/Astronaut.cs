@@ -31,7 +31,7 @@ public class Astronaut : MonoBehaviour
     public static bool interact = false;
     public bool pickUpItem = false;
     public static Collider2D currentItem;
-    private ItemWorld itemWorld;
+    public static ItemWorld itemWorld;
     
     private void Awake() {
         //astronaut
@@ -45,8 +45,22 @@ public class Astronaut : MonoBehaviour
         
     }
 
-    public void addItemToList() {
-        inventory.AddItem(itemWorld.GetItem());
+    public void yesPill() {
+        prompts.dialogue.SetActive(false);
+        if (prompts.currentScene = prompts.ActII[5]) {
+            inventory.AddItem(Astronaut.itemWorld.GetItem());
+            itemWorld.DestroySelf();
+        }
+        else if (prompts.currentScene = prompts.ActII[6]) {
+            inventory.AddItem(itemWorld.GetItem());
+            itemWorld.DestroySelf();
+        }
+        else if (prompts.currentScene = prompts.ActII[7]) {
+            inventory.AddItem(itemWorld.GetItem());
+            itemWorld.DestroySelf();
+        }
+        confirmPill.SetActive(false);
+        canMove = true;
     }
     private void Update() {
 
@@ -65,11 +79,8 @@ public class Astronaut : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && pickUpItem) {
             
             if (currentItem != null) {
-                Debug.Log(currentItem);
                 ItemWorld currentWorld = currentItem.GetComponent<ItemWorld>();
                 itemWorld = currentWorld;
-                Debug.Log(currentWorld + "local");
-                Debug.Log(itemWorld + " global variable");
             
             
             if (itemWorld != null) {
@@ -88,30 +99,32 @@ public class Astronaut : MonoBehaviour
                 }    
                 else {
                     //adds the item to inventory and destroys in game
+                    Debug.Log(itemWorld);
+                    Debug.Log(itemWorld.GetItem().SpriteName());
                     inventory.AddItem(itemWorld.GetItem());
                     itemWorld.DestroySelf();
-                    currentItem = null;
-                    itemWorld = null;
+                    
                 }
                 //specific actions happen everytime one of these are picked up
-                //if (itemWorld.name == "blueprint") {
-                if (itemWorld == currentWorld) {
+                if (itemWorld.name == "blueprint") {
                     prompts.openDialogueBox(1, prompts.ActI);
                     Timer.hintCount ++;
                 }
-                // if (itemWorld.name == "breakernote" && FadeScript.isPuzzleTwoSolved) {
-                //     prompts.openDialogueBox(1, prompts.ActIII);
-                // }
-                // if (itemWorld.name == "folder") {
-                //     Keycard = ItemWorld.SpawnItemWorld(new Vector3(49.42f,110f,0), new Item { itemType = Item.ItemType.Keycard});
-                //     Keycard.GetComponent<BoxCollider2D>().size = new Vector2 (1f,1f);
-                // }
-                // if (itemWorld.name == "adhesive") {
-                //     isAdhesiveAcquired = true;
-                // }
-                // if (itemWorld.name == "keycard") {
-                //     prompts.openDialogueBox(3, prompts.ActIII);
-                // } 
+                if (itemWorld.name == "breakernote" && FadeScript.isPuzzleTwoSolved) {
+                    prompts.openDialogueBox(1, prompts.ActIII);
+                }
+                if (itemWorld.name == "folder") {
+                    Keycard = ItemWorld.SpawnItemWorld(new Vector3(49.42f,110f,0), new Item { itemType = Item.ItemType.Keycard});
+                    Keycard.GetComponent<BoxCollider2D>().size = new Vector2 (1f,1f);
+                }
+                if (itemWorld.name == "adhesive") {
+                    isAdhesiveAcquired = true;
+                }
+                if (itemWorld.name == "keycard") {
+                    prompts.openDialogueBox(3, prompts.ActIII);
+                }
+                // currentItem = null;
+                // itemWorld = null;
                 
             }
             }
