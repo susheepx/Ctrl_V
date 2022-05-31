@@ -19,12 +19,18 @@ public class TeleportElevator : MonoBehaviour
     void Update()
     {
         if (GetComponent<Collider2D>() == Astronaut.currentItem && Input.GetKeyDown(KeyCode.F) && ErikaLyingDown.isConscious == true) {
-            Debug.Log(GetComponent<GameObject>());
             if (GetComponent<Collider2D>().gameObject == enterElevator)  {
                 astronaut.transform.position = exitElevator.transform.position + new Vector3(1f, -4f, 0f);
             }
-            else 
+            else if (GetComponent<Collider2D>().gameObject == exitElevator)
                 astronaut.transform.position = enterElevator.transform.position + new Vector3(1f, -4f, 0f);
+            
+            else {
+                
+            }
+
+
+
             Astronaut.currentItem = null;
         }
         

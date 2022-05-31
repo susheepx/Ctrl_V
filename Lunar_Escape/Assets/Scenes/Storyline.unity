@@ -748,6 +748,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lastScene: {fileID: 11400000, guid: dfcac6f15ae699343b86fcbaea2a2914, type: 2}
   currentScene: {fileID: 11400000, guid: 9e6153e7cddf3d9468c9cb657c374d0a, type: 2}
+  backstoryLast: {fileID: 11400000, guid: dfcac6f15ae699343b86fcbaea2a2914, type: 2}
+  endingLast: {fileID: 11400000, guid: c5f949458bd39a748b5211b9c0f4e02d, type: 2}
   bottomBar: {fileID: 1001287154}
   animator: {fileID: 871989688}
   WaitSeconds: 1.65

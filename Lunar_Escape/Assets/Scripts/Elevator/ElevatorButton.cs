@@ -28,7 +28,8 @@ public class ElevatorButton : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F) && Astronaut.interact && GetComponent<Collider2D>() == Astronaut.currentItem && isInputFieldSelected == false) {
             if (sentenceGuessed == false) {
-                controller.openDialogueBox(0, controller.Elevator);
+                StartCoroutine(waitFadeTime());
+                //controller.openDialogueBox(0, controller.Elevator);
                 
             }
             else {
@@ -78,7 +79,7 @@ public class ElevatorButton : MonoBehaviour
         playerGuessWhoAnswer += playerInput.GetComponent<TMP_InputField>().text;
         if (playerGuessWhoAnswer.Equals(guessWhoAnswer, System.StringComparison.OrdinalIgnoreCase)) {
             controller.openDialogueBox(4, controller.Elevator);
-            StartCoroutine(waitFadeTime());
+            // StartCoroutine(waitFadeTime());
             
         }
         else
@@ -100,7 +101,7 @@ public class ElevatorButton : MonoBehaviour
         //going from elevator to hq elevator
         yield return new WaitForSeconds(0.3f);
         anim.SetTrigger("Start");
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         astronaut.transform.position = hqElevator.transform.position + new Vector3(1f, -2.5f, 0f);
         Astronaut.currentItem = null;
         promptDialogue.SetActive(false);
@@ -116,20 +117,24 @@ public class ElevatorButton : MonoBehaviour
         yield return new WaitForSeconds(1);
         prompts.openDialogueBox(0, prompts.ActIII);
         spaceBox.SetActive(false);
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(4.5f);
 
         //crewmates ask "where is that noise coming from"
         dialogueBox.PlayNextSentence();
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(3.5f);
 
         //"let's go check it out"
         dialogueBox.PlayNextSentence();
+        yield return new WaitForSeconds(1.75f);
         StartCoroutine(fadeScript.fadeOutIn());
-        //during this coroutine should have crewmates fade out 
-        yield return new WaitForSeconds(2.25f);
-
+        yield return new WaitForSeconds(3444.75f);
         //you are alone, the others have left to go check out noise. "Wait up"
-        dialogueBox.PlayNextSentence();
+        dialogueBox.PlayNextSentence(); 
+        //during this coroutine should have crewmates fade out
+        yield return new WaitForSeconds(2f);
+
+        
+        
         StartCoroutine(cutSceneActIII());
 
     }
@@ -145,6 +150,7 @@ public class ElevatorButton : MonoBehaviour
         //move from elevator to outside coolant room
         yield return new WaitForSeconds(2.5f);
         anim.SetTrigger("Start");
+        yield return new WaitForSeconds(1.75f);
         astronaut.transform.position = coolantCollider.transform.position;
         anim.SetTrigger("End");
 
@@ -159,29 +165,29 @@ public class ElevatorButton : MonoBehaviour
 
         //"guys are you ok"
         dialogueBox.PlayNextSentence();
-        yield return new WaitForSeconds(2.75f);
+        yield return new WaitForSeconds(3.5f);
 
         //"....."
         dialogueBox.PlayNextSentence();
         yield return new WaitForSeconds(2.5f);
         StartCoroutine(fadeScript.fadeOutIn());
-        yield return new WaitForSeconds(2.25f);
+        yield return new WaitForSeconds(3.25f);
         mainCam.SetActive(false);
         panCam.SetActive(true);
         yield return new WaitForSeconds(4.5f);
         StartCoroutine(fadeScript.fadeOutIn());
-        yield return new WaitForSeconds(2.25f);
+        yield return new WaitForSeconds(3.25f);
         panCam.SetActive(false);
         mainCam.SetActive(true);
         yield return new WaitForSeconds(2.25f);
 
         //"i think i heard a pipe burst earlier"
         dialogueBox.PlayNextSentence();
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(5.5f);
 
         //"I can't risk going in there, I have to find something to seal pipe burst"
         dialogueBox.PlayNextSentence();
-        yield return new WaitForSeconds(2.75f);
+        yield return new WaitForSeconds(4.75f);
         StartCoroutine(fadeScript.fadeOutIn());
         promptDialogue.SetActive(false);
         Astronaut.canMove = true;

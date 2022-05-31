@@ -37,7 +37,7 @@ public class GameCanvasController : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) ||  isEnterButtonClicked && dialogue.activeSelf == true && ElevatorButton.isInputFieldSelected == false && isConfirmPopupOpen == false )
+        if((Input.GetKeyDown(KeyCode.Space) ||  isEnterButtonClicked) && dialogue.activeSelf == true && ElevatorButton.isInputFieldSelected == false && isConfirmPopupOpen == false )
         {
             isEnterButtonClicked = false;
 

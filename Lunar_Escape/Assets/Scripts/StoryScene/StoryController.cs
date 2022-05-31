@@ -8,6 +8,7 @@ public class StoryController : MonoBehaviour
 {
     public StoryScene lastScene;
     public StoryScene currentScene;
+    public StoryScene backstoryLast, endingLast;
     public BottomBarController bottomBar;
     public  Animator animator;
     public float WaitSeconds;
@@ -36,7 +37,10 @@ public class StoryController : MonoBehaviour
             }
             if(currentScene == lastScene) {
                 animator.SetTrigger("Start");
-            SceneManager.LoadScene(sceneBuildIndex: 2);
+                if (lastScene == backstoryLast)
+                    SceneManager.LoadScene(sceneBuildIndex: 2);
+                else if (lastScene == endingLast)
+                    SceneManager.LoadScene(sceneBuildIndex: 4);
             }
                 
         }

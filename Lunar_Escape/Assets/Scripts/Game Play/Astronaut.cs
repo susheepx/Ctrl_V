@@ -93,16 +93,19 @@ public class Astronaut : MonoBehaviour
                     prompts.openDialogueBox(5, prompts.ActII);
                     confirmPill.SetActive(true);
                     pillPopupOpen();
+                    Debug.Log(GameCanvasController.isConfirmPopupOpen);
                 }
                 else if (itemWorld.name == "bottle2") {
                     prompts.openDialogueBox(6, prompts.ActII);
                     confirmPill.SetActive(true);
                     pillPopupOpen();
+                    Debug.Log(GameCanvasController.isConfirmPopupOpen);
                 }
                 else if (itemWorld.name == "bottle3") {
                     prompts.openDialogueBox(7, prompts.ActII);
                     confirmPill.SetActive(true);
                     pillPopupOpen();
+                    Debug.Log(GameCanvasController.isConfirmPopupOpen);
                 }    
                 else {
                     //adds the item to inventory and destroys in game

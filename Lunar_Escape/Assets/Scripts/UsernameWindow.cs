@@ -43,7 +43,7 @@ public class UsernameWindow : MonoBehaviour
     public void PlayGame()
     {
         if (Timer.Username.Length > 1) {
-            SceneManager.LoadScene(sceneBuildIndex:2);
+            SceneManager.LoadScene(sceneBuildIndex:4);
         }
     }
     

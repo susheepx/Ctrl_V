@@ -30,6 +30,15 @@ public class ErikaLyingDown : MonoBehaviour
         
     }
 
+    private void OnTriggerEnter2D(Collider2D other) {
+        
+    }
+    private void OnTriggerExit2D(Collider2D other) {
+        
+    }
+
+
+
     public void testPill() {
         
         if (Astronaut.interact && GetComponent<Collider2D>() == Astronaut.currentItem && EventSystem.current.currentSelectedGameObject.name == "bottle3Icon") 
@@ -43,7 +52,7 @@ public class ErikaLyingDown : MonoBehaviour
 
 
         }
-        else if (EventSystem.current.currentSelectedGameObject.name == "bottle2Icon" || EventSystem.current.currentSelectedGameObject.name == "bottle1Icon" ) {
+        else if (Astronaut.interact && GetComponent<Collider2D>() == Astronaut.currentItem && EventSystem.current.currentSelectedGameObject.name == "bottle2Icon" || EventSystem.current.currentSelectedGameObject.name == "bottle1Icon" ) {
             prompts.openDialogueBox(2, prompts.ActII);
 
             inventory.testList();

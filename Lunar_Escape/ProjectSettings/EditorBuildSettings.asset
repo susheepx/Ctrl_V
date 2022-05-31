@@ -19,5 +19,8 @@ EditorBuildSettings:
     guid: be5e293e023dc8e409c1bd713ff6d7c8
   - enabled: 1
     path: Assets/Scenes/Ending.unity
+    guid: 28e419ff7e644964a910613a6c300f79
+  - enabled: 1
+    path: Assets/Scenes/Survey.unity
     guid: a341184b0ee6d5e48a7940aef1b4b8c9
   m_configObjects: {}

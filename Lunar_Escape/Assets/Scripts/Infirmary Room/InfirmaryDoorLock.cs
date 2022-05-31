@@ -42,8 +42,12 @@ public class InfirmaryDoorLock : MonoBehaviour
         Debug.Log(keyboardScreenText.text);
         if (keyboardScreenText.text.Length < 5) {
             keyboardScreenText.text += currentButtonText.text;
-            checkKeypadCode();
         }
+    }
+
+    public void backButtonPressed() {
+        if (keyboardScreenText.text.Length > 0)
+            keyboardScreenText.text = keyboardScreenText.text.Remove(keyboardScreenText.text.Length - 1);
     }
 
     public void checkKeypadCode() {
@@ -58,7 +62,7 @@ public class InfirmaryDoorLock : MonoBehaviour
                 prompts.openDialogueBox(1, prompts.ActII);
             }
         }
-        else if (keyboardScreenText.text.Length == 5) {
+        else {
             keyboardScreenText.text = "";
         }
     }

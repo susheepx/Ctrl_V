@@ -28,7 +28,7 @@ public class FadeScript : MonoBehaviour
     // }
 
     public IEnumerator fadeOutIn() {
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(1.75f);
         anim.SetTrigger("Start");
         yield return new WaitForSeconds(1f);
         anim.SetTrigger("End");
