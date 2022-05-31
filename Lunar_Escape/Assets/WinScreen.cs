@@ -8,11 +8,15 @@ public class WinScreen : MonoBehaviour
 {
     public TextMeshProUGUI username;
     public TextMeshProUGUI time;
+    float timer =0.0f;
     // Start is called before the first frame update
     void Start()
     {
         username.text = UsernameWindow.username;
-        time.text = Timer.puzzletot.ToString();
+        timer = Timer.puzzletot;
+        int minutes = Mathf.FloorToInt(timer / 60.0f);
+        int seconds = Mathf.FloorToInt(timer - minutes *60);
+        time.text = string.Format("{0:00}:{1:00}", 29-minutes, 59-seconds);
     }
 
     // Update is called once per frame

@@ -19,7 +19,7 @@ public class BasementSetup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Room1Music.Play();
+        //Room1Music.Play();
         promptDialogue.SetActive(true);
         //starting electrical room prompt
         prompts.openDialogueBox(0, prompts.ActI);

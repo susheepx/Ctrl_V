@@ -28,8 +28,7 @@ public class ElevatorButton : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F) && Astronaut.interact && GetComponent<Collider2D>() == Astronaut.currentItem && isInputFieldSelected == false) {
             if (sentenceGuessed == false) {
-                StartCoroutine(waitFadeTime());
-                //controller.openDialogueBox(0, controller.Elevator);
+                controller.openDialogueBox(0, controller.Elevator);
                 
             }
             else {
@@ -79,7 +78,7 @@ public class ElevatorButton : MonoBehaviour
         playerGuessWhoAnswer += playerInput.GetComponent<TMP_InputField>().text;
         if (playerGuessWhoAnswer.Equals(guessWhoAnswer, System.StringComparison.OrdinalIgnoreCase)) {
             controller.openDialogueBox(4, controller.Elevator);
-            // StartCoroutine(waitFadeTime());
+            StartCoroutine(waitFadeTime());
             
         }
         else
@@ -100,7 +99,7 @@ public class ElevatorButton : MonoBehaviour
 
 
     public IEnumerator waitFadeTime() {
-        Room3Music.Play();
+        //Room3Music.Play();
         //going from elevator to hq elevator
         yield return new WaitForSeconds(0.3f);
         anim.SetTrigger("Start");
@@ -195,7 +194,7 @@ public class ElevatorButton : MonoBehaviour
         Astronaut.canMove = true;
         ObjectivesList.objective1.text = "Find the adhesive to patch that pipe up!";
         timer.StartTimer();
-        Room3Music.Play();
+        //Room3Music.Play();
         
     }
 

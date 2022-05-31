@@ -124,8 +124,8 @@ public class Wire : MonoBehaviour
             timer.StopTimer();
             timer.StartTimer();
             isPuzzleOneSolved = true;
-            Room1music.Stop();
-            Room2Music.Play();
+            // Room1music.Stop();
+            // Room2Music.Play();
             return;
         }
         else

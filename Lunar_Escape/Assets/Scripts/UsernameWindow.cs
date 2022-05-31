@@ -44,7 +44,7 @@ public class UsernameWindow : MonoBehaviour
     public void PlayGame()
     {
         if (Timer.Username.Length > 1) {
-            TitleMusic.Stop();
+            //TitleMusic.Stop();
             SceneManager.LoadScene(sceneBuildIndex:4);
         }
     }
