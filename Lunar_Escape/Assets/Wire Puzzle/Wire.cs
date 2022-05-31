@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Wire : MonoBehaviour
 {
-    public AudioSource Room2Music;
-    public AudioSource Room1music;
+    // public AudioSource Room2Music;
+    // public AudioSource Room1music;
     public static bool isPuzzleOneSolved = false;
     public FadeScript fadeScript;
     public GameCanvasController prompts;

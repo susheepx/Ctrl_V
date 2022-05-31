@@ -562,9 +562,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 205465989}
+  - {fileID: 549137297}
   - {fileID: 1928376183}
   - {fileID: 1572560816}
-  - {fileID: 549137297}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -973,7 +973,7 @@ RectTransform:
   m_Children:
   - {fileID: 214757162}
   m_Father: {fileID: 297980489}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2654,7 +2654,7 @@ RectTransform:
   - {fileID: 654421904}
   - {fileID: 1239891163}
   m_Father: {fileID: 297980489}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2673,7 +2673,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8edb4b6149ce42438276801822e309d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TitleMusic: {fileID: 297980490}
   displayLeaderboard: {fileID: 549137298}
   leaderboardCanvas: {fileID: 561314602}
   mainScreenCanvas: {fileID: 297980485}
@@ -3470,7 +3469,7 @@ RectTransform:
   m_Children:
   - {fileID: 413314276}
   m_Father: {fileID: 297980489}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

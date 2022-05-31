@@ -15,7 +15,7 @@ public class Timer : MonoBehaviour
     public TMP_Text textTimer;
     public GameObject Main, Leaderboard;
 
-    public static float timer = 1780.0f;
+    public static float timer = 0.0f;
     private float timer1 = 0.0f;
     private float timer2 = 0.0f;
     private float timer3 = 0.0f;
@@ -90,15 +90,11 @@ public class Timer : MonoBehaviour
     //Round down the timer to the lowest integer.
     void DisplayTime()
     {
-        while (isTimer){
-
         int minutes = Mathf.FloorToInt(timer / 60.0f);
         int seconds = Mathf.FloorToInt(timer - minutes *60);
         textTimer.text = string.Format("{0:00}:{1:00}", 29-minutes, 59-seconds) + " left...";
-        }
-        if (timer>=1800){
-        SceneManager.LoadScene(sceneBuildIndex:5);
-        }
+        
+
     }
 
     public void StartTimer()

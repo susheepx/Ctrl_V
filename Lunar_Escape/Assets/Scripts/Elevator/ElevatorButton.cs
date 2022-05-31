@@ -88,8 +88,8 @@ public class ElevatorButton : MonoBehaviour
         }
     }
 
-    public AudioSource Room2Music;
-    public AudioSource Room3Music;
+    // public AudioSource Room2Music;
+    // public AudioSource Room3Music;
     public UI_Inventory UI_inventory;
     public GameObject astronaut, hqElevator, promptDialogue;
     public Animator anim;

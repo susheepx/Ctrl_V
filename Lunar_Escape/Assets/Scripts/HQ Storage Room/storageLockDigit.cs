@@ -24,7 +24,7 @@ public class storageLockDigit : MonoBehaviour
 
     public void changeCode() {
         x += 1;
-        if (x>3)
+        if (x>9)
             x = 0;
         Debug.Log(alphaChange.text);
         Debug.Log(Code.lockAlphaList[x]);

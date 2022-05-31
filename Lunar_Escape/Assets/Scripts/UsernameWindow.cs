@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class UsernameWindow : MonoBehaviour
 {
-    public AudioSource TitleMusic;
+    //public AudioSource TitleMusic;
     public DisplayLeaderboard displayLeaderboard;
     public static bool isSurveySubmitted = false;
     public GameObject leaderboardCanvas, mainScreenCanvas;
@@ -45,7 +45,7 @@ public class UsernameWindow : MonoBehaviour
     {
         if (Timer.Username.Length > 1) {
             //TitleMusic.Stop();
-            SceneManager.LoadScene(sceneBuildIndex:4);
+            SceneManager.LoadScene(sceneBuildIndex:2);
         }
     }
     
