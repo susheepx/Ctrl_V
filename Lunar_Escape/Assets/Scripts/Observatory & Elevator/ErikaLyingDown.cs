@@ -60,6 +60,7 @@ public class ErikaLyingDown : MonoBehaviour
         fadeAnim.SetTrigger("End");
         prompts.openDialogueBox(3, prompts.ActII);
         gameObject.SetActive(false);
+        ObjectivesList.objective1.text = "Head up to Headquarters through elevator!";
 
     }
 }

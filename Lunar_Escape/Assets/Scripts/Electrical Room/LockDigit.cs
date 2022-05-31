@@ -24,7 +24,7 @@ public class LockDigit : MonoBehaviour
 
     public void changeCode() {
         x += 1;
-        if (x>3)
+        if (x>14)
             x = 0;
         alphaChange.text = Code.lockAlphaList[x];
         Code.inputCodeList[Code.lockSlot.IndexOf(EventSystem.current.currentSelectedGameObject.name)] = Code.lockAlphaList[x];

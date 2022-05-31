@@ -28,6 +28,7 @@ public class EnterCollider : MonoBehaviour
                     prompts.openDialogueBox(0, prompts.ActII);
                     commandPrompt.SetActive(false);
                     isFirstObservatoryEnter = false;
+                    ObjectivesList.objective1.text = "Find medicine to help Erika and Genesis!";
                     return;
                 }
                 gameObject.SetActive(false);

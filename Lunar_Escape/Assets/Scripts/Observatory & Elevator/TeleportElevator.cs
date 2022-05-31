@@ -18,7 +18,7 @@ public class TeleportElevator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GetComponent<Collider2D>() == Astronaut.currentItem && ErikaLyingDown.isConscious == true) {
+        if (GetComponent<Collider2D>() == Astronaut.currentItem && Input.GetKeyDown(KeyCode.F) && ErikaLyingDown.isConscious == true) {
             Debug.Log(GetComponent<GameObject>());
             if (GetComponent<Collider2D>().gameObject == enterElevator)  {
                 astronaut.transform.position = exitElevator.transform.position + new Vector3(1f, -4f, 0f);

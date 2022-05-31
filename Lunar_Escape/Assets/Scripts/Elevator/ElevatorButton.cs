@@ -115,17 +115,18 @@ public class ElevatorButton : MonoBehaviour
         //start of hq dialogue "hears hissing noise". all crewmates should be standing there
         yield return new WaitForSeconds(1);
         prompts.openDialogueBox(0, prompts.ActIII);
-        yield return new WaitForSeconds(1.75f);
+        spaceBox.SetActive(false);
+        yield return new WaitForSeconds(2.5f);
 
         //crewmates ask "where is that noise coming from"
         dialogueBox.PlayNextSentence();
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2.5f);
 
         //"let's go check it out"
         dialogueBox.PlayNextSentence();
         StartCoroutine(fadeScript.fadeOutIn());
         //during this coroutine should have crewmates fade out 
-        yield return new WaitForSeconds(1.75f);
+        yield return new WaitForSeconds(2.25f);
 
         //you are alone, the others have left to go check out noise. "Wait up"
         dialogueBox.PlayNextSentence();
@@ -133,22 +134,23 @@ public class ElevatorButton : MonoBehaviour
 
     }
 
-    public GameObject coolantCollider;
+    public GameObject coolantCollider, spaceBox;
     public GameDialogueBox dialogueBox;
     public GameObject mainCam;
     public GameObject panCam;
     private IEnumerator cutSceneActIII() {
         promptDialogue.SetActive(true);
+        spaceBox.SetActive(false);
         
         //move from elevator to outside coolant room
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2.5f);
         anim.SetTrigger("Start");
         astronaut.transform.position = coolantCollider.transform.position;
         anim.SetTrigger("End");
 
         //captain telling crewmates to "be careful, they don't know what's inside"
         dialogueBox.PlayNextSentence();
-        yield return new WaitForSeconds(3.25f);
+        yield return new WaitForSeconds(3.75f);
 
         //hears a thud
         dialogueBox.PlayNextSentence();
@@ -157,28 +159,33 @@ public class ElevatorButton : MonoBehaviour
 
         //"guys are you ok"
         dialogueBox.PlayNextSentence();
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2.75f);
 
         //"....."
         dialogueBox.PlayNextSentence();
-        yield return new WaitForSeconds(1.75f);
+        yield return new WaitForSeconds(2.5f);
+        StartCoroutine(fadeScript.fadeOutIn());
+        yield return new WaitForSeconds(2.25f);
         mainCam.SetActive(false);
         panCam.SetActive(true);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4.5f);
+        StartCoroutine(fadeScript.fadeOutIn());
+        yield return new WaitForSeconds(2.25f);
         panCam.SetActive(false);
         mainCam.SetActive(true);
-        yield return new WaitForSeconds(1.75f);
+        yield return new WaitForSeconds(2.25f);
 
         //"i think i heard a pipe burst earlier"
         dialogueBox.PlayNextSentence();
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(3.5f);
 
         //"I can't risk going in there, I have to find something to seal pipe burst"
         dialogueBox.PlayNextSentence();
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(2.75f);
         StartCoroutine(fadeScript.fadeOutIn());
         promptDialogue.SetActive(false);
         Astronaut.canMove = true;
+        ObjectivesList.objective1.text = "Find the adhesive to patch that pipe up!";
         timer.StartTimer();
         
     }

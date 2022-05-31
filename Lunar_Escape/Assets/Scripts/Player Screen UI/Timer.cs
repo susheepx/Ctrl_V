@@ -194,6 +194,22 @@ public class Timer : MonoBehaviour
             }
     }
 
+
+    public GameObject menuPopup;
+    bool isMenuPopupOpen = false;
+    public void MenuPopupAppear(){
+        if(isMenuPopupOpen==false)
+            {
+                isMenuPopupOpen=true;
+                menuPopup.SetActive(true);
+            }
+        else if(isMenuPopupOpen==true)
+            {
+                isMenuPopupOpen=false;
+                menuPopup.SetActive(false);
+            }
+    }
+
     bool isClockOpen = false;
     public void OpenClock()
     {

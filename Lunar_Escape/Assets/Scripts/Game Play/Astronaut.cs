@@ -92,14 +92,17 @@ public class Astronaut : MonoBehaviour
                 if (itemWorld.name == "bottle1") {
                     prompts.openDialogueBox(5, prompts.ActII);
                     confirmPill.SetActive(true);
+                    pillPopupOpen();
                 }
                 else if (itemWorld.name == "bottle2") {
                     prompts.openDialogueBox(6, prompts.ActII);
                     confirmPill.SetActive(true);
+                    pillPopupOpen();
                 }
                 else if (itemWorld.name == "bottle3") {
                     prompts.openDialogueBox(7, prompts.ActII);
                     confirmPill.SetActive(true);
+                    pillPopupOpen();
                 }    
                 else {
                     //adds the item to inventory and destroys in game
@@ -127,7 +130,7 @@ public class Astronaut : MonoBehaviour
                 }
                 else {
                 currentItem = null;
-                itemWorld = null;
+                // itemWorld = null;
                 }
                 
             }
@@ -160,6 +163,7 @@ public class Astronaut : MonoBehaviour
                 }
                 else {
                     minigameTimer.ActivateTimerFinal();
+                    ObjectivesList.objective1.text = "PATCH UP THE HOLE";
                     prompts.openDialogueBox(0, prompts.Warnings);
                     warning1.enabled = false;
                     moveForce = 9;
@@ -174,7 +178,7 @@ public class Astronaut : MonoBehaviour
                 else {
                 prompts.openDialogueBox(1, prompts.Warnings);
                 warning2.enabled = false;
-                moveForce = 4;
+                moveForce = 7;
                 return;
                 }
             }
@@ -186,7 +190,7 @@ public class Astronaut : MonoBehaviour
                 else {
                 prompts.openDialogueBox(2, prompts.Warnings);
                 warning3.enabled = false;
-                moveForce = 2;
+                moveForce = 4;
                 return;
                 }
             }

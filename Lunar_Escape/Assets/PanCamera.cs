@@ -26,7 +26,7 @@ public class PanCamera : MonoBehaviour
     IEnumerator panCamera() {
         if (panCamPosition.y < 160f )
         {
-            panCamPosition.y += 0.5f;
+            panCamPosition.y += 0.25f;
             panCam.transform.position = panCamPosition;
             yield break;
         }

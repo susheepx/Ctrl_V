@@ -43,6 +43,7 @@ public class BreakerLock : MonoBehaviour
         gameObject.SetActive(false);
         breakerBox.SetActive(false);
         wireBackground.SetActive(true);
+        ObjectivesList.objective2.text = "Open the door!";
         Astronaut.canMove = true;
         Timer.hintCount = 3;
     }

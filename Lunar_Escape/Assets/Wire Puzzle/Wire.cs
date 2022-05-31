@@ -14,14 +14,16 @@ public class Wire : MonoBehaviour
     //15% of >:(  85% :D
     Vector3 startPoint;
     Vector3 startPosition;
+    Vector3 staticStartPoint;
+    Vector3 staticStartPosition;
     public GameObject Left, Right, wireGame;
     public BoxCollider2D Collider;
     public SpriteRenderer wireEnd;
     public List<Collider2D> wireColliders = new List<Collider2D>();
     public void Start() {
         if (gameObject != null) {
-            startPoint = transform.parent.position;
-            startPosition = transform.position;
+            staticStartPoint = transform.parent.position;
+            staticStartPosition = transform.position;
         }
     }
 
@@ -52,7 +54,6 @@ public class Wire : MonoBehaviour
                 // check if the wire connection is correct
                 if (transform.parent.name.Equals(collider.transform.parent.name)) {
                     //finish step
-                    collider.GetComponent<Wire>()?.Done();
                     Done();
                 }
                 isWireConnected = true;
@@ -82,7 +83,7 @@ public class Wire : MonoBehaviour
         yield return new WaitForSeconds(2f);
         fadeAnim.SetTrigger("End");
         prompts.openDialogueBox(3, prompts.ActI);
-        UpdateWire(startPosition);
+        UpdateWire(staticStartPosition);
         wireGame.SetActive(false);
         BreakerWires.isWiresOpen = false; 
     }
@@ -117,6 +118,8 @@ public class Wire : MonoBehaviour
             Astronaut.canMove = true;
             anim.SetTrigger("ElectricalDoorOpen");
             prompts.openDialogueBox(4, prompts.ActI);
+            ObjectivesList.objective1.text = "Go find your crewmates in the observatory!";
+            ObjectivesList.objective2.text = "";
             Timer.hintCount = 4;
             timer.StopTimer();
             timer.StartTimer();
