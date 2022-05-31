@@ -76,6 +76,7 @@ public class Wire : MonoBehaviour
     
     //fade out during blackout
     public IEnumerator FadeOutIn() {
+        Timer.timer += 120.0f;
         yield return new WaitForSeconds(0.03f);
         fadeAnim.SetTrigger("Start");
         yield return new WaitForSeconds(2f);
@@ -110,7 +111,7 @@ public class Wire : MonoBehaviour
 
     public Timer timer;
     void checkWires() {
-        if (numOfCorrect == 8) {
+        if (numOfCorrect == 4) {
             Debug.Log("good job!");
             wireGame.SetActive(false);
             Astronaut.canMove = true;

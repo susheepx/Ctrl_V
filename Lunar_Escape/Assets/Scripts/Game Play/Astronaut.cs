@@ -45,7 +45,11 @@ public class Astronaut : MonoBehaviour
         
     }
 
+    public void pillPopupOpen() {
+        GameCanvasController.isConfirmPopupOpen = true;
+    }
     public void yesPill() {
+        GameCanvasController.isConfirmPopupOpen = false;
         prompts.dialogue.SetActive(false);
         if (prompts.currentScene = prompts.ActII[5]) {
             inventory.AddItem(Astronaut.itemWorld.GetItem());
@@ -99,8 +103,6 @@ public class Astronaut : MonoBehaviour
                 }    
                 else {
                     //adds the item to inventory and destroys in game
-                    Debug.Log(itemWorld);
-                    Debug.Log(itemWorld.GetItem().SpriteName());
                     inventory.AddItem(itemWorld.GetItem());
                     itemWorld.DestroySelf();
                     
@@ -108,7 +110,7 @@ public class Astronaut : MonoBehaviour
                 //specific actions happen everytime one of these are picked up
                 if (itemWorld.name == "blueprint") {
                     prompts.openDialogueBox(1, prompts.ActI);
-                    Timer.hintCount ++;
+                    Timer.hintCount = 2;
                 }
                 if (itemWorld.name == "breakernote" && ElevatorButton.isPuzzleTwoSolved) {
                     prompts.openDialogueBox(1, prompts.ActIII);
@@ -123,8 +125,10 @@ public class Astronaut : MonoBehaviour
                 if (itemWorld.name == "keycard") {
                     prompts.openDialogueBox(3, prompts.ActIII);
                 }
-                // currentItem = null;
-                // itemWorld = null;
+                else {
+                currentItem = null;
+                itemWorld = null;
+                }
                 
             }
             }

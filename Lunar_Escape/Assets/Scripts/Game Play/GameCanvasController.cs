@@ -28,6 +28,7 @@ public class GameCanvasController : MonoBehaviour
 
 
     private bool isEnterButtonClicked = false;
+    public static bool isConfirmPopupOpen = false;
 
     public void enterButtonTrue() {
         isEnterButtonClicked = true;
@@ -36,7 +37,7 @@ public class GameCanvasController : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) ||  isEnterButtonClicked && dialogue.activeSelf == true && ElevatorButton.isInputFieldSelected == false )
+        if(Input.GetKeyDown(KeyCode.Space) ||  isEnterButtonClicked && dialogue.activeSelf == true && ElevatorButton.isInputFieldSelected == false && isConfirmPopupOpen == false )
         {
             isEnterButtonClicked = false;
 
@@ -122,6 +123,7 @@ public class GameCanvasController : MonoBehaviour
     public Astronaut astronaut;
 
     public void noPill() {
+        GameCanvasController.isConfirmPopupOpen = false;
         dialogue.SetActive(false);
         confirmPill.SetActive(false);
         Astronaut.canMove = true;

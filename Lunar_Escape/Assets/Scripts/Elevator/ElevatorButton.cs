@@ -178,6 +178,7 @@ public class ElevatorButton : MonoBehaviour
         yield return new WaitForSeconds(2.5f);
         StartCoroutine(fadeScript.fadeOutIn());
         promptDialogue.SetActive(false);
+        Astronaut.canMove = true;
         timer.StartTimer();
         
     }
