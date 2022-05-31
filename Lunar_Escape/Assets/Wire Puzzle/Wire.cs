@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Wire : MonoBehaviour
 {
+    public AudioSource Room2Music;
+    public AudioSource Room1music;
     public static bool isPuzzleOneSolved = false;
     public FadeScript fadeScript;
     public GameCanvasController prompts;
@@ -14,16 +16,14 @@ public class Wire : MonoBehaviour
     //15% of >:(  85% :D
     Vector3 startPoint;
     Vector3 startPosition;
-    Vector3 staticStartPoint;
-    Vector3 staticStartPosition;
     public GameObject Left, Right, wireGame;
     public BoxCollider2D Collider;
     public SpriteRenderer wireEnd;
     public List<Collider2D> wireColliders = new List<Collider2D>();
     public void Start() {
         if (gameObject != null) {
-            staticStartPoint = transform.parent.position;
-            staticStartPosition = transform.position;
+            startPoint = transform.parent.position;
+            startPosition = transform.position;
         }
     }
 
@@ -49,7 +49,7 @@ public class Wire : MonoBehaviour
             if (collider.gameObject != gameObject && collider.gameObject.transform.parent != gameObject.transform.parent && wireColliders.Contains(collider)) {
 
                 //update wire position to connect to other wire
-                UpdateWire(collider.transform.position);
+                UpdateWire(collider.transform.position - new Vector3(0f, 0f, 2f));
 
                 // check if the wire connection is correct
                 if (transform.parent.name.Equals(collider.transform.parent.name)) {
@@ -83,7 +83,7 @@ public class Wire : MonoBehaviour
         yield return new WaitForSeconds(2f);
         fadeAnim.SetTrigger("End");
         prompts.openDialogueBox(3, prompts.ActI);
-        UpdateWire(staticStartPosition);
+        UpdateWire(startPosition);
         wireGame.SetActive(false);
         BreakerWires.isWiresOpen = false; 
     }
@@ -124,6 +124,8 @@ public class Wire : MonoBehaviour
             timer.StopTimer();
             timer.StartTimer();
             isPuzzleOneSolved = true;
+            Room1music.Stop();
+            Room2Music.Play();
             return;
         }
         else

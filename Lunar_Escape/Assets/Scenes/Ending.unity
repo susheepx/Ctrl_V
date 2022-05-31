@@ -602,7 +602,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 14f13d258d6a46544abd738844b02c4b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c4f05b3c0cbef6f449315c34b3ba5cd1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -746,10 +746,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f077a6dbb7113e4b978fffe0d56ce50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastScene: {fileID: 11400000, guid: c5f949458bd39a748b5211b9c0f4e02d, type: 2}
+  lastScene: {fileID: 11400000, guid: 38c44ca36c66c0c43bc4b925f38797ac, type: 2}
   currentScene: {fileID: 11400000, guid: 4da7bde2c66dee140a2f88858855ac74, type: 2}
   backstoryLast: {fileID: 11400000, guid: dfcac6f15ae699343b86fcbaea2a2914, type: 2}
-  endingLast: {fileID: 11400000, guid: c5f949458bd39a748b5211b9c0f4e02d, type: 2}
+  endingLast: {fileID: 11400000, guid: 38c44ca36c66c0c43bc4b925f38797ac, type: 2}
   bottomBar: {fileID: 1001287154}
   animator: {fileID: 871989688}
   WaitSeconds: 1.65
@@ -809,7 +809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.8}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -89,6 +89,8 @@ public class ElevatorButton : MonoBehaviour
         }
     }
 
+    public AudioSource Room2Music;
+    public AudioSource Room3Music;
     public UI_Inventory UI_inventory;
     public GameObject astronaut, hqElevator, promptDialogue;
     public Animator anim;
@@ -98,6 +100,7 @@ public class ElevatorButton : MonoBehaviour
 
 
     public IEnumerator waitFadeTime() {
+        Room3Music.Play();
         //going from elevator to hq elevator
         yield return new WaitForSeconds(0.3f);
         anim.SetTrigger("Start");
@@ -127,7 +130,7 @@ public class ElevatorButton : MonoBehaviour
         dialogueBox.PlayNextSentence();
         yield return new WaitForSeconds(1.75f);
         StartCoroutine(fadeScript.fadeOutIn());
-        yield return new WaitForSeconds(3444.75f);
+        yield return new WaitForSeconds(3.75f);
         //you are alone, the others have left to go check out noise. "Wait up"
         dialogueBox.PlayNextSentence(); 
         //during this coroutine should have crewmates fade out
@@ -138,7 +141,6 @@ public class ElevatorButton : MonoBehaviour
         StartCoroutine(cutSceneActIII());
 
     }
-
     public GameObject coolantCollider, spaceBox;
     public GameDialogueBox dialogueBox;
     public GameObject mainCam;
@@ -193,6 +195,7 @@ public class ElevatorButton : MonoBehaviour
         Astronaut.canMove = true;
         ObjectivesList.objective1.text = "Find the adhesive to patch that pipe up!";
         timer.StartTimer();
+        Room3Music.Play();
         
     }
 

@@ -34,6 +34,34 @@ public class GameCanvasController : MonoBehaviour
         isEnterButtonClicked = true;
     }
 
+
+    //open hints list
+
+    public GameObject hintPopup;
+    private bool isHintPopup = false;
+    public void openHintList() {
+        if (isHintPopup == false) {
+            hintPopup.SetActive(true);
+        }
+        else {
+            hintPopup.SetActive(false);
+        }
+
+    }
+
+    //open command list
+    public GameObject commandPopup;
+    private bool isCommandOpen = false;
+    public void openCommandList() {
+        if (isCommandOpen == false) {
+            commandPopup.SetActive(true);
+        }
+        else {
+            commandPopup.SetActive(false);
+        }
+
+    }
+
     // Update is called once per frame
     public void Update()
     {

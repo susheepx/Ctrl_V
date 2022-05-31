@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7855a7731c800e947a9edeb7e951e3fe, type: 3}
+  m_Name: 4
+  m_EditorClassIdentifier: 
+  sentences:
+  - text: CAPTAIN!! CAPTAIN!! Are we.... alive?
+    speaker: {fileID: 11400000, guid: e20b2f27660ed6c43859f9e459cd7049, type: 2}
+  - text: Seems like it...
+    speaker: {fileID: 11400000, guid: a32ddd837f8a2494fb62b8494409e17b, type: 2}
+  - text: "Captain,  you have my eternal respect and honor.  I couldn\u2019t have
+      made it out without you."
+    speaker: {fileID: 11400000, guid: 328f0449067be28438f74e8de5a6bd5d, type: 2}
+  - text: Me too
+    speaker: {fileID: 11400000, guid: 8069ef1110b05254b8f45525a1cad83c, type: 2}
+  - text: "esponds.   It\u2019s too bad the scientist didn\u2019t\u2026 "
+    speaker: {fileID: 11400000, guid: 49a27c74cf6aba342b88f164b46a0ae4, type: 2}
+  - text: We must help him by taking his place and continuing his research
+    speaker: {fileID: 11400000, guid: dc5ef7f1812020747bd8e8614aa4d1aa, type: 2}
+  background: {fileID: 21300000, guid: b675cf5c0191a4f428868fa3503d6348, type: 3}
+  nextScene: {fileID: 0}

@@ -18,9 +18,10 @@ MonoBehaviour:
       on the moon. He wanted to show them everything he\u2019s completed so far,
       such as: "
     speaker: {fileID: 11400000, guid: bed7e9931116eb947b9c738e005e89ae, type: 2}
-  - text: "1. a strong adhesive using chemicals found on the moon 2. a device that
-      can bring down anyone\u2019s fever 3. and even a coolant system that uses gas
-      (that is made from matter on the moon)! "
+  - text: "1. a strong adhesive using chemicals found on the moon                                                                              
+      2. a device that can bring down anyone\u2019s fever                                                                                        
+      3. and even a coolant system that uses gas (that is made from matter on the
+      moon)! "
     speaker: {fileID: 11400000, guid: bed7e9931116eb947b9c738e005e89ae, type: 2}
   - text: "You guys on the tour for June 10? (...heads bobbing)  I\u2019ve been waiting
       for your crew to show up! How about you two (Genesis and Erica) check out the
