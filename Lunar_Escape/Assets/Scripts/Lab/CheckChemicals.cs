@@ -25,7 +25,7 @@ public class CheckChemicals : MonoBehaviour
     if (chemicals.numSelected == 3) {
         foreach (string chemical in guessChemicalList) {
             if (answerChemicalList.Contains(chemical)) {
-                Timer.hintCount += 2;
+                Timer.hintCount = 12;
                 
                 isCodeSolved = true;
         }

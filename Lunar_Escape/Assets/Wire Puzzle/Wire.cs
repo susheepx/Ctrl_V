@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Wire : MonoBehaviour
 {
-    // public AudioSource Room2Music;
-    // public AudioSource Room1music;
+    public AudioSource Room2Music;
+    public AudioSource Room1music;
     public static bool isPuzzleOneSolved = false;
     public FadeScript fadeScript;
     public GameCanvasController prompts;
@@ -27,6 +27,7 @@ public class Wire : MonoBehaviour
         }
     }
 
+    private bool isFadeHappening = false;
     private void Update() {
         if (gameObject != null) {
             startPoint = transform.parent.position;
@@ -77,29 +78,42 @@ public class Wire : MonoBehaviour
     
     //fade out during blackout
     public IEnumerator FadeOutIn() {
-        Timer.timer += 120.0f;
-        yield return new WaitForSeconds(0.03f);
-        fadeAnim.SetTrigger("Start");
-        yield return new WaitForSeconds(2f);
-        fadeAnim.SetTrigger("End");
-        prompts.openDialogueBox(3, prompts.ActI);
-        UpdateWire(startPosition);
-        wireGame.SetActive(false);
-        BreakerWires.isWiresOpen = false; 
+        if(isFadeHappening==false){
+            isFadeHappening=true;
+            Timer.timer += 120.0f;
+            // Left.SetActive(false);
+            // Right.SetActive(false);
+            // background.SetActive(false);
+            yield return new WaitForSeconds(0.03f);
+            fadeAnim.SetTrigger("Start");
+            yield return new WaitForSeconds(2f);
+            fadeAnim.SetTrigger("End");
+            isFadeHappening=false;
+            prompts.openDialogueBox(3, prompts.ActI);
+            if (gameObject != null) {
+                startPoint = transform.parent.position;
+                startPosition = transform.position;
+            }
+            startPoint = transform.parent.position;
+            startPosition = transform.position;
+            UpdateWire(startPosition);
+            wireGame.SetActive(false);
+            BreakerWires.isWiresOpen = false; 
+        }
     }
     private void OnMouseUp() {
 
-        if(transform.parent.name.Equals(GetComponent<BoxCollider2D>().transform.parent.name) && isWireConnected){
+        //if(transform.parent.name.Equals(GetComponent<BoxCollider2D>().transform.parent.name) && isWireConnected){
             //the line below adds 90s to the google sheets.
             //timer += 90.0f
             // Left.SetActive(false);
             // Right.SetActive(false);
             //call the fade out "blackout" and return to electrical room
-            StartCoroutine(FadeOutIn());
+         //   StartCoroutine(FadeOutIn());
             
             
             
-        }
+    //}
         // reset wire position
         if (! isWireConnected) {
             UpdateWire(startPosition);
@@ -124,8 +138,8 @@ public class Wire : MonoBehaviour
             timer.StopTimer();
             timer.StartTimer();
             isPuzzleOneSolved = true;
-            // Room1music.Stop();
-            // Room2Music.Play();
+            Room1music.Stop();
+            Room2Music.Play();
             return;
         }
         else

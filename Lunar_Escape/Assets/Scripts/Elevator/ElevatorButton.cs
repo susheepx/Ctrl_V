@@ -28,8 +28,7 @@ public class ElevatorButton : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F) && Astronaut.interact && GetComponent<Collider2D>() == Astronaut.currentItem && isInputFieldSelected == false) {
             if (sentenceGuessed == false) {
-                StartCoroutine(waitFadeTime());
-                // controller.openDialogueBox(0, controller.Elevator);
+                controller.openDialogueBox(0, controller.Elevator);
                 
             }
             else {
@@ -79,7 +78,7 @@ public class ElevatorButton : MonoBehaviour
         playerGuessWhoAnswer += playerInput.GetComponent<TMP_InputField>().text;
         if (playerGuessWhoAnswer.Equals(guessWhoAnswer, System.StringComparison.OrdinalIgnoreCase)) {
             controller.openDialogueBox(4, controller.Elevator);
-            // StartCoroutine(waitFadeTime());
+            StartCoroutine(waitFadeTime());
             
         }
         else
@@ -89,8 +88,8 @@ public class ElevatorButton : MonoBehaviour
         }
     }
 
-    // public AudioSource Room2Music;
-    // public AudioSource Room3Music;
+    public AudioSource Room2Music;
+    public AudioSource Room3Music;
     public UI_Inventory UI_inventory;
     public GameObject astronaut, hqElevator, promptDialogue;
     public Animator anim;
@@ -100,7 +99,7 @@ public class ElevatorButton : MonoBehaviour
     
 
     public IEnumerator waitFadeTime() {
-        //Room3Music.Play();
+        Room2Music.Stop();
         //going from elevator to hq elevator
         yield return new WaitForSeconds(0.3f);
         anim.SetTrigger("Start");
@@ -131,7 +130,7 @@ public class ElevatorButton : MonoBehaviour
         dialogueBox.PlayNextSentence();
         yield return new WaitForSeconds(2f);
         StartCoroutine(fadeScript.fadeOutIn());
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2.7f);
         //you are alone, the others have left to go check out noise. "Wait up"
         dialogueBox.PlayNextSentence(); 
         //during this coroutine should have crewmates fade out
@@ -155,6 +154,7 @@ public class ElevatorButton : MonoBehaviour
         anim.SetTrigger("Start");
         yield return new WaitForSeconds(1.75f);
         astronaut.transform.position = coolantCollider.transform.position;
+        coolantCollider.SetActive(false);
         anim.SetTrigger("End");
 
         //captain telling crewmates to "be careful, they don't know what's inside"
@@ -163,6 +163,7 @@ public class ElevatorButton : MonoBehaviour
 
         //hears a thud
         dialogueBox.PlayNextSentence();
+        yield return new WaitForSeconds(2.5f);
         StartCoroutine(fadeScript.fadeOutIn());
         yield return new WaitForSeconds(2.5f);
 
@@ -174,29 +175,30 @@ public class ElevatorButton : MonoBehaviour
         dialogueBox.PlayNextSentence();
         yield return new WaitForSeconds(2.5f);
         StartCoroutine(fadeScript.fadeOutIn());
-        yield return new WaitForSeconds(3.25f);
+        yield return new WaitForSeconds(3f);
         mainCam.SetActive(false);
         panCam.SetActive(true);
-        yield return new WaitForSeconds(4.5f);
+        yield return new WaitForSeconds(5.5f);
         StartCoroutine(fadeScript.fadeOutIn());
-        yield return new WaitForSeconds(3.25f);
+        yield return new WaitForSeconds(2.85f);
         panCam.SetActive(false);
         mainCam.SetActive(true);
-        yield return new WaitForSeconds(2.25f);
+        yield return new WaitForSeconds(1.15f);
 
         //"i think i heard a pipe burst earlier"
         dialogueBox.PlayNextSentence();
-        yield return new WaitForSeconds(5.5f);
+        yield return new WaitForSeconds(6.5f);
 
         //"I can't risk going in there, I have to find something to seal pipe burst"
         dialogueBox.PlayNextSentence();
-        yield return new WaitForSeconds(4.75f);
+        yield return new WaitForSeconds(5.25f);
         StartCoroutine(fadeScript.fadeOutIn());
+        spaceBox.SetActive(true);
         promptDialogue.SetActive(false);
         Astronaut.canMove = true;
         ObjectivesList.objective1.text = "Find the adhesive to patch that pipe up!";
         timer.StartTimer();
-        //Room3Music.Play();
+        Room3Music.Play();
         
     }
 

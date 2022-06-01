@@ -61,7 +61,7 @@ public class ErikaLyingDown : MonoBehaviour
     }
 
     IEnumerator wakingUp() {
-        Timer.hintCount ++;
+        Timer.hintCount = 6;
         yield return new WaitForSeconds(0.5f);
         fadeAnim.SetTrigger("Start");
         yield return new WaitForSeconds(1);

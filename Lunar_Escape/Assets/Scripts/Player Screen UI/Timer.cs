@@ -46,7 +46,10 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isTimer)
+        if(timer == 1800.0f) {
+            SceneManager.LoadScene(sceneBuildIndex:4);
+        }
+        else if(isTimer)
         {
             timer += Time.deltaTime;
             DisplayTime();

@@ -24,6 +24,7 @@ public class BreakerLock : MonoBehaviour
 
 
 
+
     public void checkSecretCode() {
         for (int i = 0; i < secretCodeList.Count; i++) {
             if (inputCodeList[i] == secretCodeList[i])
@@ -31,6 +32,7 @@ public class BreakerLock : MonoBehaviour
             else
             {
                 isCodeSolved = false;
+                StartCoroutine(errorMessage());
                 break;
             }
         }
@@ -38,6 +40,20 @@ public class BreakerLock : MonoBehaviour
             StartCoroutine(UnlockedBreaker());
     }
     
+    public GameObject error;
+
+    public void setErrorFalse() {
+        error.SetActive(false);
+    }
+    public IEnumerator errorMessage() {
+        
+        for (int i = 0; i < 5; i ++) {
+            gameObject.SetActive(true);
+            yield return new WaitForSeconds(0.25f);
+            gameObject.SetActive(false);
+            yield return new WaitForSeconds(0.25f);
+        }
+    }
     IEnumerator UnlockedBreaker() {
         yield return new WaitForSeconds(0.6f);
         gameObject.SetActive(false);
@@ -45,7 +61,7 @@ public class BreakerLock : MonoBehaviour
         wireBackground.SetActive(true);
         ObjectivesList.objective2.text = "Open the door!";
         Astronaut.canMove = true;
-        Timer.hintCount = 3;
+        Timer.hintCount = 2;
     }
         
 }

@@ -7,6 +7,7 @@ public class fileCabinet : MonoBehaviour
     public GameObject openFileCabinet;
     private ItemWorld Keycard;
     public ItemWorld Folder;
+    public static bool isFolderPicked = false;
     // Start is called before the first frame update
     private void Start() {
         openFileCabinet.SetActive(false);
@@ -17,10 +18,12 @@ public class fileCabinet : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F) && GetComponent<Collider2D>() == Astronaut.currentItem) {
             if (openFileCabinet.activeSelf == false) {
                 openFileCabinet.SetActive(true);
-                Folder = ItemWorld.SpawnItemWorld(new Vector3(49.42f,111.85f,0), new Item { itemType = Item.ItemType.Folder});
-                //Keycard = ItemWorld.SpawnItemWorld(new Vector3(57.725f,4.6f,0), new Item { itemType = Item.ItemType.Keycard});
-                Folder.GetComponent<BoxCollider2D>().size = new Vector2 (4f,2.75f);
-                //Keycard.GetComponent<BoxCollider2D>().size = new Vector2 (0.62f,1.19f);
+                if (isFolderPicked == false) {
+                    Folder = ItemWorld.SpawnItemWorld(new Vector3(49.42f,111.85f,0), new Item { itemType = Item.ItemType.Folder});
+                    //Keycard = ItemWorld.SpawnItemWorld(new Vector3(57.725f,4.6f,0), new Item { itemType = Item.ItemType.Keycard});
+                    Folder.GetComponent<BoxCollider2D>().size = new Vector2 (4f,2.75f);
+                    //Keycard.GetComponent<BoxCollider2D>().size = new Vector2 (0.62f,1.19f);
+                }
             }
 
             else {

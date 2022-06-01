@@ -57,7 +57,7 @@ public class InfirmaryDoorLock : MonoBehaviour
             keypadOpen = false;
             Astronaut.canMove = true;
             anim.SetTrigger("InfirmaryDoorSlide");
-            Timer.hintCount ++;
+            Timer.hintCount = 5;
             if (EnterCollider.isFirstObservatoryEnter == true) {
                 prompts.openDialogueBox(1, prompts.ActII);
             }

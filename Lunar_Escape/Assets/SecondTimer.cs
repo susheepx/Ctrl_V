@@ -42,7 +42,7 @@ public class SecondTimer : MonoBehaviour
         if (timer<=74){
             int minutes = Mathf.FloorToInt(timer / 60.0f);
             int seconds = Mathf.FloorToInt(timer - minutes *60);
-            textTimerFinal.text = string.Format("{0:00}:{1:00}", 1-minutes, 15-seconds) + " left...";
+            textTimerFinal.text = string.Format("{0:00}:{1:00}", 1-minutes, 30-seconds) + " left...";
         }
         else if (timer == 0) {
             fade.fadeOutIn();

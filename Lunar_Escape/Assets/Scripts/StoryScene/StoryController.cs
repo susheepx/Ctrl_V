@@ -17,9 +17,15 @@ public class StoryController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bottomBar.PlayScene(currentScene);
+        StartCoroutine(startStoryline());
     }
 
+    IEnumerator startStoryline() {
+        yield return new WaitForSeconds(1.25f);
+        StartCoroutine(SwitchScene());
+        yield return new WaitForSeconds(1.25f);
+        bottomBar.PlayScene(currentScene);
+    }
     // Update is called once per frame
     void Update()
     {

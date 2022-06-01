@@ -23,7 +23,7 @@ public class StorageLock : MonoBehaviour
     }
 
 
-
+    public BreakerLock breakerLock;
     public void checkSecretCode() {
         for (int i = 0; i < secretCodeList.Count; i++) {
             if (inputCodeList[i] == secretCodeList[i])
@@ -31,19 +31,20 @@ public class StorageLock : MonoBehaviour
             else
             {
                 isCodeSolved = false;
+                StartCoroutine(breakerLock.errorMessage());
                 break;
             }
         }
         if (isCodeSolved)
-            StartCoroutine(UnlockedBreaker());
+            StartCoroutine(UnlockedStorage());
     }
     
-    IEnumerator UnlockedBreaker() {
+    IEnumerator UnlockedStorage() {
         yield return new WaitForSeconds(0.6f);
         gameObject.SetActive(false);
         anim.SetTrigger("InfirmaryDoorSlide");
         Astronaut.canMove = true;
-        Timer.hintCount ++;
+        Timer.hintCount = 9;
 
     }
         

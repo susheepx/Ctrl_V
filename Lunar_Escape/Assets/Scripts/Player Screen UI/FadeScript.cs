@@ -17,7 +17,6 @@ public class FadeScript : MonoBehaviour
         // promptDialogue.SetActive(false);
         // UI_inventory.resetInventory();
         // ItemWorld.SpawnItemWorld(new Vector3(9f,90f,0), new Item { itemType = Item.ItemType.BreakerNote});
-        // Timer.hintCount = 8;
         // timer.StopTimer();
         // timer.StartTimer();
         // isPuzzleTwoSolved = true;
@@ -28,7 +27,7 @@ public class FadeScript : MonoBehaviour
     // }
 
     public IEnumerator fadeOutIn() {
-        yield return new WaitForSeconds(.75f);
+        yield return new WaitForSeconds(.85f);
         anim.SetTrigger("Start");
         yield return new WaitForSeconds(1.75f);
         anim.SetTrigger("End");

@@ -11,6 +11,7 @@ public class BreakerButton : MonoBehaviour
     public GameObject popupBox;
     public GameObject breakerBox;
     public GameObject breakerLock;
+    public GameObject controlPrompt;
     public Collider2D breakerCollider;
     private bool isLockShown = false;
     //is close up of breaker box shown
@@ -27,10 +28,12 @@ public class BreakerButton : MonoBehaviour
         
     }
 
+    public static bool isBlueprintPicked = false;
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && Astronaut.interact)
+        if (Input.GetKeyDown(KeyCode.F) && Astronaut.interact && isBlueprintPicked)
         {
             if (doorOpened == false && GetComponent<Collider2D>() == Astronaut.currentItem)
             {
@@ -57,6 +60,9 @@ public class BreakerButton : MonoBehaviour
             }
             
 
+        }
+        else if(Astronaut.interact && isBlueprintPicked == false) {
+            controlPrompt.SetActive(false);
         }
         
     }

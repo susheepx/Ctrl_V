@@ -9,7 +9,7 @@ public class Astronaut : MonoBehaviour
     private bool isAdhesiveAcquired = false;
     public GameCanvasController prompts;
     public ItemWorld Keycard;
-    public Collider2D warning1, warning2, warning3;
+    public Collider2D warning1, warning2, warning3, warning5, warning6;
     //player
     private float movementX;
     private float movementY;
@@ -66,6 +66,9 @@ public class Astronaut : MonoBehaviour
         confirmPill.SetActive(false);
         canMove = true;
     }
+
+
+    
     private void Update() {
 
         
@@ -112,6 +115,7 @@ public class Astronaut : MonoBehaviour
                 else if (itemWorld.name == "hazmat") {
                     if(CheckChemicals.isAdhesiveCollected) {
                         itemWorld.DestroySelf();
+                        anim.SetTrigger("HazmatOn");
                     }
                     else {
                         prompts.openDialogueBox(6, prompts.Warnings);
@@ -127,14 +131,18 @@ public class Astronaut : MonoBehaviour
                 //specific actions happen everytime one of these are picked up
                 if (itemWorld.name == "blueprint") {
                     prompts.openDialogueBox(1, prompts.ActI);
-                    Timer.hintCount = 2;
+                    BreakerButton.isBlueprintPicked = true;
+                    Timer.hintCount = 1;
                 }
                 if (itemWorld.name == "breakernote" && ElevatorButton.isPuzzleTwoSolved) {
                     prompts.openDialogueBox(1, prompts.ActIII);
+
                 }
                 if (itemWorld.name == "folder") {
                     Keycard = ItemWorld.SpawnItemWorld(new Vector3(49.42f,110f,0), new Item { itemType = Item.ItemType.Keycard});
                     Keycard.GetComponent<BoxCollider2D>().size = new Vector2 (1f,1f);
+                    prompts.openDialogueBox(2, prompts.ActIII);
+                    fileCabinet.isFolderPicked = true;
                 }
                 if (itemWorld.name == "adhesive") {
                     isAdhesiveAcquired = true;
@@ -173,6 +181,7 @@ public class Astronaut : MonoBehaviour
             if (collider == warning1) {
                 if (isAdhesiveAcquired == false) {
                     prompts.openDialogueBox(3, prompts.Warnings);
+                    warning1.enabled = false;
                     return;
                 }
                 else {
@@ -185,29 +194,36 @@ public class Astronaut : MonoBehaviour
                 }
             }
             else if (warning2 == collider) {
+                if (isAdhesiveAcquired) {
+                    prompts.openDialogueBox(1, prompts.Warnings);
+                    warning2.enabled = false;
+                    moveForce = 7;
+                    return;
+                }
+            }
+            else if (warning5 == collider) {
                 if (isAdhesiveAcquired == false) {
                     prompts.openDialogueBox(4, prompts.Warnings);
+                    warning5.enabled = false;
                     return;
                 }
-                else {
-                prompts.openDialogueBox(1, prompts.Warnings);
-                warning2.enabled = false;
-                moveForce = 7;
-                return;
-                }
             }
-            else if  (warning3 == collider) {
+            else if  (warning6 == collider) {
                 if (isAdhesiveAcquired == false) {
                     prompts.openDialogueBox(5, prompts.Warnings);
+                    StartCoroutine(coolantRoomStart());
                     return;
                 }
-                else {
-                prompts.openDialogueBox(2, prompts.Warnings);
-                warning3.enabled = false;
-                moveForce = 4;
-                return;
+            }
+            else if (warning3 == collider) {
+                if (isAdhesiveAcquired) {
+                    prompts.openDialogueBox(2, prompts.Warnings);
+                    warning3.enabled = false;
+                    moveForce = 4;
+                    return;
                 }
             }
+            
             else {
             //is able to interact with objects such as breaker button
             interact = true;
@@ -215,6 +231,18 @@ public class Astronaut : MonoBehaviour
             }
         }
         
+    }
+    
+    public FadeScript fade;
+    public GameObject astronaut;
+
+    IEnumerator coolantRoomStart() {
+        yield return new WaitForSeconds(2f);
+        StartCoroutine(fade.fadeOutIn());
+        astronaut.transform.position = warning1.transform.position + new Vector3(1f, -2.5f, 0f);
+        yield return new WaitForSeconds(1.85f);
+        warning1.enabled = true;
+        warning5.enabled = true;
     }
 
     // private void OnTriggerStay2D(Collider2D collider) {

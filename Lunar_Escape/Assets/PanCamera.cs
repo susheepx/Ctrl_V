@@ -12,19 +12,22 @@ public class PanCamera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        panCamPosition = new Vector3(17.07f, 121f, -10f);
+        panCamPosition = new Vector3(17.07f, 125f, -10f);
         panCam.transform.position = panCamPosition;
         gameObject.SetActive(false);
 
     }
+
+    
 
     // Update is called once per frame
     void FixedUpdate()
     {
         StartCoroutine(panCamera());
     }
+
     IEnumerator panCamera() {
-        if (panCamPosition.y < 160f )
+        if (panCamPosition.y < 160f)
         {
             panCamPosition.y += 0.25f;
             panCam.transform.position = panCamPosition;
