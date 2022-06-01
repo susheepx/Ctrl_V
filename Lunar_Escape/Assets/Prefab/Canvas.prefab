@@ -1780,9 +1780,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Enter your answer...
-
-'
+  m_text: Write the sentence exactly...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7342,6 +7340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3902476245ae75a468533d4eb6601c7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openSafe: {fileID: 0}
 --- !u!1 &7495245075449214957
 GameObject:
   m_ObjectHideFlags: 0
@@ -8217,6 +8216,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 085f354aa91235041b08c80a6752421a, type: 2}
   - {fileID: 11400000, guid: 594bce70cdbd5f54499fefb9cc246cd7, type: 2}
   - {fileID: 11400000, guid: f3b9851dd49d4434ab5010822f08e6a2, type: 2}
+  - {fileID: 11400000, guid: aa4da6de48bf4274b84f8a31f50604df, type: 2}
   hintPopup: {fileID: 0}
   commandPopup: {fileID: 0}
   confirmPill: {fileID: 0}

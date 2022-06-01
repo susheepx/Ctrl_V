@@ -751,6 +751,7 @@ MonoBehaviour:
   backstoryLast: {fileID: 11400000, guid: dfcac6f15ae699343b86fcbaea2a2914, type: 2}
   endingLast: {fileID: 11400000, guid: 38c44ca36c66c0c43bc4b925f38797ac, type: 2}
   bottomBar: {fileID: 1001287154}
+  dialogueBox: {fileID: 1001287150}
   animator: {fileID: 871989688}
   WaitSeconds: 1.65
   backgroundImage: {fileID: 699830171}

@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7855a7731c800e947a9edeb7e951e3fe, type: 3}
+  m_Name: 11
+  m_EditorClassIdentifier: 
+  sentences:
+  - text: Now why would my place need to be taken
+    speaker: {fileID: 11400000, guid: 7439e04901586ff42bd2cc5a483b09ec, type: 2}
+  - text: Jame-I mean, Scientist James!  I thought-
+    speaker: {fileID: 11400000, guid: 49a27c74cf6aba342b88f164b46a0ae4, type: 2}
+  - text: You thought I was out colder than those coolant pipes.
+    speaker: {fileID: 11400000, guid: 7439e04901586ff42bd2cc5a483b09ec, type: 2}
+  - text: ...yes
+    speaker: {fileID: 11400000, guid: 49a27c74cf6aba342b88f164b46a0ae4, type: 2}
+  - text: "Well, I\u2019m alive because you saved me and this entire base.  I\u2019m
+      also intrigued.  You managed to solve my most difficult security systems. 
+      I never thought someone could break it."
+    speaker: {fileID: 11400000, guid: 7439e04901586ff42bd2cc5a483b09ec, type: 2}
+  - text: Yep!
+    speaker: {fileID: 11400000, guid: 8069ef1110b05254b8f45525a1cad83c, type: 2}
+  - text: "And\u2026I think it\u2019s time that our crew heads out.. A lot has happened
+      today and we really need the rest."
+    speaker: {fileID: 11400000, guid: 49a27c74cf6aba342b88f164b46a0ae4, type: 2}
+  - text: "Yes, for sure. I still can\u2019t process everything that happened."
+    speaker: {fileID: 11400000, guid: a32ddd837f8a2494fb62b8494409e17b, type: 2}
+  background: {fileID: 21300000, guid: b675cf5c0191a4f428868fa3503d6348, type: 3}
+  nextScene: {fileID: 0}

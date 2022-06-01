@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: 2
   m_EditorClassIdentifier: 
   sentences:
-  - text: ' *Violent Shaking* '
+  - text: "1. a strong adhesive using chemicals found on the moon                                                                              
+      2. a device that can bring down anyone\u2019s fever                                                                                        
+      3. and even a coolant system that uses gas (that is made from matter on the
+      moon)! "
     speaker: {fileID: 11400000, guid: bed7e9931116eb947b9c738e005e89ae, type: 2}
-  - text: "You hear a shrill scream come from another room, though you couldn\u2019t
-      make out who it was. \u201CHelp!!!\u201D    "
-    speaker: {fileID: 11400000, guid: 5e48914cf477e3d4fa25e415a5fe448f, type: 2}
-  background: {fileID: 21300000, guid: 739d9ec9db11ad14d906d49abd8eaaee, type: 3}
-  nextScene: {fileID: 11400000, guid: dfcac6f15ae699343b86fcbaea2a2914, type: 2}
+  background: {fileID: 21300000, guid: fbd8355277b8d5e4a83938cfe9eb8321, type: 3}
+  nextScene: {fileID: 11400000, guid: 5e20405d42d54414aa1ab625ec1db2ec, type: 2}

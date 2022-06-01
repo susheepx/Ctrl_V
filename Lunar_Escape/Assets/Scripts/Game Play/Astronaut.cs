@@ -6,10 +6,9 @@ using TMPro;
 public class Astronaut : MonoBehaviour
 {
     //storyline
-    private bool isAdhesiveAcquired = false;
     public GameCanvasController prompts;
     public ItemWorld Keycard;
-    public Collider2D warning1, warning2, warning3, warning5, warning6;
+    public Collider2D warning1, warning2, warning3, warning5, warning6, warning7;
     //player
     private float movementX;
     private float movementY;
@@ -69,6 +68,8 @@ public class Astronaut : MonoBehaviour
 
 
     
+    public static bool isHazmatAcquired = false;
+
     private void Update() {
 
         
@@ -80,6 +81,8 @@ public class Astronaut : MonoBehaviour
         else {
             anim.SetBool("Left", false);
             anim.SetBool("Right", false);
+            anim.SetBool("Front", false);
+            anim.SetBool("Back", false);
             rb.velocity = new Vector2(0f, 0f);
         }
         //when E key pressed pick up item
@@ -115,6 +118,7 @@ public class Astronaut : MonoBehaviour
                 else if (itemWorld.name == "hazmat") {
                     if(CheckChemicals.isAdhesiveCollected) {
                         itemWorld.DestroySelf();
+                        isHazmatAcquired = true;
                         anim.SetTrigger("HazmatOn");
                     }
                     else {
@@ -145,7 +149,7 @@ public class Astronaut : MonoBehaviour
                     fileCabinet.isFolderPicked = true;
                 }
                 if (itemWorld.name == "adhesive") {
-                    isAdhesiveAcquired = true;
+                    isHazmatAcquired = true;
                 }
                 if (itemWorld.name == "keycard") {
                     prompts.openDialogueBox(3, prompts.ActIII);
@@ -159,7 +163,7 @@ public class Astronaut : MonoBehaviour
             }
         }
     }
-
+    public GameObject promptDialogue;
     public SecondTimer minigameTimer;
     private void OnTriggerEnter2D(Collider2D collider) { 
         //set local variable collider to global variable so it can be used in update
@@ -179,15 +183,15 @@ public class Astronaut : MonoBehaviour
         else if (pickUpItem != true) 
         {
             if (collider == warning1) {
-                if (isAdhesiveAcquired == false) {
-                    // controller.SetActive(false);
+                if (isHazmatAcquired == false) {
+                    controller.SetActive(false);
                     prompts.openDialogueBox(3, prompts.Warnings);
                     warning1.enabled = false;
                     return;
                 }
                 else {
                     minigameTimer.ActivateTimerFinal();
-                    // controller.SetActive(false);
+                    controller.SetActive(false);
                     ObjectivesList.objective1.text = "PATCH UP THE HOLE";
                     prompts.openDialogueBox(0, prompts.Warnings);
                     warning1.enabled = false;
@@ -196,8 +200,8 @@ public class Astronaut : MonoBehaviour
                 }
             }
             else if (warning2 == collider) {
-                if (isAdhesiveAcquired) {
-                    // controller.SetActive(false);
+                if (isHazmatAcquired) {
+                    controller.SetActive(false);
                     prompts.openDialogueBox(1, prompts.Warnings);
                     warning2.enabled = false;
                     moveForce = 7;
@@ -205,27 +209,34 @@ public class Astronaut : MonoBehaviour
                 }
             }
             else if (warning5 == collider) {
-                if (isAdhesiveAcquired == false) {
-                    // controller.SetActive(false);
+                if (isHazmatAcquired == false) {
+                    controller.SetActive(false);
                     prompts.openDialogueBox(4, prompts.Warnings);
                     warning5.enabled = false;
                     return;
                 }
             }
             else if  (warning6 == collider) {
-                if (isAdhesiveAcquired == false) {
-                    // controller.SetActive(false);
+                if (isHazmatAcquired == false) {
+                    controller.SetActive(false);
                     prompts.openDialogueBox(5, prompts.Warnings);
-                    StartCoroutine(coolantRoomStart());
                     return;
                 }
             }
             else if (warning3 == collider) {
-                if (isAdhesiveAcquired) {
-                    // controller.SetActive(false);
+                if (isHazmatAcquired) {
+                    controller.SetActive(false);
                     prompts.openDialogueBox(2, prompts.Warnings);
                     warning3.enabled = false;
                     moveForce = 4;
+                    return;
+                }
+            }
+            else if (warning7 == collider) {
+                if (isHazmatAcquired == false) {
+                    controller.SetActive(false);
+                    prompts.openDialogueBox(6, prompts.Warnings);
+                    StartCoroutine(coolantRoomStart());
                     return;
                 }
             }
@@ -240,13 +251,20 @@ public class Astronaut : MonoBehaviour
     }
     
     public FadeScript fade;
+    public Animator fadeBackgorund;
 
     IEnumerator coolantRoomStart() {
-        yield return new WaitForSeconds(2f);
-        StartCoroutine(fade.fadeOutIn());
-        gameObject.transform.position = warning1.transform.position + new Vector3(1f, -2.5f, 0f);
-        yield return new WaitForSeconds(1.85f);
+
+        Timer.timer += 120.0f;
+        yield return new WaitForSeconds(0.75f);
+        fadeBackgorund.SetTrigger("Start");
+        yield return new WaitForSeconds(0.75f);
+        promptDialogue.SetActive(false);
+        gameObject.transform.position = warning1.transform.position + new Vector3(1f, -6.5f, 0f);
+        yield return new WaitForSeconds(2.25f);
+        fadeBackgorund.SetTrigger("End");
         warning1.enabled = true;
+
         warning5.enabled = true;
     }
 

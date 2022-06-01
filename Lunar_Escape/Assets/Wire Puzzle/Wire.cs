@@ -16,14 +16,16 @@ public class Wire : MonoBehaviour
     //15% of >:(  85% :D
     Vector3 startPoint;
     Vector3 startPosition;
+    Vector3 startStaticPoint;
+    Vector3 startStaticPosition;
     public GameObject Left, Right, wireGame;
     public BoxCollider2D Collider;
     public SpriteRenderer wireEnd;
     public List<Collider2D> wireColliders = new List<Collider2D>();
     public void Start() {
         if (gameObject != null) {
-            startPoint = transform.parent.position;
-            startPosition = transform.position;
+            startStaticPoint = transform.parent.position;
+            startStaticPosition = transform.position;
         }
     }
 
@@ -58,8 +60,12 @@ public class Wire : MonoBehaviour
                     Done();
                 }
                 isWireConnected = true;
-
+                if(transform.parent.name.Equals(GetComponent<BoxCollider2D>().transform.parent.name) && isWireConnected){
+            //the line below adds 90s to the google sheets.
+            //call the fade out "blackout" and return to electrical room
+                StartCoroutine(FadeOutIn());
                 return;
+                }
             }
         }
 
@@ -96,20 +102,14 @@ public class Wire : MonoBehaviour
             }
             startPoint = transform.parent.position;
             startPosition = transform.position;
-            UpdateWire(startPosition);
+            UpdateWire(startStaticPosition);
             wireGame.SetActive(false);
             BreakerWires.isWiresOpen = false; 
         }
     }
     private void OnMouseUp() {
 
-        //if(transform.parent.name.Equals(GetComponent<BoxCollider2D>().transform.parent.name) && isWireConnected){
-            //the line below adds 90s to the google sheets.
-            //timer += 90.0f
-            // Left.SetActive(false);
-            // Right.SetActive(false);
-            //call the fade out "blackout" and return to electrical room
-         //   StartCoroutine(FadeOutIn());
+
             
             
             

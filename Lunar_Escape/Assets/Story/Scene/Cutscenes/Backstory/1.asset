@@ -18,27 +18,5 @@ MonoBehaviour:
       on the moon. He wanted to show them everything he\u2019s completed so far,
       such as: "
     speaker: {fileID: 11400000, guid: bed7e9931116eb947b9c738e005e89ae, type: 2}
-  - text: "1. a strong adhesive using chemicals found on the moon                                                                              
-      2. a device that can bring down anyone\u2019s fever                                                                                        
-      3. and even a coolant system that uses gas (that is made from matter on the
-      moon)! "
-    speaker: {fileID: 11400000, guid: bed7e9931116eb947b9c738e005e89ae, type: 2}
-  - text: "You guys on the tour for June 10? (...heads bobbing)  I\u2019ve been waiting
-      for your crew to show up! How about you two (Genesis and Erica) check out the
-      Core Observatory Room? Justin and Gabriel, there\u2019s a greenhouse just down
-      the left of this hall. "
-    speaker: {fileID: 11400000, guid: 7439e04901586ff42bd2cc5a483b09ec, type: 2}
-  - text: "(Right before they leave) Oh, and I\u2019ve put everyone\u2019s voices
-      in the voice recognition system while we were talking over the phone.  My technology
-      is pretty cool, right? "
-    speaker: {fileID: 11400000, guid: 7439e04901586ff42bd2cc5a483b09ec, type: 2}
-  - text: "Oh wow that\u2019s some\u2026 nice tech\u2026? [Awkward smile]  "
-    speaker: {fileID: 11400000, guid: 49a27c74cf6aba342b88f164b46a0ae4, type: 2}
-  - text: 'Yes yes, it is.  Anyway, (User), come with me, I want to show you where
-      all the magic happens, the reactor (mysterious). '
-    speaker: {fileID: 11400000, guid: 7439e04901586ff42bd2cc5a483b09ec, type: 2}
-  - text: 'Yes yes, it is.  Anyway, (User), come with me, I want to show you where
-      all the magic happens, the reactor (mysterious). '
-    speaker: {fileID: 11400000, guid: 7439e04901586ff42bd2cc5a483b09ec, type: 2}
-  background: {fileID: 21300000, guid: 6c74d884080b9454da8a5abcbefb4420, type: 3}
-  nextScene: {fileID: 11400000, guid: 53db7cc5972ff6a4aaa36fe4cd542f82, type: 2}
+  background: {fileID: 21300000, guid: 1517d06bf8711364485ebcb109edf446, type: 3}
+  nextScene: {fileID: 11400000, guid: 2b032b9a090641848b570e54f18e164e, type: 2}

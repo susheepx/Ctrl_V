@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7855a7731c800e947a9edeb7e951e3fe, type: 3}
+  m_Name: 6
+  m_EditorClassIdentifier: 
+  sentences:
+  - text: "\u201CSorry for the small mess. I tend to leave notes around for myself
+      because I forget small things when I am busy. That\u2019s also what this is
+      for.\u201D [Holds up blueprint with notes scribbled all over it] "
+    speaker: {fileID: 11400000, guid: 7439e04901586ff42bd2cc5a483b09ec, type: 2}
+  background: {fileID: 21300000, guid: 6c74d884080b9454da8a5abcbefb4420, type: 3}
+  nextScene: {fileID: 11400000, guid: 53db7cc5972ff6a4aaa36fe4cd542f82, type: 2}
