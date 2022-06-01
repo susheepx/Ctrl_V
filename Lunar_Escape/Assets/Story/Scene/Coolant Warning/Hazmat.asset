@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7855a7731c800e947a9edeb7e951e3fe, type: 3}
-  m_Name: FileFolder
+  m_Name: Hazmat
   m_EditorClassIdentifier: 
   sentences:
-  - text: Hahaa scientist James had to write a "You are Here" just like in malls
-      on this blueprint. Even he gets lost in his own base. Though I guess I'm not
-      surprised.
+  - text: Oooh, this could be useful when going into the coolant room, maybe it'll
+      keep me safe from whatever gas caused my crewmates to pass out.
+    speaker: {fileID: 11400000, guid: 49a27c74cf6aba342b88f164b46a0ae4, type: 2}
+  - text: But I need to find that adhesive first before I can even think about going
+      in. Scientist James must've left a hint to where the adhesive might be...
     speaker: {fileID: 11400000, guid: 49a27c74cf6aba342b88f164b46a0ae4, type: 2}
   background: {fileID: 0}
   nextScene: {fileID: 0}

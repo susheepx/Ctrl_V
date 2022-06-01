@@ -28,7 +28,8 @@ public class ElevatorButton : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F) && Astronaut.interact && GetComponent<Collider2D>() == Astronaut.currentItem && isInputFieldSelected == false) {
             if (sentenceGuessed == false) {
-                controller.openDialogueBox(0, controller.Elevator);
+                StartCoroutine(waitFadeTime());
+                // controller.openDialogueBox(0, controller.Elevator);
                 
             }
             else {
@@ -78,7 +79,7 @@ public class ElevatorButton : MonoBehaviour
         playerGuessWhoAnswer += playerInput.GetComponent<TMP_InputField>().text;
         if (playerGuessWhoAnswer.Equals(guessWhoAnswer, System.StringComparison.OrdinalIgnoreCase)) {
             controller.openDialogueBox(4, controller.Elevator);
-            StartCoroutine(waitFadeTime());
+            // StartCoroutine(waitFadeTime());
             
         }
         else
@@ -96,7 +97,7 @@ public class ElevatorButton : MonoBehaviour
     public static bool isPuzzleTwoSolved = false;
     public Timer timer;
     public GameCanvasController prompts;
-
+    
 
     public IEnumerator waitFadeTime() {
         //Room3Music.Play();
@@ -109,7 +110,8 @@ public class ElevatorButton : MonoBehaviour
         promptDialogue.SetActive(false);
         playerInput.SetActive(false);
         UI_inventory.resetInventory();
-        ItemWorld.SpawnItemWorld(new Vector3(9f,90f,0), new Item { itemType = Item.ItemType.BreakerNote});
+        ItemWorld.SpawnItemWorld(new Vector3(18.78f,106.6f,0), new Item { itemType = Item.ItemType.BreakerNote});
+        ItemWorld.SpawnItemWorld(new Vector3(24.52f,110.75f,0), new Item { itemType = Item.ItemType.Hazmat});
         Timer.hintCount = 8;
         timer.StopTimer();
         isPuzzleTwoSolved = true;
@@ -127,9 +129,9 @@ public class ElevatorButton : MonoBehaviour
 
         //"let's go check it out"
         dialogueBox.PlayNextSentence();
-        yield return new WaitForSeconds(1.75f);
+        yield return new WaitForSeconds(2f);
         StartCoroutine(fadeScript.fadeOutIn());
-        yield return new WaitForSeconds(3.75f);
+        yield return new WaitForSeconds(3f);
         //you are alone, the others have left to go check out noise. "Wait up"
         dialogueBox.PlayNextSentence(); 
         //during this coroutine should have crewmates fade out
@@ -149,7 +151,7 @@ public class ElevatorButton : MonoBehaviour
         spaceBox.SetActive(false);
         
         //move from elevator to outside coolant room
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(2.3f);
         anim.SetTrigger("Start");
         yield return new WaitForSeconds(1.75f);
         astronaut.transform.position = coolantCollider.transform.position;

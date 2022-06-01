@@ -106,7 +106,18 @@ public class Astronaut : MonoBehaviour
                     confirmPill.SetActive(true);
                     pillPopupOpen();
                     Debug.Log(GameCanvasController.isConfirmPopupOpen);
-                }    
+                }
+                
+                //if the item is the hazmat suit, it doesn't add to inventory but changes the animation
+                else if (itemWorld.name == "hazmat") {
+                    if(CheckChemicals.isAdhesiveCollected) {
+                        itemWorld.DestroySelf();
+                    }
+                    else {
+                        prompts.openDialogueBox(6, prompts.Warnings);
+                    }
+
+                }  
                 else {
                     //adds the item to inventory and destroys in game
                     inventory.AddItem(itemWorld.GetItem());
@@ -263,10 +274,25 @@ public class Astronaut : MonoBehaviour
                 anim.SetBool("Right", true);
             }
         }
+        else if(movementY != 0)
+        {
+            if(movementY < 0)
+            {
+                anim.SetBool("Front", false);
+                anim.SetBool("Back", true);
+            }
+            else if (movementY > 0)
+            {
+                anim.SetBool("Back", false);
+                anim.SetBool("Front", true);
+            }
+        }
         if(movementX == 0 && movementY == 0)
             {
                 anim.SetBool("Left", false);
                 anim.SetBool("Right", false);
+                anim.SetBool("Back", false);
+                anim.SetBool("Front", false);
 
             }
             

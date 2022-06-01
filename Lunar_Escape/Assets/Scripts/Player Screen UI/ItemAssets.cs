@@ -20,4 +20,5 @@ public class ItemAssets : MonoBehaviour
     public Sprite folderSprite;
     public Sprite keycardSprite;
     public Sprite adhesiveSprite;
+    public Sprite hazmatSprite;
 }

@@ -14,7 +14,8 @@ public class Item
         Poem,
         Folder,
         Keycard,
-        Adhesive
+        Adhesive,
+        Hazmat
     
     }
     public ItemType itemType;
@@ -32,6 +33,7 @@ public class Item
         case ItemType.Folder:           return ItemAssets.Instance.folderSprite;
         case ItemType.Keycard:          return ItemAssets.Instance.keycardSprite;
         case ItemType.Adhesive:         return ItemAssets.Instance.adhesiveSprite;
+        case ItemType.Hazmat:           return ItemAssets.Instance.hazmatSprite;
         }
     }
 
@@ -48,6 +50,7 @@ public class Item
         case ItemType.Folder:           return "folder";
         case ItemType.Keycard:          return "keycard";
         case ItemType.Adhesive:         return "adhesive";
+        case ItemType.Hazmat:           return "hazmat";
         }
     }
 
@@ -64,6 +67,7 @@ public class Item
         case ItemType.Folder:           return "folderIcon";
         case ItemType.Keycard:          return "keycardIcon";
         case ItemType.Adhesive:         return "adhesiveIcon";
+        case ItemType.Hazmat:           return "hazmatIcon";
 
         }
     }    
