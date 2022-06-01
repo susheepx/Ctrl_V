@@ -31,6 +31,7 @@ public class CheckChemicals : MonoBehaviour
         }
             else {
                 isCodeSolved = false;
+                Timer.timer += 180.0f;
                 Debug.Log("wrong code");
                 return;
             }

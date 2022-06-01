@@ -25,9 +25,7 @@ MonoBehaviour:
   - text: "[User Shouts]  \u201CHey be careful, you never know what's gonna happen!\u201D 
       [User talks to himself]  \u201COh no, I hope they\u2019ll be ok\u2026\u201D "
     speaker: {fileID: 11400000, guid: 49a27c74cf6aba342b88f164b46a0ae4, type: 2}
-  - text: "[User trails behind hears a 4 sequential thuds in the distance and sees
-      the four crewmates fall.]  Oh no\u2026I got to help them somehow.  [Narrator
-      rushes towards the direction near the group] "
+  - text: '*THUD* --- oh nooo what happened now?'
     speaker: {fileID: 11400000, guid: 49a27c74cf6aba342b88f164b46a0ae4, type: 2}
   - text: Guys! Are you okay?
     speaker: {fileID: 11400000, guid: 49a27c74cf6aba342b88f164b46a0ae4, type: 2}

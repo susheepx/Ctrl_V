@@ -61,7 +61,7 @@ public class BreakerButton : MonoBehaviour
             
 
         }
-        else if(Astronaut.interact && isBlueprintPicked == false) {
+        else if(GetComponent<Collider2D>() == Astronaut.currentItem && Astronaut.interact && isBlueprintPicked == false) {
             controlPrompt.SetActive(false);
         }
         

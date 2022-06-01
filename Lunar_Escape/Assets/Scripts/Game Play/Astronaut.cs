@@ -180,12 +180,14 @@ public class Astronaut : MonoBehaviour
         {
             if (collider == warning1) {
                 if (isAdhesiveAcquired == false) {
+                    // controller.SetActive(false);
                     prompts.openDialogueBox(3, prompts.Warnings);
                     warning1.enabled = false;
                     return;
                 }
                 else {
                     minigameTimer.ActivateTimerFinal();
+                    // controller.SetActive(false);
                     ObjectivesList.objective1.text = "PATCH UP THE HOLE";
                     prompts.openDialogueBox(0, prompts.Warnings);
                     warning1.enabled = false;
@@ -195,6 +197,7 @@ public class Astronaut : MonoBehaviour
             }
             else if (warning2 == collider) {
                 if (isAdhesiveAcquired) {
+                    // controller.SetActive(false);
                     prompts.openDialogueBox(1, prompts.Warnings);
                     warning2.enabled = false;
                     moveForce = 7;
@@ -203,6 +206,7 @@ public class Astronaut : MonoBehaviour
             }
             else if (warning5 == collider) {
                 if (isAdhesiveAcquired == false) {
+                    // controller.SetActive(false);
                     prompts.openDialogueBox(4, prompts.Warnings);
                     warning5.enabled = false;
                     return;
@@ -210,6 +214,7 @@ public class Astronaut : MonoBehaviour
             }
             else if  (warning6 == collider) {
                 if (isAdhesiveAcquired == false) {
+                    // controller.SetActive(false);
                     prompts.openDialogueBox(5, prompts.Warnings);
                     StartCoroutine(coolantRoomStart());
                     return;
@@ -217,6 +222,7 @@ public class Astronaut : MonoBehaviour
             }
             else if (warning3 == collider) {
                 if (isAdhesiveAcquired) {
+                    // controller.SetActive(false);
                     prompts.openDialogueBox(2, prompts.Warnings);
                     warning3.enabled = false;
                     moveForce = 4;
@@ -234,12 +240,11 @@ public class Astronaut : MonoBehaviour
     }
     
     public FadeScript fade;
-    public GameObject astronaut;
 
     IEnumerator coolantRoomStart() {
         yield return new WaitForSeconds(2f);
         StartCoroutine(fade.fadeOutIn());
-        astronaut.transform.position = warning1.transform.position + new Vector3(1f, -2.5f, 0f);
+        gameObject.transform.position = warning1.transform.position + new Vector3(1f, -2.5f, 0f);
         yield return new WaitForSeconds(1.85f);
         warning1.enabled = true;
         warning5.enabled = true;

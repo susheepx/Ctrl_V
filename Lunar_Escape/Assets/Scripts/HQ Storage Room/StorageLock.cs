@@ -31,7 +31,7 @@ public class StorageLock : MonoBehaviour
             else
             {
                 isCodeSolved = false;
-                StartCoroutine(breakerLock.errorMessage());
+                //StartCoroutine(breakerLock.errorMessage());
                 break;
             }
         }

@@ -45,9 +45,11 @@ public class BasementSetup : MonoBehaviour
         ObjectivesList.objective1.text = "Escape the Electrical Room!!";
         ObjectivesList.objective2.text = "";
         ObjectivesList.objective3.text = "";
-
+        mainMenu.SetActive(false);
         Room1Music.Play();
         //start timer
         timer.StartTimer();
     }
+    public GameObject mainMenu;
 }
+

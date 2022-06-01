@@ -63,10 +63,15 @@ public class UI_Inventory : MonoBehaviour
 
     }
 
+
+    public GameObject openSafe;
     public void testList() {
         foreach (Item item in inventory.GetItemList()) {
             if(item.InventoryName() == EventSystem.current.currentSelectedGameObject.name && item.InventoryName() == "bottle3Icon" || item.InventoryName() == "bottle2Icon" || item.InventoryName() == "bottle1Icon" || item.InventoryName() == "keycardIcon" || item.InventoryName() == "adhesiveIcon") {
                 tempItem = item;
+                if (item.InventoryName() == "keycardIcon") {
+                    openSafe.SetActive(true);
+                }
             }
         }
         inventory.RemoveItem(tempItem);

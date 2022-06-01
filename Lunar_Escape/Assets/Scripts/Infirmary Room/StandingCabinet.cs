@@ -24,11 +24,13 @@ public class StandingCabinet : MonoBehaviour
             else {
                 if (isPamphletOpen == false) {
                     openPamphlet.SetActive(true);
+                    Astronaut.canMove = false;
                     isPamphletOpen = true;
                 }
                 else {
                     openPamphlet.SetActive(false);
                     isPamphletOpen = false;
+                    Astronaut.canMove = true;
                     if (isFirstTimeOpen) {
                         prompts.openDialogueBox(4, prompts.ActII);
                         isFirstTimeOpen = false;

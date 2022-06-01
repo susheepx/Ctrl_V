@@ -10,6 +10,7 @@ public class StoryController : MonoBehaviour
     public StoryScene currentScene;
     public StoryScene backstoryLast, endingLast;
     public BottomBarController bottomBar;
+    public GameObject dialogueBox;
     public  Animator animator;
     public float WaitSeconds;
     public Image backgroundImage;
@@ -17,14 +18,13 @@ public class StoryController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        dialogueBox.SetActive(false);
         StartCoroutine(startStoryline());
     }
 
     IEnumerator startStoryline() {
-        yield return new WaitForSeconds(1.25f);
+        yield return new WaitForSeconds(1.5f);
         StartCoroutine(SwitchScene());
-        yield return new WaitForSeconds(1.25f);
-        bottomBar.PlayScene(currentScene);
     }
     // Update is called once per frame
     void Update()
@@ -56,6 +56,7 @@ public class StoryController : MonoBehaviour
     {
         animator.SetTrigger("Start");
         yield return new WaitForSeconds(WaitSeconds);
+        dialogueBox.SetActive(true);
         animator.SetTrigger("End");
         backgroundImage.sprite = currentScene.background;
         bottomBar.PlayScene(currentScene);

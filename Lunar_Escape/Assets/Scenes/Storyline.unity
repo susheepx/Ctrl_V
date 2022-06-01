@@ -360,7 +360,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -24.640015, y: 201.31}
+  m_AnchoredPosition: {x: -24.640137, y: 201.31}
   m_SizeDelta: {x: -199.28, y: 222.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &444541399
@@ -496,7 +496,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
+  m_BackGroundColor: {r: 0.058823533, g: 0.058823533, b: 0.058823533, a: 0.92156863}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -752,6 +752,7 @@ MonoBehaviour:
   backstoryLast: {fileID: 11400000, guid: dfcac6f15ae699343b86fcbaea2a2914, type: 2}
   endingLast: {fileID: 11400000, guid: c5f949458bd39a748b5211b9c0f4e02d, type: 2}
   bottomBar: {fileID: 1001287154}
+  dialogueBox: {fileID: 1001287150}
   animator: {fileID: 871989688}
   WaitSeconds: 1.65
   backgroundImage: {fileID: 699830171}

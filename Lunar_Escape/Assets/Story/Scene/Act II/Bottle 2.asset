@@ -13,10 +13,7 @@ MonoBehaviour:
   m_Name: Bottle 2
   m_EditorClassIdentifier: 
   sentences:
-  - text: 'This is Brainine. Will make your brain move at the speed of light for
-      the next hour.                                                                                            
-      Side Effect: you''ll become extremely dumb for an hour, responding to anything
-      with "2".'
+  - text: This pill says Brainine. Are you sure you want to pick it up?
     speaker: {fileID: 11400000, guid: bed7e9931116eb947b9c738e005e89ae, type: 2}
   background: {fileID: 0}
   nextScene: {fileID: 0}

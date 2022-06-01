@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: IncorrectOrderPoem
   m_EditorClassIdentifier: 
   sentences:
-  - text: gurl yr stupid. The elevator didn't move. Try again
+  - text: The elevator didn't move. Maybe we said the wrong words...
     speaker: {fileID: 11400000, guid: a32ddd837f8a2494fb62b8494409e17b, type: 2}
   background: {fileID: 0}
   nextScene: {fileID: 0}
