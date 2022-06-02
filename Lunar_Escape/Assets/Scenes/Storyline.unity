@@ -768,7 +768,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 073b5a5bceaa8974e9c0092e74317f0c, type: 2}
   - {fileID: 11400000, guid: 53db7cc5972ff6a4aaa36fe4cd542f82, type: 2}
   - {fileID: 11400000, guid: dfcac6f15ae699343b86fcbaea2a2914, type: 2}
-  EndingList: []
+  EndingList:
+  - {fileID: 11400000, guid: 4da7bde2c66dee140a2f88858855ac74, type: 2}
 --- !u!95 &908059826
 Animator:
   serializedVersion: 4
