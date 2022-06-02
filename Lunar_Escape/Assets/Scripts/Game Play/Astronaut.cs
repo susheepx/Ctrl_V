@@ -28,6 +28,7 @@ public class Astronaut : MonoBehaviour
     public TextMeshProUGUI controlText;
     //objects
     public static bool interact = false;
+    public static bool shouldTextPressF = true;
     public bool pickUpItem = false;
     public static Collider2D currentItem;
     public static ItemWorld itemWorld;
@@ -72,7 +73,6 @@ public class Astronaut : MonoBehaviour
 
     private void Update() {
 
-        
 
         if (canMove) {
             PlayerMoveKeyboard();
@@ -170,11 +170,11 @@ public class Astronaut : MonoBehaviour
         //set local variable collider to global variable so it can be used in update
         currentItem = collider;
     
-        //open set key prompt box
-        controller.SetActive(true); 
+        
         //if the colliding component is an item that can go in inventory
         if (collider.GetComponent<ItemWorld>() != null){
-            
+            //open set key prompt box
+            controller.SetActive(true); 
             pickUpItem = true;
             controlText.text = "- Press E -";
             
@@ -241,13 +241,19 @@ public class Astronaut : MonoBehaviour
                     return;
                 }
             }
-            
             else  {
-            //is able to interact with objects such as breaker button
-            interact = true;
-            controlText.text = "- Press F -";
+                //is able to interact with objects such as breaker button
+                interact = true;
+                //open set key prompt box
+                controller.SetActive(true); 
+                if (Astronaut.shouldTextPressF == true) {
+                    controlText.text = "- Press F -";
+                }
+                
             }
+            
         }
+        
         
     }
     

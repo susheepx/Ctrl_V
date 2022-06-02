@@ -17,25 +17,23 @@ public class ErikaLyingDown : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Genesis.SetActive(false);
+        Erika.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Astronaut.interact && GetComponent<Collider2D>() == Astronaut.currentItem && isPillButtonClicked == false) 
+        if (Astronaut.interact && GetComponent<Collider2D>() == Astronaut.currentItem && isPillButtonClicked == false) {
+            Astronaut.shouldTextPressF = false;
             promptText.text = "- Click Pill -";
+        }
 
 
             
         
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        
-    }
-    private void OnTriggerExit2D(Collider2D other) {
-        
-    }
 
 
 
@@ -61,7 +59,7 @@ public class ErikaLyingDown : MonoBehaviour
     }
 
 
-    public GameObject Justin, Gabe, Genesis, Erika;
+    public GameObject Justin, Gabe, Genesis, Erika, dialogue;
     IEnumerator wakingUp() {
         Timer.hintCount = 6;
         yield return new WaitForSeconds(0.5f);

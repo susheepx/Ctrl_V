@@ -751,6 +751,7 @@ MonoBehaviour:
   currentScene: {fileID: 11400000, guid: 9e6153e7cddf3d9468c9cb657c374d0a, type: 2}
   backstoryLast: {fileID: 11400000, guid: dfcac6f15ae699343b86fcbaea2a2914, type: 2}
   endingLast: {fileID: 11400000, guid: 38c44ca36c66c0c43bc4b925f38797ac, type: 2}
+  backstoryFirst: {fileID: 11400000, guid: 9e6153e7cddf3d9468c9cb657c374d0a, type: 2}
   bottomBar: {fileID: 1001287154}
   dialogueBox: {fileID: 1001287150}
   animator: {fileID: 871989688}
@@ -767,6 +768,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 073b5a5bceaa8974e9c0092e74317f0c, type: 2}
   - {fileID: 11400000, guid: 53db7cc5972ff6a4aaa36fe4cd542f82, type: 2}
   - {fileID: 11400000, guid: dfcac6f15ae699343b86fcbaea2a2914, type: 2}
+  EndingList: []
 --- !u!95 &908059826
 Animator:
   serializedVersion: 4
@@ -842,7 +844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.84313726}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

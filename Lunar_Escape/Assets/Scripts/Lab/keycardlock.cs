@@ -27,9 +27,11 @@ public class keycardlock : MonoBehaviour
     void Update()
     {
         if (Astronaut.interact && GetComponent<Collider2D>() == Astronaut.currentItem && isKeycardUsed == false) {
+            Astronaut.shouldTextPressF = false;
             promptText.text = "- Insert Keycard -";
         }
     }
+
 
     public void insertKeycard() {
         isKeycardUsed = true;

@@ -23,16 +23,18 @@ public class InfirmaryDoorLock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && Astronaut.interact && GetComponent<Collider2D>() == Astronaut.currentItem && isKeypadSolved == false) {
-            if (keypadOpen == false) {
-                popUpKeypad.SetActive(true);
-                Astronaut.canMove = false;
-                keypadOpen = true;
-            }
-            else {
-                popUpKeypad.SetActive(false);
-                keypadOpen = false;
-                Astronaut.canMove = true;
+        if (Astronaut.interact && GetComponent<Collider2D>() == Astronaut.currentItem && isKeypadSolved == false) {
+            if (Input.GetKeyDown(KeyCode.F)) {
+                if (keypadOpen == false) {
+                    popUpKeypad.SetActive(true);
+                    Astronaut.canMove = false;
+                    keypadOpen = true;
+                }
+                else {
+                    popUpKeypad.SetActive(false);
+                    keypadOpen = false;
+                    Astronaut.canMove = true;
+                }
             }
 
         }

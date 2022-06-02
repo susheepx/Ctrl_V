@@ -49,12 +49,6 @@ public class CloseUpWindow : MonoBehaviour
         }   
         else
         {
-            if(buttonName == "folderIcon") {
-                controlPrompt.SetActive(true);
-                controlText.text = "- Insert Keycard -";
-                controlPrompt.SetActive(false);
-                
-            }
             gameObject.SetActive(false);
             IsWindowOpen = false;
             image.sprite = null;
@@ -84,6 +78,7 @@ public class CloseUpWindow : MonoBehaviour
             else if (buttonName == "folderIcon")
             {
                 image.sprite = folder;
+                Astronaut.shouldTextPressF = false;
             }
         }
 

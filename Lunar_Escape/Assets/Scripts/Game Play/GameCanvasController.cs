@@ -90,14 +90,7 @@ public class GameCanvasController : MonoBehaviour
                         // elevatorButton.checkAnswer();
 
                         //for observatory room dialogue when pill is activated
-                        if (currentScene == ActII[3]) {
-                            dialogue.SetActive(false);
-                            characters.Genesis.transform.position = new Vector3(4.95f, 6.59f, 0f);
-                            characters.Erika.transform.position = new Vector3(7.36f, 6.73f, 0f);
-                            characters.Justin.transform.position = new Vector3(-2.59f, 6.91f, 0f);
-                            characters.Gabe.transform.position = new Vector3(-5.09f, 6.59f, 0f);
-                            
-                        }
+                        
 
 
 

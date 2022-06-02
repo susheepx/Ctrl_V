@@ -13,10 +13,14 @@ public class InGameObject : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && GetComponent<Collider2D>() == Astronaut.currentItem && Astronaut.interact) {
+        if (GetComponent<Collider2D>() == Astronaut.currentItem && Astronaut.interact) {
+            Astronaut.shouldTextPressF = true;
+            if (Input.GetKeyDown(KeyCode.F)) {
+                
                 if (isCloseUpOpened == false) {
                     Astronaut.canMove = false;
-                    Object.SetActive(true);                   
+                    Object.SetActive(true);
+
                     isCloseUpOpened = true;
                 }
                 else {
@@ -24,8 +28,9 @@ public class InGameObject : MonoBehaviour
                     Object.SetActive(false);
                     isCloseUpOpened = false;
                 }
-
             }
+
+        }
     }
         
     

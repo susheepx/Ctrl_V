@@ -18,8 +18,10 @@ public class CoolantLeak : MonoBehaviour
         
     }
     private void Update() {
-        if (Astronaut.interact && GetComponent<Collider2D>() == Astronaut.currentItem) 
+        if (Astronaut.interact && gameObject.GetComponent<Collider2D>() == Astronaut.currentItem) {
+            Astronaut.shouldTextPressF = false;
             controlText.text = "- Use Adhesive -";
+        }
 
     }
 
