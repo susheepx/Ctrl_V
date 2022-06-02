@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class BasementSetup : MonoBehaviour
 {
@@ -49,6 +50,10 @@ public class BasementSetup : MonoBehaviour
         Room1Music.Play();
         //start timer
         timer.StartTimer();
+    }
+
+    public void openSurvey() {
+        SceneManager.LoadScene(sceneBuildIndex:4);
     }
     public GameObject mainMenu;
 }

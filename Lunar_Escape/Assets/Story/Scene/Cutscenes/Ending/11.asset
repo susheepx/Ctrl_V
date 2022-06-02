@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 11
   m_EditorClassIdentifier: 
   sentences:
-  - text: Now why would my place need to be taken
+  - text: Now why would my place need to be taken?
     speaker: {fileID: 11400000, guid: 7439e04901586ff42bd2cc5a483b09ec, type: 2}
   - text: Jame-I mean, Scientist James!  I thought-
     speaker: {fileID: 11400000, guid: 49a27c74cf6aba342b88f164b46a0ae4, type: 2}
@@ -32,5 +32,5 @@ MonoBehaviour:
     speaker: {fileID: 11400000, guid: 49a27c74cf6aba342b88f164b46a0ae4, type: 2}
   - text: "Yes, for sure. I still can\u2019t process everything that happened."
     speaker: {fileID: 11400000, guid: a32ddd837f8a2494fb62b8494409e17b, type: 2}
-  background: {fileID: 21300000, guid: b675cf5c0191a4f428868fa3503d6348, type: 3}
+  background: {fileID: 0}
   nextScene: {fileID: 0}

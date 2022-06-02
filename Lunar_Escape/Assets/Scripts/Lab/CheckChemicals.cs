@@ -39,8 +39,8 @@ public class CheckChemicals : MonoBehaviour
         }
         Debug.Log("yayy u got it");
         adhesiveImage.SetActive(true);
-        StartCoroutine(fade.fadeOutIn());
         StartCoroutine(waitForFade());
+        // StartCoroutine(fade.fadeOutIn());
         
 
 
@@ -68,7 +68,7 @@ public class CheckChemicals : MonoBehaviour
     }
 
     IEnumerator waitForFade() {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.0f);
         popupSafe.SetActive(false);
         chemCanvas.SetActive(false);
         ItemWorld.SpawnItemWorld(new Vector3(-54.67f,78.4f,0), new Item { itemType = Item.ItemType.Adhesive});

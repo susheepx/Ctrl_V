@@ -63,8 +63,10 @@ public class Wire : MonoBehaviour
                 if(transform.parent.name.Equals(GetComponent<BoxCollider2D>().transform.parent.name) && isWireConnected){
             //the line below adds 90s to the google sheets.
             //call the fade out "blackout" and return to electrical room
-                StartCoroutine(FadeOutIn());
-                return;
+                if(isPuzzleOneSolved==false){
+                    StartCoroutine(FadeOutIn());
+                    return;
+                }
                 }
             }
         }

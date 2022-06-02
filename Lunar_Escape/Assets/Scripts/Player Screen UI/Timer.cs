@@ -1,4 +1,4 @@
- using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,6 +14,23 @@ public class Timer : MonoBehaviour
     //Timer Display
     public TMP_Text textTimer;
     public GameObject Main, Leaderboard;
+
+    [SerializeField] TMP_InputField Rate;
+	[SerializeField] TMP_InputField Feelings;
+	[SerializeField] TMP_InputField Feedback;
+    [SerializeField] Toggle yesBuytoggle;
+    [SerializeField] Toggle noBuytoggle;
+
+    //Toggle fields unneede. Gameobjects are for ".SetActive" cmds.  Attach the toggles to the corresponding game objects.
+    [SerializeField] GameObject NoBuygameobj;
+    [SerializeField] GameObject YesBuygameobj;
+
+    //Also attach the gameobject of "HowMuchgameobj" to the "HowMuch" input field. That disables the Input Field in the code.
+    //Did this because could not figure out how to use ".SetActive" to Input Fields and Toggles.
+    [SerializeField] GameObject HowMuchgameobj;
+    [SerializeField] TMP_InputField HowMuch;
+    [SerializeField] GameObject TimerText;
+    [SerializeField] GameObject HintPopup;
 
     public static float timer = 0.0f;
     private float timer1 = 0.0f;
@@ -42,20 +59,31 @@ public class Timer : MonoBehaviour
     public static float adjpuzzle3time = 0.0f;
 
     public static int hintCount = 0;
-
+    private static bool isTimerDone=false;
+    public static bool isSurveryOpen=false;
     // Update is called once per frame
     void Update()
     {
-        if(timer == 1800.0f) {
-            SceneManager.LoadScene(sceneBuildIndex:4);
-        }
+        if(timer>=1800.0f && isTimerDone == false)
+            {
+                isTimerDone = true;
+                SceneManager.LoadScene(sceneBuildIndex:4);
+                Debug.Log(isTimerDone);
+                
+            }
         else if(isTimer)
         {
             timer += Time.deltaTime;
             DisplayTime();
         }
-        if (SceneManager.sceneCount == 3) {
-            if((Rate.text.Length != 0 && Feelings.text.Length != 0 && Feedback.text.Length != 0) && Buy.Length != 0) {
+        if (isTimerDone&&isSurveryOpen==true) {
+            Debug.Log(Rate);
+                        Debug.Log(Feelings);
+                        Debug.Log(Feedback);
+                        Debug.Log(Buy);
+                        Debug.Log(HowMuch);
+            
+            if((Rate.text != null && Feelings.text != null && Feedback.text != null) && Buy != null&&Rate.text.Length != 0 && Feelings.text.Length != 0 && Feedback.text.Length != 0&& Buy.Length != 0) {
                 if (Buy == "yes") {
                     if (HowMuch.text.Length != 0) {
                         surveySubmitButtonOn();
@@ -70,7 +98,7 @@ public class Timer : MonoBehaviour
                 }
             }
             else {
-                surveySubmitButtonOff();
+               surveySubmitButtonOff();
             } 
         }
 
@@ -168,22 +196,6 @@ public class Timer : MonoBehaviour
 
     
     public static string Username = "";
-	[SerializeField] TMP_InputField Rate;
-	[SerializeField] TMP_InputField Feelings;
-	[SerializeField] TMP_InputField Feedback;
-    [SerializeField] Toggle yesBuytoggle;
-    [SerializeField] Toggle noBuytoggle;
-
-    //Toggle fields unneede. Gameobjects are for ".SetActive" cmds.  Attach the toggles to the corresponding game objects.
-    [SerializeField] GameObject NoBuygameobj;
-    [SerializeField] GameObject YesBuygameobj;
-
-    //Also attach the gameobject of "HowMuchgameobj" to the "HowMuch" input field. That disables the Input Field in the code.
-    //Did this because could not figure out how to use ".SetActive" to Input Fields and Toggles.
-    [SerializeField] GameObject HowMuchgameobj;
-    [SerializeField] TMP_InputField HowMuch;
-    [SerializeField] GameObject TimerText;
-    [SerializeField] GameObject HintPopup;
 
     bool isHintPopupOpen = false;
     public void HintPopupAppear(){

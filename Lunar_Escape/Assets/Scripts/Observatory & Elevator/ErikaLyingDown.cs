@@ -60,16 +60,24 @@ public class ErikaLyingDown : MonoBehaviour
             
     }
 
+
+    public GameObject Justin, Gabe, Genesis, Erika;
     IEnumerator wakingUp() {
         Timer.hintCount = 6;
         yield return new WaitForSeconds(0.5f);
+
+        //erika and genesis stand up
         fadeAnim.SetTrigger("Start");
         yield return new WaitForSeconds(1);
         faintedGenesis.SetActive(false);
+        gameObject.SetActive(false);
+        Genesis.SetActive(true);
+        Erika.SetActive(true);
         fadeAnim.SetTrigger("End");
         prompts.openDialogueBox(3, prompts.ActII);
-        gameObject.SetActive(false);
+        
         ObjectivesList.objective1.text = "Head up to Headquarters through elevator!";
+        
 
     }
 }

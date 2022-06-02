@@ -754,8 +754,19 @@ MonoBehaviour:
   bottomBar: {fileID: 1001287154}
   dialogueBox: {fileID: 1001287150}
   animator: {fileID: 871989688}
+  effectsAnim: {fileID: 908059826}
   WaitSeconds: 1.65
   backgroundImage: {fileID: 699830171}
+  backstoryList:
+  - {fileID: 11400000, guid: 9e6153e7cddf3d9468c9cb657c374d0a, type: 2}
+  - {fileID: 11400000, guid: 2b032b9a090641848b570e54f18e164e, type: 2}
+  - {fileID: 11400000, guid: 5e20405d42d54414aa1ab625ec1db2ec, type: 2}
+  - {fileID: 11400000, guid: 8622d5b30dd54864699fc88be97851ce, type: 2}
+  - {fileID: 11400000, guid: 20c99b5bd6617ee40a8007cab593afea, type: 2}
+  - {fileID: 11400000, guid: 845555361f88bcf4ea4b5373b4805030, type: 2}
+  - {fileID: 11400000, guid: 073b5a5bceaa8974e9c0092e74317f0c, type: 2}
+  - {fileID: 11400000, guid: 53db7cc5972ff6a4aaa36fe4cd542f82, type: 2}
+  - {fileID: 11400000, guid: dfcac6f15ae699343b86fcbaea2a2914, type: 2}
 --- !u!95 &908059826
 Animator:
   serializedVersion: 4

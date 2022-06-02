@@ -29,7 +29,7 @@ public class CoolantLeak : MonoBehaviour
         {
             controlPrompt.SetActive(false);
             inventory.testList();
-            anim.SetTrigger("Fixed");
+            GetComponent<Animator>().SetTrigger("Fixed");
             timer.StopTimer();
             StartCoroutine(fadeEndgame());
         }

@@ -87,6 +87,17 @@ public class GameCanvasController : MonoBehaviour
 
                         // }
                         // elevatorButton.checkAnswer();
+
+                        //for observatory room dialogue when pill is activated
+                        if (currentScene == ActII[3]) {
+                            dialogue.SetActive(false);
+                            
+                        }
+
+
+
+
+
                         if (currentScene != Elevator[0] && currentScene != Elevator[3] ) {
                             dialogue.SetActive(false);
                             if (currentScene != ActI[2]) {

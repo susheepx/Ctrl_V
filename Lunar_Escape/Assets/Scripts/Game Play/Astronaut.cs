@@ -120,6 +120,7 @@ public class Astronaut : MonoBehaviour
                         itemWorld.DestroySelf();
                         isHazmatAcquired = true;
                         anim.SetTrigger("HazmatOn");
+                        warning1.enabled = true;
                     }
                     else {
                         prompts.openDialogueBox(6, prompts.Warnings);
@@ -149,7 +150,7 @@ public class Astronaut : MonoBehaviour
                     fileCabinet.isFolderPicked = true;
                 }
                 if (itemWorld.name == "adhesive") {
-                    isHazmatAcquired = true;
+                    CheckChemicals.isAdhesiveCollected = true;
                 }
                 if (itemWorld.name == "keycard") {
                     prompts.openDialogueBox(3, prompts.ActIII);

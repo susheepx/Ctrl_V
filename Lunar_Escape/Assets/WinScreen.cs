@@ -8,12 +8,14 @@ public class WinScreen : MonoBehaviour
 {
     public TextMeshProUGUI username;
     public TextMeshProUGUI time;
-    float timer =0.0f;
+    float timer = 0.0f;
     public static bool didWin = false;
     public GameObject winCanvas, LoseCanvas;
+    public Timer timmer;
     // Start is called before the first frame update
     void Start()
     {
+
         if(didWin) {
             winCanvas.SetActive(true);
             LoseCanvas.SetActive(false);
@@ -42,5 +44,6 @@ public class WinScreen : MonoBehaviour
         submitSurvey.SetActive(false);
         surveyCanvas.SetActive(true);
         gameObject.SetActive(false);
+        Timer.isSurveryOpen=true;
     }
 }

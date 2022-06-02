@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: -1709046461
   m_SortingLayer: 4
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1928994755, guid: 87a901d0fe0e7044ab88f56a7f0a6837, type: 3}
+  m_Sprite: {fileID: 7828970, guid: 43a605b8685afed489f6928ab12d40ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -125,15 +125,20 @@ MonoBehaviour:
   warning1: {fileID: 0}
   warning2: {fileID: 0}
   warning3: {fileID: 0}
+  warning5: {fileID: 0}
+  warning6: {fileID: 0}
+  warning7: {fileID: 0}
   moveForce: 10
   rb: {fileID: 1228398840}
   uiInventory: {fileID: 0}
   controller: {fileID: 0}
-  controlTextContainer: {fileID: 0}
+  confirmPill: {fileID: 0}
   controlText: {fileID: 0}
-  DialoguePrompt: {fileID: 0}
   pickUpItem: 0
+  promptDialogue: {fileID: 0}
   minigameTimer: {fileID: 0}
+  fade: {fileID: 0}
+  fadeBackgorund: {fileID: 0}
 --- !u!50 &1228398840
 Rigidbody2D:
   serializedVersion: 4
