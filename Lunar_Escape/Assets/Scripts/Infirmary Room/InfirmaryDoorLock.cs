@@ -13,6 +13,7 @@ public class InfirmaryDoorLock : MonoBehaviour
     public GameObject confirmPill;
     public Animator anim;
     private bool keypadOpen = false;
+    private bool isKeypadSolved = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +23,7 @@ public class InfirmaryDoorLock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && Astronaut.interact && GetComponent<Collider2D>() == Astronaut.currentItem) {
+        if (Input.GetKeyDown(KeyCode.F) && Astronaut.interact && GetComponent<Collider2D>() == Astronaut.currentItem && isKeypadSolved == false) {
             if (keypadOpen == false) {
                 popUpKeypad.SetActive(true);
                 Astronaut.canMove = false;
@@ -53,6 +54,7 @@ public class InfirmaryDoorLock : MonoBehaviour
     public void checkKeypadCode() {
         if (keyboardScreenText.text == "LUNAR") {
             keyboardScreenText.text = "correct";
+            isKeypadSolved = true;
             popUpKeypad.SetActive(false);
             keypadOpen = false;
             Astronaut.canMove = true;

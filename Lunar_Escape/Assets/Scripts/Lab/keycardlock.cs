@@ -9,14 +9,16 @@ public class keycardlock : MonoBehaviour
     public UI_Inventory inventory;
     public GameObject openSafe;
     public TextMeshProUGUI promptText;
-    public bool isKeycardUsed = false;
-    public bool isSafeOpen = false;
+    public static bool isKeycardUsed = false;
+    public static bool isSafeOpen = false;
     public Animator anim;
+    public static Collider2D keycardCollider;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        keycardCollider = gameObject.GetComponent<Collider2D>();
         //ItemWorld.SpawnItemWorld(new Vector3(-60f,80f,0), new Item { itemType = Item.ItemType.Keycard});
 
     }
@@ -24,8 +26,9 @@ public class keycardlock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Astronaut.interact && GetComponent<Collider2D>() == Astronaut.currentItem && isKeycardUsed == false) 
+        if (Astronaut.interact && GetComponent<Collider2D>() == Astronaut.currentItem && isKeycardUsed == false) {
             promptText.text = "- Insert Keycard -";
+        }
     }
 
     public void insertKeycard() {
@@ -35,7 +38,6 @@ public class keycardlock : MonoBehaviour
             inventory.testList();
             isSafeOpen = true;
             openSafe.SetActive(true);
-            promptText.text = " safe opened ";
             anim.SetTrigger("openSafe");
         }
             

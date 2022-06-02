@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class CloseUpWindow : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class CloseUpWindow : MonoBehaviour
     private Vector3 tempPos;
     public bool IsWindowOpen = false;
     private string buttonName;
+    public GameObject controlPrompt;
+    public TextMeshProUGUI controlText;
+
     
     public Sprite blueprint, breakernote, breakerwirenote, poem, folder;
     private void Awake() 
@@ -45,6 +49,12 @@ public class CloseUpWindow : MonoBehaviour
         }   
         else
         {
+            if(buttonName == "folderIcon") {
+                controlPrompt.SetActive(true);
+                controlText.text = "- Insert Keycard -";
+                controlPrompt.SetActive(false);
+                
+            }
             gameObject.SetActive(false);
             IsWindowOpen = false;
             image.sprite = null;

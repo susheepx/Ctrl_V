@@ -123,7 +123,7 @@ public class Astronaut : MonoBehaviour
                         warning1.enabled = true;
                     }
                     else {
-                        prompts.openDialogueBox(6, prompts.Warnings);
+                        prompts.openDialogueBox(4, prompts.ActIII);
                     }
 
                 }  
@@ -196,7 +196,7 @@ public class Astronaut : MonoBehaviour
                     ObjectivesList.objective1.text = "PATCH UP THE HOLE";
                     prompts.openDialogueBox(0, prompts.Warnings);
                     warning1.enabled = false;
-                    moveForce = 9;
+                    moveForce = 8;
                     return;
                 }
             }
@@ -205,7 +205,7 @@ public class Astronaut : MonoBehaviour
                     controller.SetActive(false);
                     prompts.openDialogueBox(1, prompts.Warnings);
                     warning2.enabled = false;
-                    moveForce = 7;
+                    moveForce = 5;
                     return;
                 }
             }
@@ -229,7 +229,7 @@ public class Astronaut : MonoBehaviour
                     controller.SetActive(false);
                     prompts.openDialogueBox(2, prompts.Warnings);
                     warning3.enabled = false;
-                    moveForce = 4;
+                    moveForce = 3;
                     return;
                 }
             }
@@ -242,7 +242,7 @@ public class Astronaut : MonoBehaviour
                 }
             }
             
-            else {
+            else  {
             //is able to interact with objects such as breaker button
             interact = true;
             controlText.text = "- Press F -";

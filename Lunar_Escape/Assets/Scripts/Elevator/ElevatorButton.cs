@@ -21,6 +21,10 @@ public class ElevatorButton : MonoBehaviour
     void Start()
     {
         playerInput.SetActive(false);
+        Erika.SetActive(false);
+        Gabe.SetActive(false);
+        Justin.SetActive(false);
+        Genesis.SetActive(false);
     }
 
     // Update is called once per frame
@@ -114,6 +118,10 @@ public class ElevatorButton : MonoBehaviour
         Timer.hintCount = 8;
         timer.StopTimer();
         isPuzzleTwoSolved = true;
+        Erika.SetActive(true);
+        Gabe.SetActive(true);
+        Justin.SetActive(true);
+        Genesis.SetActive(true);
         anim.SetTrigger("End");
 
         //start of hq dialogue "hears hissing noise". all crewmates should be standing there
@@ -128,12 +136,17 @@ public class ElevatorButton : MonoBehaviour
 
         //"let's go check it out"
         dialogueBox.PlayNextSentence();
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3.5f);
         StartCoroutine(fadeScript.fadeOutIn());
+        yield return new WaitForSeconds(1.0f);
+        Erika.SetActive(false);
+        Gabe.SetActive(false);
+        Justin.SetActive(false);
+        Genesis.SetActive(false);
         yield return new WaitForSeconds(2.7f);
         //you are alone, the others have left to go check out noise. "Wait up"
         dialogueBox.PlayNextSentence(); 
-        //during this coroutine should have crewmates fade out
+        
         yield return new WaitForSeconds(2f);
 
         
@@ -141,7 +154,7 @@ public class ElevatorButton : MonoBehaviour
         StartCoroutine(cutSceneActIII());
 
     }
-    public GameObject coolantCollider, spaceBox;
+    public GameObject coolantCollider, spaceBox, Genesis, Erika, Gabe, Justin;
     public GameDialogueBox dialogueBox;
     public GameObject mainCam;
     public GameObject panCam;
@@ -150,7 +163,7 @@ public class ElevatorButton : MonoBehaviour
         spaceBox.SetActive(false);
         
         //move from elevator to outside coolant room
-        yield return new WaitForSeconds(2.3f);
+        yield return new WaitForSeconds(3f);
         anim.SetTrigger("Start");
         yield return new WaitForSeconds(1.75f);
         astronaut.transform.position = coolantCollider.transform.position;
@@ -159,11 +172,11 @@ public class ElevatorButton : MonoBehaviour
 
         //captain telling crewmates to "be careful, they don't know what's inside"
         dialogueBox.PlayNextSentence();
-        yield return new WaitForSeconds(3.75f);
+        yield return new WaitForSeconds(4.5f);
 
         //hears a thud
         dialogueBox.PlayNextSentence();
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(2.75f);
         StartCoroutine(fadeScript.fadeOutIn());
         yield return new WaitForSeconds(2.5f);
 
@@ -187,11 +200,11 @@ public class ElevatorButton : MonoBehaviour
 
         //"i think i heard a pipe burst earlier"
         dialogueBox.PlayNextSentence();
-        yield return new WaitForSeconds(6.5f);
+        yield return new WaitForSeconds(6.75f);
 
         //"I can't risk going in there, I have to find something to seal pipe burst"
         dialogueBox.PlayNextSentence();
-        yield return new WaitForSeconds(5.25f);
+        yield return new WaitForSeconds(6.25f);
         StartCoroutine(fadeScript.fadeOutIn());
         spaceBox.SetActive(true);
         promptDialogue.SetActive(false);

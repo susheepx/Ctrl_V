@@ -14,7 +14,7 @@ public class UsernameWindow : MonoBehaviour
     public static bool isSurveySubmitted = false;
     public GameObject leaderboardCanvas, mainScreenCanvas;
     public TMP_InputField inputUsername;
-    public static string username = "LRatio";
+    public static string username = "Astronaut1";
     private void Awake() {;
         leaderboardCanvas.SetActive(false);
         gameObject.SetActive(false);
